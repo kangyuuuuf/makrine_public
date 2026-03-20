@@ -1,0 +1,127 @@
+.app-shell {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 32px 20px 48px;
+}
+
+.topbar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.topbar h1 {
+  margin: 0;
+  color: var(--text-primary);
+  font-family: var(--font-display-family);
+  font-size: var(--font-display-size);
+  line-height: var(--font-display-line-height);
+  font-weight: var(--font-display-weight);
+}
+
+.topbar p {
+  margin: 8px 0 0;
+  color: var(--text-secondary);
+  font-family: var(--font-body-sm-family);
+  font-size: var(--font-body-sm-size);
+  line-height: var(--font-body-sm-line-height);
+  font-weight: var(--font-body-sm-weight);
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.action {
+  border: 1px solid var(--border);
+  background: var(--color-primary-500);
+  color: var(--color-primary-50);
+  border-radius: 10px;
+  padding: 10px 14px;
+  cursor: pointer;
+  font-family: var(--font-button-family);
+  font-size: var(--font-button-size);
+  line-height: var(--font-button-line-height);
+  font-weight: var(--font-button-weight);
+}
+
+.action.secondary {
+  background: var(--bg-soft);
+  color: var(--text-primary);
+}
+
+.panel {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.panel h2 {
+  margin: 0 0 14px;
+  color: var(--text-primary);
+  font-family: var(--font-h2-family);
+  font-size: var(--font-h2-size);
+  line-height: var(--font-h2-line-height);
+  font-weight: var(--font-h2-weight);
+}
+
+.swatches {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(148px, 1fr));
+  gap: 10px;
+}
+
+.swatch {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.swatch-color {
+  height: 48px;
+}
+
+.swatch-meta {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+  background: var(--bg-soft);
+  color: var(--text-secondary);
+  font-family: var(--font-caption-family);
+  font-size: var(--font-caption-size);
+  line-height: var(--font-caption-line-height);
+  font-weight: var(--font-caption-weight);
+}
+
+.semantic-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 8px;
+}
+
+.semantic-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 10px;
+  color: var(--text-primary);
+}
+
+.semantic-item code {
+  background: var(--bg-soft);
+  padding: 2px 6px;
+  border-radius: 6px;
+  color: var(--text-secondary);
+  font-family: var(--font-code-family);
+  font-size: var(--font-code-size);
+  line-height: var(--font-code-line-height);
+  font-weight: var(--font-code-weight);
+}
