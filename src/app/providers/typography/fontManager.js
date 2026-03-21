@@ -72,7 +72,7 @@ export const fontPresets = {
       },
       button: {
         fontFamily: 'sans',
-        fontSize: 'sm',
+        fontSize: 'md',
         lineHeight: 'normal',
         fontWeight: 'medium',
       },
@@ -154,7 +154,7 @@ export const fontPresets = {
       },
       button: {
         fontFamily: 'sans',
-        fontSize: 'sm',
+        fontSize: 'md',
         lineHeight: 'normal',
         fontWeight: 'medium',
       },

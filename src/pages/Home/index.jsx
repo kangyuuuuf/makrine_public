@@ -1,6 +1,8 @@
 import { useTheme } from '../../app/providers/theme/ThemeProvider.jsx'
 import { useFont } from '../../app/providers/typography/FontProvider.jsx'
+import AboutSection from '../../components/AboutSection/AboutSection.jsx'
 import CompanyNameHero from '../../components/CompanyNameHero/CompanyNameHero.jsx'
+import ValuesSection from '../../components/ValuesSection/ValuesSection.jsx'
 import './Home.css'
 
 function HomePage() {
@@ -12,6 +14,10 @@ function HomePage() {
   return (
     <main className="app-shell" id="home">
       <CompanyNameHero />
+
+      <AboutSection />
+
+      <ValuesSection />
 
       <header className="topbar">
         <div>
@@ -27,8 +33,6 @@ function HomePage() {
           </button>
         </div>
       </header>
-
-      <div id="about" className="page-anchor" aria-hidden="true" />
 
       <section className="panel" id="life-saving">
         <h2>Primary color scale (extensible)</h2>

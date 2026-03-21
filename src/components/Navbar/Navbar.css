@@ -1,10 +1,10 @@
 /* 响应式：Logo 高度、内边距随视口变化；支持刘海屏安全区 */
 .site-nav {
-  --nav-logo-height: clamp(32px, 2.2vw + 24px, 44px);
+  --nav-logo-height: clamp(36px, 2.4vw + 26px, 48px);
   --nav-pad-inline: clamp(12px, 3.2vw, 28px);
   --nav-pad-block: clamp(10px, 1.5vw, 14px);
   --nav-gap: clamp(8px, 2vw, 20px);
-  --nav-login-fs: clamp(0.8125rem, 0.2vw + 0.78rem, 1rem);
+  --nav-login-fs: clamp(0.875rem, 0.25vw + 0.8rem, 1.0625rem);
   position: sticky;
   top: 0;
   z-index: 50;
@@ -17,8 +17,8 @@
 .site-nav__inner {
   box-sizing: border-box;
   width: 100%;
-  max-width: min(1200px, 100%);
-  margin: 0 auto;
+  max-width: 100%;
+  margin: 0;
   padding: var(--nav-pad-block) var(--nav-pad-inline);
   padding-left: max(var(--nav-pad-inline), env(safe-area-inset-left, 0px));
   padding-right: max(var(--nav-pad-inline), env(safe-area-inset-right, 0px));
@@ -68,7 +68,7 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: clamp(8px, 1.8vw, 18px);
+  gap: clamp(12px, 2.2vw, 26px);
   margin: 0;
   padding: 0;
   list-style: none;
@@ -85,7 +85,7 @@
   flex-direction: column;
   align-items: center;
   font-family: var(--font-body-family), system-ui, sans-serif;
-  font-size: clamp(0.75rem, 0.15vw + 0.72rem, 0.9375rem);
+  font-size: clamp(0.8125rem, 0.2vw + 0.76rem, 1rem);
   font-weight: 500;
   color: #4a4a4a;
   text-decoration: none;
@@ -184,7 +184,7 @@
   .site-nav__brand {
     order: 1;
     justify-content: flex-start;
-    max-width: min(50vw, 180px);
+    max-width: min(58vw, 220px);
   }
 
   .site-nav__login {
@@ -202,8 +202,8 @@
 /* 极窄屏：略缩小 Logo 与文字，仍保留可读标签（无障碍） */
 @media (max-width: 359px) {
   .site-nav {
-    --nav-logo-height: clamp(28px, 8vw, 36px);
-    --nav-login-fs: 0.75rem;
+    --nav-logo-height: clamp(32px, 9vw, 40px);
+    --nav-login-fs: 0.8125rem;
     --nav-gap: 6px;
   }
 }
