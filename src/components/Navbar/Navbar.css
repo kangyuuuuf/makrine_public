@@ -1,0 +1,209 @@
+/* 响应式：Logo 高度、内边距随视口变化；支持刘海屏安全区 */
+.site-nav {
+  --nav-logo-height: clamp(32px, 2.2vw + 24px, 44px);
+  --nav-pad-inline: clamp(12px, 3.2vw, 28px);
+  --nav-pad-block: clamp(10px, 1.5vw, 14px);
+  --nav-gap: clamp(8px, 2vw, 20px);
+  --nav-login-fs: clamp(0.8125rem, 0.2vw + 0.78rem, 1rem);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  width: 100%;
+  background: #f8f8f8;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.site-nav__inner {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: min(1200px, 100%);
+  margin: 0 auto;
+  padding: var(--nav-pad-block) var(--nav-pad-inline);
+  padding-left: max(var(--nav-pad-inline), env(safe-area-inset-left, 0px));
+  padding-right: max(var(--nav-pad-inline), env(safe-area-inset-right, 0px));
+  padding-top: max(var(--nav-pad-block), env(safe-area-inset-top, 0px));
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--nav-gap);
+}
+
+.site-nav__brand {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-shrink: 0;
+  width: fit-content;
+  min-width: 0;
+  text-decoration: none;
+  color: inherit;
+}
+
+.site-nav__logo {
+  display: block;
+  height: var(--nav-logo-height);
+  width: auto;
+  max-width: 100%;
+  max-height: var(--nav-logo-height);
+  object-fit: contain;
+  object-position: left center;
+}
+
+/* 中间：主导航链接 */
+.site-nav__actions {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(6px, 1.5vw, 12px);
+  min-width: 0;
+  min-height: max(44px, var(--nav-logo-height));
+}
+
+.site-nav__links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(8px, 1.8vw, 18px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.site-nav__links-item {
+  margin: 0;
+  padding: 0;
+}
+
+.site-nav__link {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: var(--font-body-family), system-ui, sans-serif;
+  font-size: clamp(0.75rem, 0.15vw + 0.72rem, 0.9375rem);
+  font-weight: 500;
+  color: #4a4a4a;
+  text-decoration: none;
+  padding: 0.35em 0.15em 0.45em;
+  line-height: 1.25;
+  text-align: center;
+  max-width: min(28ch, 100%);
+  transition: color 0.15s ease;
+}
+
+.site-nav__link-label {
+  display: block;
+}
+
+.site-nav__link--active {
+  color: var(--color-primary-600, #0d3d6b);
+}
+
+.site-nav__link:hover {
+  color: var(--color-primary-600, #0d3d6b);
+}
+
+.site-nav__indicator {
+  position: absolute;
+  bottom: 0.12em;
+  left: 0.15em;
+  right: 0.15em;
+  height: 2px;
+  border-radius: 1px;
+  background: var(--color-primary-500, #112f57);
+  pointer-events: none;
+}
+
+.site-nav__link:focus-visible {
+  outline: 2px solid var(--color-primary-500, #112f57);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.site-nav__login {
+  display: inline-flex;
+  align-items: center;
+  gap: clamp(4px, 1vw, 8px);
+  flex-shrink: 0;
+  margin-left: auto;
+  font-family: var(--font-body-family), system-ui, sans-serif;
+  font-size: var(--nav-login-fs);
+  font-weight: 500;
+  color: #4a4a4a;
+  text-decoration: none;
+  padding: 0.35em 0;
+  min-height: 44px;
+  min-width: 44px;
+  justify-content: center;
+  transition: color 0.15s ease;
+}
+
+.site-nav__login:focus-visible {
+  outline: 2px solid var(--color-primary-500, #112f57);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+.site-nav__login:hover {
+  color: var(--color-primary-600, #0d3d6b);
+}
+
+.site-nav__login-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: clamp(28px, 5vw, 32px);
+  height: clamp(28px, 5vw, 32px);
+  border-radius: 50%;
+  background: #112f57;
+  color: #e8eef5;
+}
+
+.site-nav__login-icon svg {
+  width: clamp(16px, 3.5vw, 18px);
+  height: clamp(16px, 3.5vw, 18px);
+}
+
+.site-nav__login-text {
+  white-space: nowrap;
+}
+
+/* 窄屏：首行 Logo + Log In，中间区换行 */
+@media (max-width: 639px) {
+  .site-nav__inner {
+    justify-content: flex-start;
+    row-gap: clamp(8px, 2vw, 12px);
+  }
+
+  .site-nav__brand {
+    order: 1;
+    justify-content: flex-start;
+    max-width: min(50vw, 180px);
+  }
+
+  .site-nav__login {
+    order: 2;
+  }
+
+  .site-nav__actions {
+    order: 3;
+    flex: 1 1 100%;
+    justify-content: center;
+    min-height: 40px;
+  }
+}
+
+/* 极窄屏：略缩小 Logo 与文字，仍保留可读标签（无障碍） */
+@media (max-width: 359px) {
+  .site-nav {
+    --nav-logo-height: clamp(28px, 8vw, 36px);
+    --nav-login-fs: 0.75rem;
+    --nav-gap: 6px;
+  }
+}
