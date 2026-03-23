@@ -9,9 +9,9 @@
   top: 0;
   z-index: 50;
   width: 100%;
-  background: #f8f8f8;
-  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 1px 0 color-mix(in srgb, var(--bg-page) 72%, transparent);
 }
 
 .site-nav__inner {
@@ -87,7 +87,7 @@
   font-family: var(--font-body-family), system-ui, sans-serif;
   font-size: clamp(0.8125rem, 0.2vw + 0.76rem, 1rem);
   font-weight: 500;
-  color: #4a4a4a;
+  color: var(--text-secondary);
   text-decoration: none;
   padding: 0.35em 0.15em 0.45em;
   line-height: 1.25;
@@ -134,7 +134,7 @@
   font-family: var(--font-body-family), system-ui, sans-serif;
   font-size: var(--nav-login-fs);
   font-weight: 500;
-  color: #4a4a4a;
+  color: var(--text-secondary);
   text-decoration: none;
   padding: 0.35em 0;
   min-height: 44px;
@@ -161,8 +161,8 @@
   width: clamp(28px, 5vw, 32px);
   height: clamp(28px, 5vw, 32px);
   border-radius: 50%;
-  background: #112f57;
-  color: #e8eef5;
+  background: var(--color-primary-600, #0d3d6b);
+  color: var(--bg-surface);
 }
 
 .site-nav__login-icon svg {
