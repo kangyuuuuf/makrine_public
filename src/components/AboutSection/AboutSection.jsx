@@ -1,5 +1,7 @@
 import { motion as Motion, useReducedMotion } from 'framer-motion'
 import brandIcon from '../../assets/icon_only.png'
+import homePic1 from '../../assets/homePic1.png'
+import homePic2 from '../../assets/homePic2.png'
 import './AboutSection.css'
 
 const EASE_OUT = [0.4, 0, 0.2, 1]
@@ -76,14 +78,30 @@ function AboutSection() {
               fire protection solutions for global shipping customers.
             </p>
           </div>
-          <div className="about-section__placeholder" aria-hidden="true" />
+          <div className="about-section__media">
+            <img
+              className="about-section__media-img"
+              src={homePic1}
+              alt="Marine safety equipment and vessel operations"
+              decoding="async"
+              loading="lazy"
+            />
+          </div>
         </Motion.div>
 
         <Motion.div
           className="about-section__row about-section__row--mission"
           variants={rowVariants}
         >
-          <div className="about-section__placeholder" aria-hidden="true" />
+          <div className="about-section__media">
+            <img
+              className="about-section__media-img"
+              src={homePic2}
+              alt="Ship seen through a marine vessel window"
+              decoding="async"
+              loading="lazy"
+            />
+          </div>
           <div className="about-section__text about-section__text--mission">
             <div className="about-section__icon" aria-hidden="true">
               <img
