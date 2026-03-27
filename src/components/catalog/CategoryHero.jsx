@@ -58,7 +58,7 @@ export default function CategoryHero({ title, paragraphs, image }) {
               <Motion.p
                 key={i}
                 variants={item}
-                className="text-base leading-relaxed text-[var(--text-secondary)] sm:text-[1.05rem]"
+                className="text-[15px] leading-relaxed text-[var(--text-secondary)]"
               >
                 {text}
               </Motion.p>
