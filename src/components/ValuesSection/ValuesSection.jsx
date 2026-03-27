@@ -1,4 +1,4 @@
-import { motion, useReducedMotion } from 'framer-motion'
+import { motion as Motion, useReducedMotion } from 'framer-motion'
 import brandIcon from '../../assets/icon_only.png'
 import './ValuesSection.css'
 
@@ -10,7 +10,7 @@ const CARD_STAGGER = 0.2
 
 function ValueCard({ title, description, imageUrl, variants }) {
   return (
-    <motion.div className="value-card" variants={variants}>
+    <Motion.div className="value-card" variants={variants}>
       <div className="value-card__media">
         <img src={imageUrl} alt={title} className="value-card__img" />
         <div className="value-card__title-wrap">
@@ -18,7 +18,7 @@ function ValueCard({ title, description, imageUrl, variants }) {
         </div>
       </div>
       <p className="value-card__description">{description}</p>
-    </motion.div>
+    </Motion.div>
   )
 }
 
@@ -101,14 +101,14 @@ function ValuesSection() {
 
   return (
     <section className="values-section" aria-labelledby="values-section-heading">
-      <motion.div
+      <Motion.div
         className="values-section__inner"
         variants={innerVariants}
         initial="hidden"
         whileInView="visible"
         viewport={viewport}
       >
-        <motion.div variants={topBlockVariants} className="values-section__top">
+        <Motion.div variants={topBlockVariants} className="values-section__top">
           <div className="values-section__header">
             <h2 id="values-section-heading" className="values-section__heading">
               Our Value
@@ -137,9 +137,9 @@ function ValuesSection() {
               world we serve.
             </p>
           </div>
-        </motion.div>
+        </Motion.div>
 
-        <motion.div
+        <Motion.div
           variants={gridContainerVariants}
           className="values-section__grid"
         >
@@ -152,8 +152,8 @@ function ValuesSection() {
               variants={cardVariants}
             />
           ))}
-        </motion.div>
-      </motion.div>
+        </Motion.div>
+      </Motion.div>
     </section>
   )
 }

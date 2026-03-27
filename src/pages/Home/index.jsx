@@ -3,7 +3,6 @@ import { useFont } from '../../app/providers/typography/FontProvider.jsx'
 import AboutSection from '../../components/AboutSection/AboutSection.jsx'
 import CompanyNameHero from '../../components/CompanyNameHero/CompanyNameHero.jsx'
 import ValuesSection from '../../components/ValuesSection/ValuesSection.jsx'
-import FooterSection from '../../components/FooterSection/FooterSection.jsx'
 import './Home.css'
 
 function HomePage() {
@@ -19,8 +18,7 @@ function HomePage() {
       <AboutSection />
 
       <ValuesSection />
-      <FooterSection />
-      <header className="topbar">
+      {/* <header className="topbar">
         <div>
           <h2 className="topbar-heading">Theme &amp; typography</h2>
           <p>Brand primary color is extracted from your image: #112F57</p>
@@ -78,7 +76,7 @@ function HomePage() {
       </section>
 
       
-      <div id="login" className="page-anchor" aria-hidden="true" />
+      <div id="login" className="page-anchor" aria-hidden="true" /> */}
     </main>
   )
 }

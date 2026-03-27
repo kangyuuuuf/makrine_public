@@ -1,19 +1,33 @@
-import { useState } from 'react'
 import { LayoutGroup, motion as Motion, useReducedMotion } from 'framer-motion'
+import { Link, useLocation } from 'react-router-dom'
 import logoImg from '../../assets/icon.png'
 import './Navbar.css'
 
 const NAV_ITEMS = [
-  { label: 'Home', href: '#home' },
-  { label: 'About', href: '#about' },
-  { label: 'Life Saving Equipment', href: '#life-saving' },
-  { label: 'Fire Fighting Equipment', href: '#fire-fighting' },
+  { label: 'Home', to: '/' },
+  { label: 'About', to: '/about' },
+  { label: 'Life Saving Equipment', to: '/catalog/life-saving' },
+  { label: 'Fire Fighting Equipment', to: '/catalog/fire-fighting' },
   { label: 'News', href: '#news' },
   { label: 'Contact', href: '#contact' },
 ]
 
+function getNavActiveIndex(pathname, hash) {
+  if (pathname === '/about') {
+    return NAV_ITEMS.findIndex((item) => item.to === '/about')
+  }
+  const catalogIdx = NAV_ITEMS.findIndex((item) => item.to === pathname)
+  if (catalogIdx >= 0) {
+    return catalogIdx
+  }
+  const normalizedHash = hash && hash.length > 0 ? hash : '#home'
+  const index = NAV_ITEMS.findIndex((item) => item.href === normalizedHash)
+  return index >= 0 ? index : 0
+}
+
 function Navbar() {
-  const [activeIndex, setActiveIndex] = useState(0)
+  const { pathname, hash } = useLocation()
+  const activeIndex = getNavActiveIndex(pathname, hash)
   const prefersReducedMotion = useReducedMotion()
 
   const indicatorTransition = prefersReducedMotion
@@ -23,27 +37,23 @@ function Navbar() {
   return (
     <header className="site-nav" role="banner">
       <div className="site-nav__inner">
-        <a className="site-nav__brand" href="#home">
+        <Link className="site-nav__brand" to="/">
           <img
             className="site-nav__logo"
             src={logoImg}
             alt="Makrine"
             decoding="async"
           />
-        </a>
+        </Link>
 
         <nav className="site-nav__actions" aria-label="Main navigation">
           <LayoutGroup id="main-nav">
             <ul className="site-nav__links">
-              {NAV_ITEMS.map(({ label, href }, index) => (
-                <li key={href} className="site-nav__links-item">
-                  <a
-                    className={
-                      'site-nav__link' + (activeIndex === index ? ' site-nav__link--active' : '')
-                    }
-                    href={href}
-                    onClick={() => setActiveIndex(index)}
-                  >
+              {NAV_ITEMS.map(({ label, href, to }, index) => {
+                const className =
+                  'site-nav__link' + (activeIndex === index ? ' site-nav__link--active' : '')
+                const content = (
+                  <>
                     <span className="site-nav__link-label">{label}</span>
                     {activeIndex === index ? (
                       <Motion.span
@@ -53,9 +63,22 @@ function Navbar() {
                         transition={indicatorTransition}
                       />
                     ) : null}
-                  </a>
-                </li>
-              ))}
+                  </>
+                )
+                return (
+                  <li key={to ?? href} className="site-nav__links-item">
+                    {to ? (
+                      <Link className={className} to={to}>
+                        {content}
+                      </Link>
+                    ) : (
+                      <a className={className} href={href}>
+                        {content}
+                      </a>
+                    )}
+                  </li>
+                )
+              })}
             </ul>
           </LayoutGroup>
         </nav>

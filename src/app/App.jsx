@@ -1,12 +1,29 @@
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import Navbar from '../components/Navbar/Navbar.jsx'
 import HomePage from '../pages/Home/index.jsx'
-
+import AboutPage from '../pages/About/AboutPage.jsx'
+import CatalogPage from '../pages/Catalog/CatalogPage.jsx'
+import FooterSection from '../components/FooterSection/FooterSection.jsx'
+import { DIVISION_SLUGS } from '../data/catalogMock.js'
 function App() {
+  const basename = import.meta.env.BASE_URL.replace(/\/$/, '') || '/'
+
   return (
-    <div className="site-layout">
-      <Navbar />
-      <HomePage />
-    </div>
+    <BrowserRouter basename={basename}>
+      <div className="site-layout">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route
+            path="/catalog"
+            element={<Navigate to={`/catalog/${DIVISION_SLUGS.LIFE_SAVING}`} replace />}
+          />
+          <Route path="/catalog/:division" element={<CatalogPage />} />
+        </Routes>
+        <FooterSection />
+      </div>
+    </BrowserRouter>
   )
 }
 
