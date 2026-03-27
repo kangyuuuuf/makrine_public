@@ -33,10 +33,10 @@ export default function CategoryHero({ title, paragraphs, image }) {
   }
 
   return (
-    <section className="overflow-hidden border-b border-[var(--border)] bg-white pb-10 sm:pb-12">
+    <section className="touch-pan-y overflow-hidden border-b border-[var(--border)] bg-white pb-10 sm:pb-12">
       <div className="grid gap-8 lg:h-[20rem] lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-stretch lg:gap-0">
         <Motion.div
-          className="flex flex-col justify-center gap-4 max-lg:pt-2 lg:h-full lg:min-h-0 lg:overflow-y-auto lg:overscroll-contain lg:pr-10 lg:py-5"
+          className="flex flex-col justify-center gap-4 max-lg:pt-2 lg:h-full lg:min-h-0 lg:overflow-y-auto lg:pr-10 lg:py-5"
           variants={container}
           initial="hidden"
           animate="show"
@@ -67,14 +67,15 @@ export default function CategoryHero({ title, paragraphs, image }) {
         </Motion.div>
         <Motion.div
           className="relative min-h-[180px] overflow-hidden bg-neutral-100 lg:h-full lg:min-h-0 lg:border-l lg:border-[var(--border)]"
-          initial={reduce ? false : { opacity: 0, scale: 1.02 }}
-          animate={{ opacity: 1, scale: 1 }}
+          initial={reduce ? false : { opacity: 0 }}
+          animate={{ opacity: 1 }}
           transition={{ duration: reduce ? 0 : 0.55, ease: [0.22, 1, 0.36, 1], delay: reduce ? 0 : 0.08 }}
         >
           <img
             src={image}
             alt=""
-            className="absolute inset-0 h-full w-full object-cover"
+            draggable={false}
+            className="pointer-events-none absolute inset-0 h-full w-full object-cover select-none"
           />
         </Motion.div>
       </div>
