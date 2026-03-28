@@ -131,10 +131,7 @@ function ValuesSection() {
 
           <div className="values-section__intro">
             <p>
-              At Makrine, our values guide every decision, design, and partnership.
-              They represent who we are — a company built on trust, driven by
-              creativity, and grounded in a sense of duty to the people and the
-              world we serve.
+            At Makrine, our values guide every decision, design, and partnership. They represent who we are, a company built on trust, driven by creativity, and grounded in a sense of duty to the people and the world we serve.
             </p>
           </div>
         </Motion.div>

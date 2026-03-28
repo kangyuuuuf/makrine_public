@@ -34,15 +34,13 @@ function FooterSection() {
             <div className="footer-section__contact-block">
               <dt>Sales</dt>
               <dd>
-                <a href="mailto:laura@makrine.com">laura@makrine.com</a>
+                <a href="mailto:sales@makrine.com">sales@makrine.com</a>
               </dd>
             </div>
             <div className="footer-section__contact-block">
               <dt>Operations</dt>
               <dd>
-                <a href="mailto:annie@makrine.com">annie@makrine.com</a>
-                <br />
-                <a href="mailto:kai@makrine.com">kai@makrine.com</a>
+                <a href="mailto:admin@makrine.com">admin@makrine.com</a>
               </dd>
             </div>
             <div className="footer-section__contact-block">
@@ -51,12 +49,12 @@ function FooterSection() {
                 <a href="tel:+17132555005">(713) 255-5005</a>
               </dd>
             </div>
-            <div className="footer-section__contact-block">
+            {/* <div className="footer-section__contact-block">
               <dt>Email</dt>
               <dd>
                 <a href="mailto:admin@makrine.com">admin@makrine.com</a>
               </dd>
-            </div>
+            </div> */}
           </dl>
         </section>
 
