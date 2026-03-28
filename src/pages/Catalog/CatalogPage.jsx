@@ -1,10 +1,11 @@
 import { FunnelIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { AnimatePresence, motion as Motion, useReducedMotion } from 'framer-motion'
 import { useCallback, useMemo, useState } from 'react'
-import { Navigate, useNavigate, useParams } from 'react-router-dom'
+import { Navigate, useLocation, useNavigate, useParams, useSearchParams } from 'react-router-dom'
 import CatalogSidebar from '../../components/catalog/CatalogSidebar.jsx'
 import CategoryHero from '../../components/catalog/CategoryHero.jsx'
 import ProductCard from '../../components/catalog/ProductCard.jsx'
+import { getDivisionForCategoryValue } from '../../data/navCatalogConfig.js'
 import {
   CATALOG_HERO_BY_DIVISION,
   DIVISION_SLUGS,
@@ -46,13 +47,21 @@ function productMatchesFilters(
 /**
  * @param {Object} props
  * @param {'life-saving' | 'fire-fighting'} props.division
+ * @param {boolean} props.isShopRoute — `/shop` uses `?division=` / `?category=`; `/catalog/:division` uses path only
  */
-function CatalogPageInner({ division }) {
+function CatalogPageInner({ division, isShopRoute }) {
   const navigate = useNavigate()
+  const [searchParams, setSearchParams] = useSearchParams()
   const reduce = useReducedMotion()
 
   const [searchQuery, setSearchQuery] = useState('')
-  const [categories, setCategories] = useState(() => new Set())
+  const [categories, setCategories] = useState(() => {
+    const cat = searchParams.get('category')
+    if (cat && getDivisionForCategoryValue(cat) === division) {
+      return new Set([cat])
+    }
+    return new Set()
+  })
   const [availability, setAvailability] = useState(() => new Set())
   const [certifications, setCertifications] = useState(() => new Set())
   const [drawerOpen, setDrawerOpen] = useState(false)
@@ -76,9 +85,16 @@ function CatalogPageInner({ division }) {
 
   const onDivisionChange = useCallback(
     (next) => {
-      navigate(`/catalog/${next}`)
+      if (isShopRoute) {
+        const nextParams = new URLSearchParams(searchParams)
+        nextParams.set('division', next)
+        nextParams.delete('category')
+        setSearchParams(nextParams)
+      } else {
+        navigate(`/catalog/${next}`)
+      }
     },
-    [navigate],
+    [isShopRoute, navigate, searchParams, setSearchParams],
   )
 
   const categoryOptions = FILTER_GROUPS_BY_DIVISION[division].categories
@@ -287,12 +303,28 @@ function CatalogPageInner({ division }) {
 }
 
 export default function CatalogPage() {
+  const location = useLocation()
   const { division: divisionSlug } = useParams()
+  const [searchParams] = useSearchParams()
+  const isShopRoute = location.pathname === '/shop'
+
+  if (isShopRoute) {
+    const divisionFromQuery = parseDivisionSlug(searchParams.get('division'))
+    const division = divisionFromQuery ?? 'life-saving'
+    return (
+      <CatalogPageInner
+        key={`shop-${searchParams.toString()}`}
+        division={division}
+        isShopRoute
+      />
+    )
+  }
+
   const division = parseDivisionSlug(divisionSlug)
 
   if (division === null) {
     return <Navigate to={`/catalog/${DIVISION_SLUGS.LIFE_SAVING}`} replace />
   }
 
-  return <CatalogPageInner key={division} division={division} />
+  return <CatalogPageInner key={division} division={division} isShopRoute={false} />
 }

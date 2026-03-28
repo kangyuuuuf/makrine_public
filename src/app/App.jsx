@@ -21,6 +21,7 @@ function App() {
             path="/catalog"
             element={<Navigate to={`/catalog/${DIVISION_SLUGS.LIFE_SAVING}`} replace />}
           />
+          <Route path="/shop" element={<CatalogPage />} />
           <Route path="/catalog/:division" element={<CatalogPage />} />
         </Routes>
         <FooterSection />

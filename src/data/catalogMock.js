@@ -3,6 +3,8 @@ import homePic1 from '../assets/homePic1.png'
 import homePic2 from '../assets/homePic2.png'
 import webAssert11 from '../assets/web/webAssert11.avif'
 import webAssert12 from '../assets/web/webAssert12.avif'
+import { CATALOG_PRODUCT_EXAMPLES } from './catalogProductExamples.js'
+import { getCategoryFilterOptionsForDivision } from './navCatalogConfig.js'
 
 /** @typedef {'in_stock' | 'limited' | 'out_of_stock'} StockStatus */
 
@@ -54,22 +56,13 @@ export const CATALOG_HERO_BY_DIVISION = {
   },
 }
 
+/** Category filters are derived from the same nav tree as the mega menu (single source of truth). */
 export const FILTER_GROUPS_BY_DIVISION = {
   'life-saving': {
-    categories: [
-      { value: 'immersion-suits', label: 'Immersion Suits & Thermal Protection' },
-      { value: 'lifejackets', label: 'Lifejackets & Work Vests' },
-      { value: 'lifebuoys', label: 'Lifebuoys & Rescue Equipment' },
-      { value: 'survival-crafts', label: 'Survival Craft Accessories' },
-    ],
+    categories: getCategoryFilterOptionsForDivision('life-saving'),
   },
   'fire-fighting': {
-    categories: [
-      { value: 'extinguishers', label: 'Portable & Fixed Extinguishers' },
-      { value: 'fire-hose-systems', label: 'Hose, Nozzles & Hydrants' },
-      { value: 'fire-suits', label: 'Firefighter Suits & BA Sets' },
-      { value: 'detection-suppression', label: 'Detection & Fixed Suppression' },
-    ],
+    categories: getCategoryFilterOptionsForDivision('fire-fighting'),
   },
 }
 
@@ -94,7 +87,7 @@ export const MOCK_PRODUCTS = [
     shortDescription: 'Twin-chamber inflatable with harness points; MED & SOLAS approved.',
     image: homePic1,
     division: 'life-saving',
-    category: 'lifejackets',
+    category: 'life-jackets',
     availability: 'in_stock',
     certifications: ['MED', 'USCG'],
   },
@@ -114,7 +107,7 @@ export const MOCK_PRODUCTS = [
     shortDescription: 'Retro-reflective tape and grab-line; bulk fleet pricing on inquiry.',
     image: homePic2,
     division: 'life-saving',
-    category: 'lifebuoys',
+    category: 'life-buoys',
     availability: 'in_stock',
     certifications: ['MED', 'USCG'],
   },
@@ -124,7 +117,7 @@ export const MOCK_PRODUCTS = [
     shortDescription: 'UV-stabilized case; compatible with standard deck mounts.',
     image: homePic1,
     division: 'life-saving',
-    category: 'survival-crafts',
+    category: 'line-throwing-device',
     availability: 'in_stock',
     certifications: ['CCS'],
   },
@@ -134,7 +127,7 @@ export const MOCK_PRODUCTS = [
     shortDescription: 'Deck crew PPE with crotch strap and D-ring tether.',
     image: heroImg,
     division: 'life-saving',
-    category: 'lifejackets',
+    category: 'inflatable-life-jackets',
     availability: 'out_of_stock',
     certifications: ['MED'],
   },
@@ -144,7 +137,7 @@ export const MOCK_PRODUCTS = [
     shortDescription: 'FOIL sachets; five-year shelf life; pallet quantities.',
     image: homePic2,
     division: 'life-saving',
-    category: 'survival-crafts',
+    category: 'life-rafts',
     availability: 'limited',
     certifications: ['USCG', 'MED'],
   },
@@ -154,7 +147,7 @@ export const MOCK_PRODUCTS = [
     shortDescription: 'Spare equipment for davit-launched ISO liferafts.',
     image: homePic1,
     division: 'life-saving',
-    category: 'survival-crafts',
+    category: 'life-rafts',
     availability: 'in_stock',
     certifications: ['CCS', 'MED', 'USCG'],
   },
@@ -174,7 +167,7 @@ export const MOCK_PRODUCTS = [
     shortDescription: 'Steel body; bracket mount; MED & SOLAS compatible ratings.',
     image: homePic1,
     division: 'fire-fighting',
-    category: 'extinguishers',
+    category: 'co2-fire-extinguishers',
     availability: 'in_stock',
     certifications: ['MED', 'USCG'],
   },
@@ -184,7 +177,7 @@ export const MOCK_PRODUCTS = [
     shortDescription: 'EPDM liner; brass storz couplings; LR inspection tags on request.',
     image: heroImg,
     division: 'fire-fighting',
-    category: 'fire-hose-systems',
+    category: 'fire-hose-hydrant-systems',
     availability: 'limited',
     certifications: ['CCS', 'MED'],
   },
@@ -194,7 +187,7 @@ export const MOCK_PRODUCTS = [
     shortDescription: 'Pistol-grip control; suitable for shipboard manifolds up to 16 bar.',
     image: homePic2,
     division: 'fire-fighting',
-    category: 'fire-hose-systems',
+    category: 'fire-hose-hydrant-systems',
     availability: 'in_stock',
     certifications: ['MED'],
   },
@@ -204,7 +197,7 @@ export const MOCK_PRODUCTS = [
     shortDescription: 'Three-layer radiant heat barrier; compatible with SCBA back-mount.',
     image: homePic1,
     division: 'fire-fighting',
-    category: 'fire-suits',
+    category: 'firefighter-protective-gear',
     availability: 'in_stock',
     certifications: ['CCS', 'MED', 'USCG'],
   },
@@ -214,7 +207,7 @@ export const MOCK_PRODUCTS = [
     shortDescription: 'Addressable loop device; IP44 enclosure for accommodation spaces.',
     image: homePic2,
     division: 'fire-fighting',
-    category: 'detection-suppression',
+    category: 'miscellaneous-small-items',
     availability: 'out_of_stock',
     certifications: ['MED'],
   },
@@ -224,10 +217,11 @@ export const MOCK_PRODUCTS = [
     shortDescription: 'Annual service kits and hydrotest documentation available.',
     image: heroImg,
     division: 'fire-fighting',
-    category: 'extinguishers',
+    category: 'dry-powder-fire-extinguishers',
     availability: 'in_stock',
     certifications: ['USCG', 'MED'],
   },
+  ...CATALOG_PRODUCT_EXAMPLES,
 ]
 
 /**

@@ -79,6 +79,11 @@
   padding: 0;
 }
 
+/* Mega menu: anchor for absolutely positioned panel */
+.site-nav__links-item.mega-menu {
+  position: relative;
+}
+
 .site-nav__link {
   position: relative;
   display: inline-flex;

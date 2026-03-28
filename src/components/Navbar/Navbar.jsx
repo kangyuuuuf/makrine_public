@@ -1,33 +1,55 @@
 import { LayoutGroup, motion as Motion, useReducedMotion } from 'framer-motion'
 import { Link, useLocation } from 'react-router-dom'
 import logoImg from '../../assets/icon.png'
+import { buildShopUrl, NAVBAR_SECTIONS } from '../../data/navCatalogConfig.js'
+import MegaMenuDropdown from './MegaMenuDropdown.jsx'
 import './Navbar.css'
 
+/** @typedef {{ to?: string; href?: string; label: string; kind?: 'mega'; section?: import('../../data/navCatalogConfig.js').NavbarSection }} NavItem */
+
+/** @type {NavItem[]} */
 const NAV_ITEMS = [
-  { label: 'Home', to: '/' },
-  { label: 'About', to: '/about' },
-  { label: 'Life Saving Equipment', to: '/catalog/life-saving' },
-  { label: 'Fire Fighting Equipment', to: '/catalog/fire-fighting' },
-  { label: 'News', href: '#news' },
-  { label: 'Contact', href: '#contact' },
+  { to: '/', label: 'Home' },
+  { to: '/about', label: 'About' },
+  ...NAVBAR_SECTIONS.map((section) => ({ kind: /** @type {'mega'} */ ('mega'), section, label: section.label })),
+  { href: '#news', label: 'News' },
+  { href: '#contact', label: 'Contact' },
 ]
 
-function getNavActiveIndex(pathname, hash) {
+/**
+ * @param {string} pathname
+ * @param {string} hash
+ * @param {string} search
+ */
+function getNavActiveIndex(pathname, hash, search) {
+  if (pathname === '/') {
+    return NAV_ITEMS.findIndex((item) => item.to === '/')
+  }
   if (pathname === '/about') {
     return NAV_ITEMS.findIndex((item) => item.to === '/about')
   }
-  const catalogIdx = NAV_ITEMS.findIndex((item) => item.to === pathname)
-  if (catalogIdx >= 0) {
-    return catalogIdx
+  if (pathname === '/shop') {
+    const div = new URLSearchParams(search).get('division')
+    if (div) {
+      const idx = NAV_ITEMS.findIndex(
+        (item) => item.kind === 'mega' && item.section?.division === div,
+      )
+      if (idx >= 0) return idx
+    }
   }
+  const megaCatalogIdx = NAV_ITEMS.findIndex(
+    (item) => item.kind === 'mega' && pathname === `/catalog/${item.section?.division}`,
+  )
+  if (megaCatalogIdx >= 0) return megaCatalogIdx
+
   const normalizedHash = hash && hash.length > 0 ? hash : '#home'
-  const index = NAV_ITEMS.findIndex((item) => item.href === normalizedHash)
-  return index >= 0 ? index : 0
+  const hashIdx = NAV_ITEMS.findIndex((item) => item.href === normalizedHash)
+  return hashIdx >= 0 ? hashIdx : 0
 }
 
 function Navbar() {
-  const { pathname, hash } = useLocation()
-  const activeIndex = getNavActiveIndex(pathname, hash)
+  const { pathname, hash, search } = useLocation()
+  const activeIndex = getNavActiveIndex(pathname, hash, search)
   const prefersReducedMotion = useReducedMotion()
 
   const indicatorTransition = prefersReducedMotion
@@ -49,12 +71,36 @@ function Navbar() {
         <nav className="site-nav__actions" aria-label="Main navigation">
           <LayoutGroup id="main-nav">
             <ul className="site-nav__links">
-              {NAV_ITEMS.map(({ label, href, to }, index) => {
+              {NAV_ITEMS.map((item, index) => {
                 const className =
                   'site-nav__link' + (activeIndex === index ? ' site-nav__link--active' : '')
+
+                if (item.kind === 'mega' && item.section) {
+                  const { section } = item
+                  return (
+                    <li key={section.id} className="site-nav__links-item mega-menu">
+                      <Link className={className} to={buildShopUrl(section.division)}>
+                        <>
+                          <span className="site-nav__link-label">{section.label}</span>
+                          {activeIndex === index ? (
+                            <Motion.span
+                              layoutId="nav-indicator"
+                              className="site-nav__indicator"
+                              aria-hidden
+                              transition={indicatorTransition}
+                            />
+                          ) : null}
+                        </>
+                      </Link>
+                      <MegaMenuDropdown section={section} />
+                    </li>
+                  )
+                }
+
+                const key = item.to ?? item.href ?? item.label
                 const content = (
                   <>
-                    <span className="site-nav__link-label">{label}</span>
+                    <span className="site-nav__link-label">{item.label}</span>
                     {activeIndex === index ? (
                       <Motion.span
                         layoutId="nav-indicator"
@@ -65,14 +111,15 @@ function Navbar() {
                     ) : null}
                   </>
                 )
+
                 return (
-                  <li key={to ?? href} className="site-nav__links-item">
-                    {to ? (
-                      <Link className={className} to={to}>
+                  <li key={key} className="site-nav__links-item">
+                    {item.to ? (
+                      <Link className={className} to={item.to}>
                         {content}
                       </Link>
                     ) : (
-                      <a className={className} href={href}>
+                      <a className={className} href={item.href}>
                         {content}
                       </a>
                     )}
