@@ -3,6 +3,7 @@ import ScrollToTop from './ScrollToTop.jsx'
 import Navbar from '../components/Navbar/Navbar.jsx'
 import HomePage from '../pages/Home/index.jsx'
 import AboutPage from '../pages/About/AboutPage.jsx'
+import ContactPage from '../pages/Contact/ContactPage.jsx'
 import CatalogPage from '../pages/Catalog/CatalogPage.jsx'
 import FooterSection from '../components/FooterSection/FooterSection.jsx'
 import { DIVISION_SLUGS } from '../data/catalogMock.js'
@@ -17,6 +18,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
+          <Route path="/contact" element={<ContactPage />} />
           <Route
             path="/catalog"
             element={<Navigate to={`/catalog/${DIVISION_SLUGS.LIFE_SAVING}`} replace />}

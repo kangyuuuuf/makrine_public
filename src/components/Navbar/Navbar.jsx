@@ -12,9 +12,24 @@ const NAV_ITEMS = [
   { to: '/', label: 'Home' },
   { to: '/about', label: 'About' },
   ...NAVBAR_SECTIONS.map((section) => ({ kind: /** @type {'mega'} */ ('mega'), section, label: section.label })),
-  { href: '#news', label: 'News' },
-  { href: '#contact', label: 'Contact' },
+  { to: '/contact', label: 'Contact' },
 ]
+
+/**
+ * Path as seen by `<Route path>`, even when `location.pathname` still includes Vite `base`
+ * or a trailing slash.
+ * @param {string} pathname
+ */
+function normalizeAppPathname(pathname) {
+  const rawBase = (import.meta.env.BASE_URL || '/').replace(/\/$/, '')
+  let p = pathname
+  if (rawBase && rawBase !== '/' && p.startsWith(rawBase)) {
+    const rest = p.slice(rawBase.length) || '/'
+    p = rest.startsWith('/') ? rest : `/${rest}`
+  }
+  const trimmed = p.replace(/\/+$/, '')
+  return trimmed === '' ? '/' : trimmed
+}
 
 /**
  * @param {string} pathname
@@ -22,13 +37,17 @@ const NAV_ITEMS = [
  * @param {string} search
  */
 function getNavActiveIndex(pathname, hash, search) {
-  if (pathname === '/') {
+  const path = normalizeAppPathname(pathname)
+  if (path === '/') {
     return NAV_ITEMS.findIndex((item) => item.to === '/')
   }
-  if (pathname === '/about') {
+  if (path === '/about') {
     return NAV_ITEMS.findIndex((item) => item.to === '/about')
   }
-  if (pathname === '/shop') {
+  if (path === '/contact') {
+    return NAV_ITEMS.findIndex((item) => item.to === '/contact')
+  }
+  if (path === '/shop') {
     const div = new URLSearchParams(search).get('division')
     if (div) {
       const idx = NAV_ITEMS.findIndex(
@@ -38,7 +57,7 @@ function getNavActiveIndex(pathname, hash, search) {
     }
   }
   const megaCatalogIdx = NAV_ITEMS.findIndex(
-    (item) => item.kind === 'mega' && pathname === `/catalog/${item.section?.division}`,
+    (item) => item.kind === 'mega' && path === `/catalog/${item.section?.division}`,
   )
   if (megaCatalogIdx >= 0) return megaCatalogIdx
 

@@ -1,4 +1,5 @@
 import { motion as Motion, useReducedMotion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import {
   ShieldCheckIcon,
   BeakerIcon,
@@ -68,8 +69,6 @@ export default function AboutPage() {
         viewport: { once: true, margin: '-80px' },
         transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1] },
       }
-
-  const contactHref = `${import.meta.env.BASE_URL}#contact`
 
   return (
     <main className="about-page">
@@ -181,9 +180,9 @@ export default function AboutPage() {
                 support your operations with reliability and care.
               </p>
               <div>
-                <a href={contactHref} className="about-page__cta">
+                <Link className="about-page__cta" to="/contact">
                   Contact Us
-                </a>
+                </Link>
               </div>
             </div>
           </div>
