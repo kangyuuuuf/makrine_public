@@ -145,13 +145,45 @@ export function getDivisionForCategoryValue(value) {
 }
 
 /**
+ * 某一大类（含子类的分组）下的所有叶子 category slug，用于 `?group=` 展开为多选筛选。
+ * 无子类的分组返回单元素数组（与点叶子链接等价）。
+ * @param {'life-saving' | 'fire-fighting'} division
+ * @param {string} groupId — `NavCategoryGroup.id`
+ * @returns {string[] | null} — 无效 id 时返回 null
+ */
+export function getLeafCategoryIdsForGroup(division, groupId) {
+  const section = NAVBAR_SECTIONS.find((s) => s.division === division)
+  if (!section) return null
+  const group = section.groups.find((g) => g.id === groupId)
+  if (!group) return null
+  const leaves = leavesFromGroup(group)
+  return leaves.map((l) => l.value)
+}
+
+/**
+ * @param {string} groupId
+ * @returns {'life-saving' | 'fire-fighting' | null}
+ */
+export function getDivisionForGroupId(groupId) {
+  for (const section of NAVBAR_SECTIONS) {
+    if (section.groups.some((g) => g.id === groupId)) return section.division
+  }
+  return null
+}
+
+/**
  * Shop URL with query params (shareable, works with browser history).
  * @param {'life-saving' | 'fire-fighting'} division
- * @param {string} [categoryId] — leaf category slug
+ * @param {string} [categoryId] — leaf category slug（与 `group` 二选一）
+ * @param {{ group?: string }} [options] — 大类 id，选中该组下全部子类
  */
-export function buildShopUrl(division, categoryId) {
+export function buildShopUrl(division, categoryId, options) {
   const params = new URLSearchParams({ division })
-  if (categoryId) params.set('category', categoryId)
+  if (options?.group) {
+    params.set('group', options.group)
+  } else if (categoryId) {
+    params.set('category', categoryId)
+  }
   const q = params.toString()
   return q ? `/shop?${q}` : '/shop'
 }

@@ -79,6 +79,35 @@
   line-height: 1.35;
 }
 
+/* 有子类的大类标题：可点击，与下方子链区分 */
+.mega-menu__group-title--heading-link {
+  display: inline-block;
+  max-width: 100%;
+  margin: 0 0 0.65rem;
+  padding: 0.15rem 0;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  text-decoration: none;
+  line-height: 1.35;
+  border-radius: 0.25rem;
+  transition:
+    color 0.15s ease,
+    background 0.15s ease;
+}
+
+.mega-menu__group-title--heading-link:hover {
+  color: var(--color-primary-600);
+  background: color-mix(in srgb, var(--color-primary-600) 6%, transparent);
+}
+
+.mega-menu__group-title--heading-link:focus-visible {
+  outline: 2px solid var(--color-primary-500);
+  outline-offset: 2px;
+}
+
 .mega-menu__group-title--link {
   display: inline-flex;
   padding: 0.35rem 0;

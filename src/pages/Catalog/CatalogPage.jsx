@@ -5,7 +5,11 @@ import { Navigate, useLocation, useNavigate, useParams, useSearchParams } from '
 import CatalogSidebar from '../../components/catalog/CatalogSidebar.jsx'
 import CategoryHero from '../../components/catalog/CategoryHero.jsx'
 import ProductCard from '../../components/catalog/ProductCard.jsx'
-import { getDivisionForCategoryValue } from '../../data/navCatalogConfig.js'
+import {
+  getDivisionForCategoryValue,
+  getDivisionForGroupId,
+  getLeafCategoryIdsForGroup,
+} from '../../data/navCatalogConfig.js'
 import {
   CATALOG_HERO_BY_DIVISION,
   DIVISION_SLUGS,
@@ -56,6 +60,11 @@ function CatalogPageInner({ division, isShopRoute }) {
 
   const [searchQuery, setSearchQuery] = useState('')
   const [categories, setCategories] = useState(() => {
+    const groupId = searchParams.get('group')
+    if (groupId && getDivisionForGroupId(groupId) === division) {
+      const ids = getLeafCategoryIdsForGroup(division, groupId)
+      if (ids && ids.length > 0) return new Set(ids)
+    }
     const cat = searchParams.get('category')
     if (cat && getDivisionForCategoryValue(cat) === division) {
       return new Set([cat])
@@ -81,7 +90,13 @@ function CatalogPageInner({ division, isShopRoute }) {
     setCategories(new Set())
     setAvailability(new Set())
     setCertifications(new Set())
-  }, [])
+    if (isShopRoute) {
+      const next = new URLSearchParams(searchParams)
+      next.delete('category')
+      next.delete('group')
+      setSearchParams(next, { replace: true })
+    }
+  }, [isShopRoute, searchParams, setSearchParams])
 
   const onDivisionChange = useCallback(
     (next) => {
@@ -89,6 +104,7 @@ function CatalogPageInner({ division, isShopRoute }) {
         const nextParams = new URLSearchParams(searchParams)
         nextParams.set('division', next)
         nextParams.delete('category')
+        nextParams.delete('group')
         setSearchParams(nextParams)
       } else {
         navigate(`/catalog/${next}`)

@@ -35,7 +35,12 @@ export default function MegaMenuDropdown({ section }) {
 
           return (
             <div key={group.id} className="mega-menu__column">
-              <p className="mega-menu__group-title">{group.label}</p>
+              <Link
+                className="mega-menu__group-title mega-menu__group-title--heading-link"
+                to={buildShopUrl(section.division, undefined, { group: group.id })}
+              >
+                {group.label}
+              </Link>
               <ul className="mega-menu__list">
                 {group.children.map((item) => (
                   <li key={item.id}>
