@@ -13,7 +13,7 @@ function HomePage() {
 
   return (
     <main className="app-shell" id="home">
-      <CompanyNameHero />
+      {/* <CompanyNameHero /> */}
 
       <AboutSection />
 
