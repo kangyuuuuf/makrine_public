@@ -1,13 +1,18 @@
 import { motion as Motion, useReducedMotion } from 'framer-motion'
+import { DIVISION_LABELS } from '../../data/catalogMock.js'
 
 /**
  * @param {Object} props
  * @param {string} props.title
  * @param {string[]} props.paragraphs
  * @param {string} props.image
+ * @param {'all' | 'life-saving' | 'fire-fighting' | undefined} [props.division]
+ * @param {(id: 'all' | 'life-saving' | 'fire-fighting') => void} [props.onDivisionChange] — same behavior as the Section dropdown in the catalog sidebar
  */
-export default function CategoryHero({ title, paragraphs, image }) {
+export default function CategoryHero({ title, paragraphs, image, division, onDivisionChange }) {
   const reduce = useReducedMotion()
+  const jumpButtonClass =
+    'inline-flex w-full items-center justify-center rounded-lg border border-[var(--border)] bg-white px-4 py-3 text-sm font-semibold text-[var(--text-primary)] shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--color-primary-300)] hover:bg-[var(--color-primary-50)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus-ring)]'
 
   const dur = reduce ? 0 : 0.45
   const stagger = reduce ? 0 : 0.07
@@ -64,6 +69,29 @@ export default function CategoryHero({ title, paragraphs, image }) {
               </Motion.p>
             ))}
           </div>
+          {division === 'all' && typeof onDivisionChange === 'function' ? (
+            <Motion.div
+              variants={item}
+              className="grid w-full max-w-2xl grid-cols-1 gap-3 pt-1 sm:grid-cols-2"
+              role="group"
+              aria-label="Jump to product section"
+            >
+              <button
+                type="button"
+                onClick={() => onDivisionChange('life-saving')}
+                className={jumpButtonClass}
+              >
+                {DIVISION_LABELS['life-saving']}
+              </button>
+              <button
+                type="button"
+                onClick={() => onDivisionChange('fire-fighting')}
+                className={jumpButtonClass}
+              >
+                {DIVISION_LABELS['fire-fighting']}
+              </button>
+            </Motion.div>
+          ) : null}
         </Motion.div>
         <Motion.div
           className="relative min-h-[180px] overflow-hidden bg-neutral-100 lg:h-full lg:min-h-0 lg:border-l lg:border-[var(--border)]"

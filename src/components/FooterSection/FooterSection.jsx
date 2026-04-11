@@ -63,7 +63,7 @@ function FooterSection() {
           aria-labelledby="footer-form-heading"
         >
           <h2 className="footer-section__form-title" id="footer-form-heading">
-            Ask the Captain
+            Leave a Message
           </h2>
           <form className="footer-section__form" onSubmit={handleSubmit} noValidate>
             <div className="footer-section__form-row">

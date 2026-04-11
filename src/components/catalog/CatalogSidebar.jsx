@@ -28,8 +28,8 @@ function FilterSection({ title, defaultOpen = true, children }) {
 
 /**
  * @param {Object} props
- * @param {'life-saving' | 'fire-fighting'} props.division
- * @param {(id: 'life-saving' | 'fire-fighting') => void} props.onDivisionChange
+ * @param {'all' | 'life-saving' | 'fire-fighting'} props.division
+ * @param {(id: 'all' | 'life-saving' | 'fire-fighting') => void} props.onDivisionChange
  * @param {{ value: string; label: string }[]} props.categoryOptions
  * @param {string} props.searchQuery
  * @param {(v: string) => void} props.onSearchChange
@@ -58,6 +58,8 @@ export default function CatalogSidebar({
   suppressMobileHeader = false,
 }) {
   const reduce = useReducedMotion()
+  const clearButtonClass =
+    'mt-6 w-full rounded-lg border border-[var(--border)] bg-neutral-50 px-3 py-2.5 text-sm font-semibold text-[var(--text-primary)] shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--color-primary-300)] hover:bg-[var(--color-primary-50)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus-ring)]'
 
   const filterBody = (
     <>
@@ -87,7 +89,7 @@ export default function CatalogSidebar({
           id="catalog-section"
           value={division}
           onChange={(e) =>
-            onDivisionChange(/** @type {'life-saving' | 'fire-fighting'} */ (e.target.value))
+            onDivisionChange(/** @type {'all' | 'life-saving' | 'fire-fighting'} */ (e.target.value))
           }
           className="w-full rounded-md border border-[var(--border)] bg-white px-3 py-2.5 text-sm font-medium text-[var(--text-primary)] focus:border-[var(--color-primary-500)] focus:outline-none focus:ring-2 focus:ring-[var(--focus-ring)]"
         >
@@ -161,7 +163,7 @@ export default function CatalogSidebar({
       <button
         type="button"
         onClick={onClearFilters}
-        className="mt-6 w-full rounded-md border border-[var(--border)] bg-neutral-50 px-3 py-2 text-sm font-medium text-[var(--text-primary)] transition hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus-ring)]"
+        className={clearButtonClass}
       >
         Clear filters
       </button>

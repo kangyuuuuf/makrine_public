@@ -131,6 +131,21 @@ export function getCategoryFilterOptionsForDivision(division) {
 }
 
 /**
+ * Flat checkbox list for all divisions combined.
+ * @returns {{ value: string; label: string }[]}
+ */
+export function getCategoryFilterOptionsForAllDivisions() {
+  /** @type {{ value: string; label: string }[]} */
+  const out = []
+  for (const section of NAVBAR_SECTIONS) {
+    for (const g of section.groups) {
+      out.push(...leavesFromGroup(g))
+    }
+  }
+  return out
+}
+
+/**
  * @param {string} value
  * @returns {'life-saving' | 'fire-fighting' | null}
  */

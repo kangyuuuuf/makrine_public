@@ -30,3 +30,23 @@ This repository is configured with a GitHub Actions workflow:
 3. Push to `main` (or run the workflow manually) to publish.
 
 Site URL will be available under your repository's GitHub Pages address after deployment succeeds.
+
+## Inquiry Email Integration (Resend)
+
+This project includes an API handler at `api/send-inquiry.js` for sending product inquiry emails through Resend.
+
+### Environment variables
+
+Create a `.env` file (or set deployment secrets) with:
+
+```bash
+RESEND_API_KEY=your_resend_api_key
+RESEND_FROM_EMAIL=onboarding@resend.dev
+RESEND_TO_EMAIL=tech@makrine.com
+VITE_INQUIRY_API_URL=https://your-api-domain.com/api/send-inquiry
+```
+
+### Important for GitHub Pages
+
+GitHub Pages is static hosting and does not run `api/*` functions.
+Deploy `api/send-inquiry.js` on a serverless platform (for example Vercel/Netlify) and point `VITE_INQUIRY_API_URL` to that deployed endpoint.

@@ -5,6 +5,7 @@ import { Navigate, useLocation, useNavigate, useParams, useSearchParams } from '
 import CatalogSidebar from '../../components/catalog/CatalogSidebar.jsx'
 import CategoryHero from '../../components/catalog/CategoryHero.jsx'
 import ProductCard from '../../components/catalog/ProductCard.jsx'
+import QuotationInquiryModal from '../../components/inquiry/QuotationInquiryModal.jsx'
 import {
   getDivisionForCategoryValue,
   getDivisionForGroupId,
@@ -17,6 +18,8 @@ import {
   MOCK_PRODUCTS,
   parseDivisionSlug,
 } from '../../data/catalogMock.js'
+
+const INQUIRY_API_ENDPOINT = import.meta.env.VITE_INQUIRY_API_URL || ''
 
 function toggleSetValue(set, value) {
   const next = new Set(set)
@@ -33,7 +36,7 @@ function productMatchesFilters(
   availability,
   certifications,
 ) {
-  if (product.division !== division) return false
+  if (division !== 'all' && product.division !== division) return false
   const q = searchQuery.trim().toLowerCase()
   if (q) {
     const blob = `${product.name} ${product.shortDescription ?? ''} ${product.id}`.toLowerCase()
@@ -50,23 +53,29 @@ function productMatchesFilters(
 
 /**
  * @param {Object} props
- * @param {'life-saving' | 'fire-fighting'} props.division
+ * @param {'all' | 'life-saving' | 'fire-fighting'} props.division
  * @param {boolean} props.isShopRoute — `/shop` uses `?division=` / `?category=`; `/catalog/:division` uses path only
  */
 function CatalogPageInner({ division, isShopRoute }) {
   const navigate = useNavigate()
   const [searchParams, setSearchParams] = useSearchParams()
   const reduce = useReducedMotion()
+  const ghostButtonClass =
+    'inline-flex items-center gap-2 rounded-lg border border-[var(--border)] bg-white px-3.5 py-2.5 text-sm font-medium text-[var(--text-primary)] shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--color-primary-300)] hover:bg-[var(--color-primary-50)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus-ring)]'
+  const primaryButtonClass =
+    'mt-6 inline-flex items-center justify-center rounded-lg bg-[var(--color-primary-600)] px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-[var(--color-primary-700)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus-ring)]'
 
   const [searchQuery, setSearchQuery] = useState('')
   const [categories, setCategories] = useState(() => {
     const groupId = searchParams.get('group')
-    if (groupId && getDivisionForGroupId(groupId) === division) {
-      const ids = getLeafCategoryIdsForGroup(division, groupId)
+    const groupDivision = groupId ? getDivisionForGroupId(groupId) : null
+    if (groupId && groupDivision && (division === 'all' || groupDivision === division)) {
+      const ids = getLeafCategoryIdsForGroup(groupDivision, groupId)
       if (ids && ids.length > 0) return new Set(ids)
     }
     const cat = searchParams.get('category')
-    if (cat && getDivisionForCategoryValue(cat) === division) {
+    const categoryDivision = cat ? getDivisionForCategoryValue(cat) : null
+    if (cat && categoryDivision && (division === 'all' || categoryDivision === division)) {
       return new Set([cat])
     }
     return new Set()
@@ -74,8 +83,12 @@ function CatalogPageInner({ division, isShopRoute }) {
   const [availability, setAvailability] = useState(() => new Set())
   const [certifications, setCertifications] = useState(() => new Set())
   const [drawerOpen, setDrawerOpen] = useState(false)
+  const [inquiryProduct, setInquiryProduct] = useState(null)
 
-  const divisionCatalog = useMemo(() => MOCK_PRODUCTS.filter((p) => p.division === division), [division])
+  const divisionCatalog = useMemo(
+    () => (division === 'all' ? MOCK_PRODUCTS : MOCK_PRODUCTS.filter((p) => p.division === division)),
+    [division],
+  )
 
   const filteredProducts = useMemo(
     () =>
@@ -102,7 +115,11 @@ function CatalogPageInner({ division, isShopRoute }) {
     (next) => {
       if (isShopRoute) {
         const nextParams = new URLSearchParams(searchParams)
-        nextParams.set('division', next)
+        if (next === 'all') {
+          nextParams.delete('division')
+        } else {
+          nextParams.set('division', next)
+        }
         nextParams.delete('category')
         nextParams.delete('group')
         setSearchParams(nextParams)
@@ -130,8 +147,38 @@ function CatalogPageInner({ division, isShopRoute }) {
     onClearFilters: clearFilters,
   }
 
-  const onProductCta = useCallback(() => {
-    /* Wire to inquiry modal or product detail route */
+  const onProductCta = useCallback((productId) => {
+    const selectedProduct = MOCK_PRODUCTS.find((product) => product.id === productId)
+    if (!selectedProduct) return
+    setInquiryProduct({ id: selectedProduct.id, name: selectedProduct.name })
+  }, [])
+
+  const closeInquiryModal = useCallback(() => {
+    setInquiryProduct(null)
+  }, [])
+
+  const submitInquiry = useCallback(async (payload) => {
+    if (!INQUIRY_API_ENDPOINT) {
+      throw new Error('Inquiry API is not configured. Please set VITE_INQUIRY_API_URL.')
+    }
+
+    const response = await fetch(INQUIRY_API_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    })
+
+    if (response.ok) return
+
+    let message = 'Unable to submit your inquiry right now. Please try again later.'
+    try {
+      const data = await response.json()
+      if (typeof data?.message === 'string' && data.message.trim()) message = data.message
+    } catch {
+      // Ignore JSON parse failures and use fallback message.
+    }
+
+    throw new Error(message)
   }, [])
 
   const hero = CATALOG_HERO_BY_DIVISION[division]
@@ -178,7 +225,13 @@ function CatalogPageInner({ division, isShopRoute }) {
 
         <div className="min-w-0 flex-1">
           <div className="mx-auto max-w-7xl px-4 pt-6 sm:px-6 lg:px-8 lg:pt-8">
-            <CategoryHero title={hero.title} paragraphs={hero.paragraphs} image={hero.image} />
+            <CategoryHero
+              title={hero.title}
+              paragraphs={hero.paragraphs}
+              image={hero.image}
+              division={division}
+              onDivisionChange={onDivisionChange}
+            />
 
             <div className="mt-10 flex flex-col gap-8">
               <div className="flex items-center justify-between gap-4 lg:hidden">
@@ -190,7 +243,7 @@ function CatalogPageInner({ division, isShopRoute }) {
                 <button
                   type="button"
                   onClick={() => setDrawerOpen(true)}
-                  className="inline-flex items-center gap-2 rounded-md border border-[var(--border)] bg-white px-3 py-2 text-sm font-medium text-[var(--text-primary)] shadow-sm hover:bg-neutral-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus-ring)]"
+                  className={ghostButtonClass}
                 >
                   <FunnelIcon className="h-4 w-4" aria-hidden />
                   Filters
@@ -229,7 +282,7 @@ function CatalogPageInner({ division, isShopRoute }) {
                       <button
                         type="button"
                         onClick={clearFilters}
-                        className="mt-6 rounded-md bg-[var(--color-primary-600)] px-4 py-2.5 text-sm font-medium text-white hover:bg-[var(--color-primary-700)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus-ring)]"
+                        className={primaryButtonClass}
                       >
                         Clear all filters
                       </button>
@@ -302,7 +355,7 @@ function CatalogPageInner({ division, isShopRoute }) {
                   <button
                     type="button"
                     onClick={() => setDrawerOpen(false)}
-                    className="rounded-md p-2 text-[var(--text-secondary)] hover:bg-neutral-100 hover:text-[var(--text-primary)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus-ring)]"
+                    className="rounded-lg p-2 text-[var(--text-secondary)] transition-colors duration-200 hover:bg-neutral-100 hover:text-[var(--text-primary)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus-ring)]"
                     aria-label="Close filters"
                   >
                     <XMarkIcon className="h-6 w-6" />
@@ -314,6 +367,14 @@ function CatalogPageInner({ division, isShopRoute }) {
           </>
         ) : null}
       </AnimatePresence>
+
+      <QuotationInquiryModal
+        isOpen={Boolean(inquiryProduct)}
+        productName={inquiryProduct?.name ?? ''}
+        productId={inquiryProduct?.id}
+        onClose={closeInquiryModal}
+        onSubmit={submitInquiry}
+      />
     </main>
   )
 }
@@ -326,7 +387,7 @@ export default function CatalogPage() {
 
   if (isShopRoute) {
     const divisionFromQuery = parseDivisionSlug(searchParams.get('division'))
-    const division = divisionFromQuery ?? 'life-saving'
+    const division = divisionFromQuery ?? 'all'
     return (
       <CatalogPageInner
         key={`shop-${searchParams.toString()}`}

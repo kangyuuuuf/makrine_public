@@ -4,11 +4,14 @@ import homePic2 from '../assets/homePic2.png'
 import webAssert11 from '../assets/web/webAssert11.avif'
 import webAssert12 from '../assets/web/webAssert12.avif'
 import { CATALOG_PRODUCT_EXAMPLES } from './catalogProductExamples.js'
-import { getCategoryFilterOptionsForDivision } from './navCatalogConfig.js'
+import {
+  getCategoryFilterOptionsForAllDivisions,
+  getCategoryFilterOptionsForDivision,
+} from './navCatalogConfig.js'
 
 /** @typedef {'in_stock' | 'limited' | 'out_of_stock'} StockStatus */
 
-/** @typedef {'life-saving' | 'fire-fighting'} CatalogDivisionId */
+/** @typedef {'all' | 'life-saving' | 'fire-fighting'} CatalogDivisionId */
 
 /**
  * @typedef {Object} CatalogProduct
@@ -23,14 +26,16 @@ import { getCategoryFilterOptionsForDivision } from './navCatalogConfig.js'
  */
 
 export const DIVISION_SLUGS = /** @type {const} */ ({
+  ALL: 'all',
   LIFE_SAVING: 'life-saving',
   FIRE_FIGHTING: 'fire-fighting',
 })
 
 /** @type {CatalogDivisionId[]} */
-export const DIVISION_ORDER = ['life-saving', 'fire-fighting']
+export const DIVISION_ORDER = ['all', 'life-saving', 'fire-fighting']
 
 export const DIVISION_LABELS = {
+  all: 'All Products',
   'life-saving': 'Life Saving Equipment',
   'fire-fighting': 'Fire Fighting Equipment',
 }
@@ -39,6 +44,13 @@ export const DIVISION_LABELS = {
  * @type {Record<CatalogDivisionId, { title: string; paragraphs: string[]; image: string }>}
  */
 export const CATALOG_HERO_BY_DIVISION = {
+  all: {
+    title: 'All Products',
+    paragraphs: [
+      '',
+    ],
+    image: heroImg,
+  },
   'life-saving': {
     title: 'Life Saving Equipment',
     paragraphs: [
@@ -58,6 +70,9 @@ export const CATALOG_HERO_BY_DIVISION = {
 
 /** Category filters are derived from the same nav tree as the mega menu (single source of truth). */
 export const FILTER_GROUPS_BY_DIVISION = {
+  all: {
+    categories: getCategoryFilterOptionsForAllDivisions(),
+  },
   'life-saving': {
     categories: getCategoryFilterOptionsForDivision('life-saving'),
   },
@@ -229,7 +244,11 @@ export const MOCK_PRODUCTS = [
  * @returns {CatalogDivisionId | null}
  */
 export function parseDivisionSlug(slug) {
-  if (slug === DIVISION_SLUGS.LIFE_SAVING || slug === DIVISION_SLUGS.FIRE_FIGHTING) {
+  if (
+    slug === DIVISION_SLUGS.ALL ||
+    slug === DIVISION_SLUGS.LIFE_SAVING ||
+    slug === DIVISION_SLUGS.FIRE_FIGHTING
+  ) {
     return slug
   }
   return null
