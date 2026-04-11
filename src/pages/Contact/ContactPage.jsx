@@ -72,7 +72,7 @@ export default function ContactPage() {
             <p className="contact-page__hero-note">
               Prefer the form?{' '}
               <a href="#contact" className="contact-page__inline-link">
-                Send a message via Ask the Captain
+                Leave a message here!
               </a>
               .
             </p>
@@ -95,15 +95,15 @@ export default function ContactPage() {
             </h2>
             <SectionHeadingBrandIcon align="center" />
             <div className="contact-page__accent contact-page__accent--center" />
-            <p className="contact-page__section-sub">
+            {/* <p className="contact-page__section-sub">
               Headquarters and warehouse — same address as listed across Makrine communications.
-            </p>
+            </p> */}
           </header>
 
           <div className="contact-page__location-grid">
             <div className="contact-page__location-stack">
               <article className="contact-page__card contact-page__card--address">
-                <h3 className="contact-page__card-title">Makrine</h3>
+                <h3 className="contact-page__card-title">Makrine LLC</h3>
                 <address className="contact-page__address">
                   {ADDRESS_LINE_1}
                   <br />

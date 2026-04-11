@@ -5,7 +5,7 @@ import './CompanyNameHero.css'
 
 const EYEBROW = 'Marine safety solutions'
 const BRAND = 'Makrine'
-const TAGLINE = 'The key to marine safety'
+const TAGLINE = 'Life Saving and Fire Fighting Equipment'
 
 const TITLE_OPTIONS = { delay: 55 }
 const TAGLINE_OPTIONS = { delay: 42, skipAddStyles: true }
