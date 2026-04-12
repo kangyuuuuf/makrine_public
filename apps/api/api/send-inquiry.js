@@ -39,6 +39,18 @@ function json(res, status, payload) {
   res.status(status).setHeader('Content-Type', 'application/json; charset=utf-8').end(JSON.stringify(payload))
 }
 
+function setCorsHeaders(req, res) {
+  const env = process.env
+  const explicitOrigin = String(env.ALLOWED_ORIGIN || '').trim()
+  const requestOrigin = String(req.headers.origin || '').trim()
+  const allowOrigin = explicitOrigin || requestOrigin || '*'
+
+  res.setHeader('Access-Control-Allow-Origin', allowOrigin)
+  res.setHeader('Vary', 'Origin')
+  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS')
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type')
+}
+
 function normalizeBody(body) {
   if (!body) return null
   if (typeof body === 'string') {
@@ -104,9 +116,14 @@ function buildEmailHtml(payload) {
 
 export default async function handler(req, res) {
   loadLocalEnvFallback()
+  setCorsHeaders(req, res)
+
+  if (req.method === 'OPTIONS') {
+    return res.status(204).end()
+  }
 
   if (req.method !== 'POST') {
-    res.setHeader('Allow', 'POST')
+    res.setHeader('Allow', 'POST, OPTIONS')
     return json(res, 405, { message: 'Method not allowed.' })
   }
 
