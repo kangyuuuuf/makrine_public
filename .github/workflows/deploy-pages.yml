@@ -25,6 +25,8 @@ jobs:
         run: npm ci
 
       - name: Build
+        env:
+          VITE_INQUIRY_API_URL: ${{ vars.VITE_INQUIRY_API_URL }}
         run: npm run build
 
       - name: Deploy to gh-pages branch
