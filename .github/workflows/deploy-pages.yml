@@ -27,7 +27,9 @@ jobs:
       - name: Build
         env:
           VITE_INQUIRY_API_URL: ${{ vars.VITE_INQUIRY_API_URL }}
-        run: npm run build
+        run: |
+          echo "VITE_INQUIRY_API_URL=$VITE_INQUIRY_API_URL"
+          npm run build
 
       - name: Deploy to gh-pages branch
         uses: peaceiris/actions-gh-pages@v4
