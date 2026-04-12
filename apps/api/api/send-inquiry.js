@@ -143,7 +143,7 @@ export default async function handler(req, res) {
       from: fromEmail,
       to: [toEmail],
       replyTo: String(payload.email).trim(),
-      subject: `[Inquiry] ${String(payload.productName).trim()}`,
+      subject: `[Test] ${String(payload.productName).trim()}`,
       html: buildEmailHtml(payload),
     })
     return json(res, 200, { ok: true })
