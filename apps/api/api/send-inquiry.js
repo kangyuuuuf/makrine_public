@@ -1,3 +1,6 @@
+import fs from 'node:fs'
+import path from 'node:path'
+import process from 'node:process'
 import { Resend } from 'resend'
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
@@ -5,6 +8,31 @@ const REQUIRED_FIELDS = ['companyName', 'email', 'firstName', 'lastName', 'inqui
 const INQUIRY_TYPE_LABEL = {
   quotation: 'Request a Quotation',
   product_info: 'Request Product Information',
+}
+
+function loadLocalEnvFallback() {
+  if (String(process.env.RESEND_API_KEY || '').trim()) return
+  const candidates = ['.env.local', '.env']
+
+  for (const filename of candidates) {
+    const filePath = path.join(process.cwd(), filename)
+    if (!fs.existsSync(filePath)) continue
+
+    const content = fs.readFileSync(filePath, 'utf8')
+    const lines = content.split(/\r?\n/)
+    for (const line of lines) {
+      const trimmed = line.trim()
+      if (!trimmed || trimmed.startsWith('#')) continue
+      const separatorIndex = trimmed.indexOf('=')
+      if (separatorIndex <= 0) continue
+
+      const key = trimmed.slice(0, separatorIndex).trim()
+      if (!key || process.env[key]) continue
+
+      const rawValue = trimmed.slice(separatorIndex + 1).trim()
+      process.env[key] = rawValue.replace(/^['"]|['"]$/g, '')
+    }
+  }
 }
 
 function json(res, status, payload) {
@@ -75,12 +103,14 @@ function buildEmailHtml(payload) {
 }
 
 export default async function handler(req, res) {
+  loadLocalEnvFallback()
+
   if (req.method !== 'POST') {
     res.setHeader('Allow', 'POST')
     return json(res, 405, { message: 'Method not allowed.' })
   }
 
-  const env = globalThis.process?.env ?? {}
+  const env = process.env
   const apiKey = env.RESEND_API_KEY
   const fromEmail = env.RESEND_FROM_EMAIL || 'onboarding@resend.dev'
   const toEmail = env.RESEND_TO_EMAIL || 'tech@makrine.com'
