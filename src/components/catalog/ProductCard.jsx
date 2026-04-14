@@ -7,9 +7,17 @@ const BADGE_STYLES = {
  * @param {Object} props
  * @param {{ id: string; name: string; shortDescription?: string; image: string; availability: 'in_stock' | 'limited' | 'out_of_stock' }} props.product
  * @param {string} [props.ctaLabel]
+ * @param {string} [props.detailLabel]
+ * @param {(id: string) => void} [props.onDetail]
  * @param {(id: string) => void} [props.onCta]
  */
-export default function ProductCard({ product, ctaLabel = 'Add to Inquiry', onCta }) {
+export default function ProductCard({
+  product,
+  ctaLabel = 'Add to Inquiry',
+  detailLabel = 'Detail',
+  onDetail,
+  onCta,
+}) {
   const { id, name, shortDescription, image, availability } = product
   const showBadge = availability === 'in_stock' || availability === 'limited'
   const badgeLabel = availability === 'in_stock' ? 'In Stock' : 'Limited'
@@ -41,13 +49,22 @@ export default function ProductCard({ product, ctaLabel = 'Add to Inquiry', onCt
             </p>
           ) : null}
         </div>
-        <button
-          type="button"
-          onClick={() => onCta?.(id)}
-          className="mt-auto w-full rounded-md border border-[var(--color-primary-600)] bg-[var(--color-primary-600)] px-4 py-3.5 text-base font-medium text-white transition hover:bg-[var(--color-primary-700)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus-ring)]"
-        >
-          {ctaLabel}
-        </button>
+        <div className="mt-auto grid grid-cols-2 gap-2.5">
+          <button
+            type="button"
+            onClick={() => onDetail?.(id)}
+            className="w-full cursor-pointer rounded-md border border-[var(--border)] bg-white px-3 py-3.5 text-sm font-medium text-[var(--text-primary)] transition hover:border-[var(--color-primary-300)] hover:bg-[var(--color-primary-50)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus-ring)]"
+          >
+            {detailLabel}
+          </button>
+          <button
+            type="button"
+            onClick={() => onCta?.(id)}
+            className="w-full cursor-pointer rounded-md border border-[var(--color-primary-500)] bg-[var(--color-primary-500)] px-3 py-3.5 text-sm font-medium text-white shadow-sm transition-colors duration-200 hover:border-[var(--color-primary-700)] hover:bg-[var(--color-primary-700)] active:border-[var(--color-primary-900)] active:bg-[var(--color-primary-900)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus-ring)]"
+          >
+            {ctaLabel}
+          </button>
+        </div>
       </div>
     </article>
   )

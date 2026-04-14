@@ -1,0 +1,6 @@
+export { default as CertificationsSection } from './CertificationsSection.jsx'
+export { default as DetailSection } from './DetailSection.jsx'
+export { default as ImageGallery } from './ImageGallery.jsx'
+export { default as ProductDetailPage } from './ProductDetailPage.jsx'
+export { default as ProductInfo } from './ProductInfo.jsx'
+export { PRODUCT_DETAIL_MOCK } from './mockProductDetail.js'

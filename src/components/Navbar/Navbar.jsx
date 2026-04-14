@@ -1,7 +1,7 @@
 import { LayoutGroup, motion as Motion, useReducedMotion } from 'framer-motion'
 import { Link, useLocation } from 'react-router-dom'
 import logoImg from '../../assets/icon.png'
-import ShopMegaMenuDropdown from './ShopMegaMenuDropdown.jsx'
+import ShopMegaMenuDropdown from './MegaMenuDropdown.jsx'
 import './Navbar.css'
 
 /** @typedef {{ to?: string; href?: string; label: string }} NavItem */
@@ -129,20 +129,6 @@ function Navbar() {
           </LayoutGroup>
         </nav>
 
-        <a className="site-nav__login" href="#login">
-          <span className="site-nav__login-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="12" cy="8" r="3.5" stroke="currentColor" strokeWidth="1.5" />
-              <path
-                d="M6 19c0-3.314 2.686-6 6-6s6 2.686 6 6"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-              />
-            </svg>
-          </span>
-          <span className="site-nav__login-text">Log In</span>
-        </a>
       </div>
     </header>
   )

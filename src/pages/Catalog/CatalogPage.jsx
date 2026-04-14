@@ -153,6 +153,13 @@ function CatalogPageInner({ division, isShopRoute }) {
     setInquiryProduct({ id: selectedProduct.id, name: selectedProduct.name })
   }, [])
 
+  const onProductDetail = useCallback(
+    (productId) => {
+      navigate(`/shop/product/${productId}`)
+    },
+    [navigate],
+  )
+
   const closeInquiryModal = useCallback(() => {
     setInquiryProduct(null)
   }, [])
@@ -303,7 +310,7 @@ function CatalogPageInner({ division, isShopRoute }) {
                           variants={cardVariants}
                           className="will-change-transform"
                         >
-                          <ProductCard product={product} onCta={onProductCta} />
+                          <ProductCard product={product} onDetail={onProductDetail} onCta={onProductCta} />
                         </Motion.li>
                       ))}
                     </Motion.ul>

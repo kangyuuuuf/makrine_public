@@ -5,6 +5,7 @@ import HomePage from '../pages/Home/index.jsx'
 import AboutPage from '../pages/About/AboutPage.jsx'
 import ContactPage from '../pages/Contact/ContactPage.jsx'
 import CatalogPage from '../pages/Catalog/CatalogPage.jsx'
+import ProductDetailPage from '../pages/ProductDetail/ProductDetailPage.jsx'
 import FooterSection from '../components/FooterSection/FooterSection.jsx'
 import { DIVISION_SLUGS } from '../data/catalogMock.js'
 function App() {
@@ -24,6 +25,7 @@ function App() {
             element={<Navigate to={`/catalog/${DIVISION_SLUGS.LIFE_SAVING}`} replace />}
           />
           <Route path="/shop" element={<CatalogPage />} />
+          <Route path="/shop/product/:productId" element={<ProductDetailPage />} />
           <Route path="/catalog/:division" element={<CatalogPage />} />
         </Routes>
         <FooterSection />
