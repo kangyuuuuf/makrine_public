@@ -1,24 +1,51 @@
-import { useCallback, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import logoImg from '../../assets/icon.png'
+import InquiryPopup from '../inquiry/InquiryPopup.jsx'
 import './FooterSection.css'
 
 const CONTACT_API_ENDPOINT = import.meta.env.VITE_CONTACT_API_URL || ''
 
 function FooterSection() {
   const [submitting, setSubmitting] = useState(false)
-  const [submitError, setSubmitError] = useState('')
-  const [submitSuccess, setSubmitSuccess] = useState(false)
+  const [submitResult, setSubmitResult] = useState({
+    open: false,
+    status: /** @type {'success' | 'error'} */ ('success'),
+    message: '',
+  })
 
   const submitButtonLabel = useMemo(() => {
     if (submitting) return 'Sending...'
     return 'Submit'
   }, [submitting])
 
+  const closeResultModal = useCallback(() => {
+    setSubmitResult((prev) => ({ ...prev, open: false }))
+  }, [])
+
+  useEffect(() => {
+    if (!submitResult.open) return undefined
+    const originalOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+
+    const onEsc = (event) => {
+      if (event.key === 'Escape') closeResultModal()
+    }
+    window.addEventListener('keydown', onEsc)
+
+    return () => {
+      document.body.style.overflow = originalOverflow
+      window.removeEventListener('keydown', onEsc)
+    }
+  }, [closeResultModal, submitResult.open])
+
   const handleSubmit = useCallback(async (event) => {
     event.preventDefault()
     if (!CONTACT_API_ENDPOINT) {
-      setSubmitSuccess(false)
-      setSubmitError('Contact API is not configured. Please set VITE_CONTACT_API_URL.')
+      setSubmitResult({
+        open: true,
+        status: 'error',
+        message: 'Contact API is not configured. Please set VITE_CONTACT_API_URL.',
+      })
       return
     }
 
@@ -35,8 +62,6 @@ function FooterSection() {
     }
 
     setSubmitting(true)
-    setSubmitError('')
-    setSubmitSuccess(false)
 
     try {
       const response = await fetch(CONTACT_API_ENDPOINT, {
@@ -58,14 +83,26 @@ function FooterSection() {
         throw new Error(message)
       }
 
-      setSubmitSuccess(true)
+      setSubmitResult({
+        open: true,
+        status: 'success',
+        message: 'Thanks for contacting us. We have received your message and will get back to you soon!',
+      })
       formElement.reset()
     } catch (error) {
       const fallback = 'Unable to send your message right now. Please try again later.'
       if (error instanceof Error && error.message.trim()) {
-        setSubmitError(error.message)
+        setSubmitResult({
+          open: true,
+          status: 'error',
+          message: error.message,
+        })
       } else {
-        setSubmitError(fallback)
+        setSubmitResult({
+          open: true,
+          status: 'error',
+          message: fallback,
+        })
       }
     } finally {
       setSubmitting(false)
@@ -185,7 +222,7 @@ function FooterSection() {
                   aria-required="true"
                 >
                   <option value="" disabled>
-                    
+                    Select customer type
                   </option>
                   <option value="end-user">End User</option>
                   <option value="retailer">Retailer</option>
@@ -222,18 +259,36 @@ function FooterSection() {
               />
               <span>Yes, subscribe me to your newsletter.</span>
             </label>
-            {submitError ? <p className="footer-section__submit-feedback footer-section__submit-feedback--error">{submitError}</p> : null}
-            {submitSuccess ? (
-              <p className="footer-section__submit-feedback footer-section__submit-feedback--success">
-                Your message has been sent successfully.
-              </p>
-            ) : null}
             <button className="footer-section__submit" type="submit" disabled={submitting}>
               {submitButtonLabel}
             </button>
           </form>
         </section>
       </div>
+      <InquiryPopup
+        isOpen={submitResult.open}
+        ariaLabelledBy="footer-result-title"
+        overlayLabel="Close result dialog"
+        onClose={closeResultModal}
+      >
+        <div className="footer-section__result-content">
+          <h3 id="footer-result-title" className="footer-section__result-title">
+            {submitResult.status === 'success' ? 'Message Sent' : 'Failed to Send'}
+          </h3>
+          <p
+            className={`footer-section__result-message ${
+              submitResult.status === 'success'
+                ? 'footer-section__result-message--success'
+                : 'footer-section__result-message--error'
+            }`}
+          >
+            {submitResult.message}
+          </p>
+          <button type="button" className="footer-section__result-close" onClick={closeResultModal}>
+            Close
+          </button>
+        </div>
+      </InquiryPopup>
     </footer>
   )
 }
