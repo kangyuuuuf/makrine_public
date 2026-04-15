@@ -1,6 +1,6 @@
 /**
- * Top-level navbar sections → category groups → leaf subcategories.
- * Leaf `id` values map to `product.category` and shop URL `?category=` params.
+ * Top-level navbar sections -> category groups -> leaf subcategories.
+ * Leaf `id` values map to `product.category` and product URL `?category=` params.
  */
 
 /** @typedef {{ id: string; label: string }} NavLeaf */
@@ -187,7 +187,7 @@ export function getDivisionForGroupId(groupId) {
 }
 
 /**
- * Shop URL with query params (shareable, works with browser history).
+ * Product URL with query params (shareable, works with browser history).
  * @param {'life-saving' | 'fire-fighting'} division
  * @param {string} [categoryId] — leaf category slug（与 `group` 二选一）
  * @param {{ group?: string }} [options] — 大类 id，选中该组下全部子类
@@ -200,5 +200,5 @@ export function buildShopUrl(division, categoryId, options) {
     params.set('category', categoryId)
   }
   const q = params.toString()
-  return q ? `/shop?${q}` : '/shop'
+  return q ? `/product?${q}` : '/product'
 }

@@ -28,7 +28,7 @@ export default function ProductCard({
         <img
           src={image}
           alt={name}
-          className="h-full w-full object-cover transition duration-300 group-hover:scale-[1.02]"
+          className="h-full w-full object-contain p-2"
         />
         {showBadge ? (
           <span

@@ -1,5 +1,5 @@
 import { motion as Motion, useReducedMotion } from 'framer-motion'
-import { DIVISION_LABELS } from '../../data/catalogMock.js'
+import { DIVISION_LABELS } from '../../data/catalogConfig.js'
 
 /**
  * @param {Object} props

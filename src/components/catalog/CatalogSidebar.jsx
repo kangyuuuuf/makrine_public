@@ -5,7 +5,7 @@ import {
   DIVISION_LABELS,
   DIVISION_ORDER,
   FILTER_GROUPS,
-} from '../../data/catalogMock.js'
+} from '../../data/catalogConfig.js'
 
 function FilterSection({ title, defaultOpen = true, children }) {
   const [open, setOpen] = useState(defaultOpen)

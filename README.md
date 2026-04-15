@@ -33,7 +33,10 @@ Site URL will be available under your repository's GitHub Pages address after de
 
 ## Inquiry Email Integration (Resend)
 
-This project includes an API handler at `api/send-inquiry.js` for sending product inquiry emails through Resend.
+This project includes API handlers for sending emails through Resend:
+
+- `api/send-inquiry.js` for catalog product inquiry emails
+- `api/send-contact-message.js` for footer "Leave a Message" emails
 
 ### Environment variables
 
@@ -44,9 +47,13 @@ RESEND_API_KEY=your_resend_api_key
 RESEND_FROM_EMAIL=onboarding@resend.dev
 RESEND_TO_EMAIL=tech@makrine.com
 VITE_INQUIRY_API_URL=https://your-api-domain.com/api/send-inquiry
+VITE_CONTACT_API_URL=https://your-api-domain.com/api/send-contact-message
 ```
 
 ### Important for GitHub Pages
 
 GitHub Pages is static hosting and does not run `api/*` functions.
-Deploy `api/send-inquiry.js` on a serverless platform (for example Vercel/Netlify) and point `VITE_INQUIRY_API_URL` to that deployed endpoint.
+Deploy both API handlers on a serverless platform (for example Vercel/Netlify), then point:
+
+- `VITE_INQUIRY_API_URL` to `/api/send-inquiry`
+- `VITE_CONTACT_API_URL` to `/api/send-contact-message`

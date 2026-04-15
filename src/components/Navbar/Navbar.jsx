@@ -1,7 +1,7 @@
 import { LayoutGroup, motion as Motion, useReducedMotion } from 'framer-motion'
 import { Link, useLocation } from 'react-router-dom'
 import logoImg from '../../assets/icon.png'
-import ShopMegaMenuDropdown from './MegaMenuDropdown.jsx'
+import ProductMegaMenuDropdown from './MegaMenuDropdown.jsx'
 import './Navbar.css'
 
 /** @typedef {{ to?: string; href?: string; label: string }} NavItem */
@@ -10,7 +10,7 @@ import './Navbar.css'
 const NAV_ITEMS = [
   { to: '/', label: 'Home' },
   { to: '/about', label: 'About' },
-  { to: '/shop', label: 'Shop' },
+  { to: '/product', label: 'Product' },
   { to: '/contact', label: 'Contact' },
 ]
 
@@ -45,11 +45,11 @@ function getNavActiveIndex(pathname, hash) {
   if (path === '/contact') {
     return NAV_ITEMS.findIndex((item) => item.to === '/contact')
   }
-  if (path === '/shop') {
-    return NAV_ITEMS.findIndex((item) => item.to === '/shop')
+  if (path === '/product' || path === '/shop') {
+    return NAV_ITEMS.findIndex((item) => item.to === '/product')
   }
-  if (path.startsWith('/catalog/')) {
-    return NAV_ITEMS.findIndex((item) => item.to === '/shop')
+  if (path.startsWith('/catalog/') || path.startsWith('/product/') || path.startsWith('/shop/')) {
+    return NAV_ITEMS.findIndex((item) => item.to === '/product')
   }
 
   const normalizedHash = hash && hash.length > 0 ? hash : '#home'
@@ -100,13 +100,13 @@ function Navbar() {
                   </>
                 )
 
-                if (item.to === '/shop') {
+                if (item.to === '/product') {
                   return (
                     <li key={key} className="site-nav__links-item mega-menu">
                       <Link className={className} to={item.to}>
                         {content}
                       </Link>
-                      <ShopMegaMenuDropdown />
+                      <ProductMegaMenuDropdown />
                     </li>
                   )
                 }

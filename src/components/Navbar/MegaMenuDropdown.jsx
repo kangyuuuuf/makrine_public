@@ -3,12 +3,12 @@ import { buildShopUrl, NAVBAR_SECTIONS } from '../../data/navCatalogConfig.js'
 import './MegaMenuDropdown.css'
 
 /**
- * Merged mega menu for the single `Shop` navbar item.
+ * Merged mega menu for the single `Product` navbar item.
  * Includes both Life Saving and Fire Fighting sections with explicit titles.
  */
-export default function ShopMegaMenuDropdown() {
+export default function ProductMegaMenuDropdown() {
   return (
-    <div className="mega-menu__panel" role="region" aria-label="Shop categories">
+    <div className="mega-menu__panel" role="region" aria-label="Product categories">
       <div className="mega-menu__panel-inner">
         <div className="mega-menu__sections">
           {NAVBAR_SECTIONS.map((section) => (

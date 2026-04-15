@@ -4,16 +4,31 @@ import PlaceholderBlock from './PlaceholderBlock.jsx'
 /**
  * @param {Object} props
  * @param {number} [props.descriptionLines]
+ * @param {string} [props.name]
+ * @param {string} [props.slug]
+ * @param {string} [props.model]
  */
-export default function ProductInfo({ descriptionLines = 4 }) {
+export default function ProductInfo({ descriptionLines = 4, name = 'Product Information', slug = '', model = '' }) {
   const lines = useMemo(() => Array.from({ length: descriptionLines }, (_, idx) => idx), [descriptionLines])
+  const showSlug = typeof slug === 'string' && slug.trim().length > 0
+  const showModel = typeof model === 'string' && model.trim().length > 0
 
   return (
     <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-7">
-      <h1 className="text-3xl font-semibold tracking-tight text-slate-900">Product Information</h1>
-      <div className="mt-4 space-y-3">
-        <PlaceholderBlock className="h-9 w-4/5" label="Product name placeholder" />
-        <PlaceholderBlock className="h-6 w-1/2" label="Manufacturer placeholder" />
+      <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">Product</p>
+      <h1 className="mt-2 text-3xl font-semibold tracking-tight text-slate-900">{name}</h1>
+
+      <div className="mt-5 space-y-2 text-sm text-slate-600">
+        {showSlug ? (
+          <p>
+            <span className="font-medium text-slate-800">Slug:</span> {slug}
+          </p>
+        ) : null}
+        {showModel ? (
+          <p>
+            <span className="font-medium text-slate-800">Model:</span> {model}
+          </p>
+        ) : null}
       </div>
 
       <div className="mt-6 space-y-3">

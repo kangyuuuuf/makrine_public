@@ -4,7 +4,7 @@ import PlaceholderBlock from './PlaceholderBlock.jsx'
 
 /**
  * @param {Object} props
- * @param {{ id: string; label: string }[]} props.images
+ * @param {{ id: string; label: string; src?: string }[]} props.images
  */
 export default function ImageGallery({ images }) {
   const safeImages = useMemo(() => (images?.length ? images : [{ id: 'placeholder-1', label: 'Image Placeholder' }]), [images])
@@ -24,10 +24,18 @@ export default function ImageGallery({ images }) {
   return (
     <section className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm md:p-6">
       <div className="relative">
-        <PlaceholderBlock
-          className="h-[320px] w-full rounded-3xl shadow-sm sm:h-[380px] lg:h-[430px]"
-          label={safeImages[activeIndex]?.label}
-        />
+        {safeImages[activeIndex]?.src ? (
+          <img
+            src={safeImages[activeIndex].src}
+            alt={safeImages[activeIndex]?.label || 'Product image'}
+            className="h-[320px] w-full rounded-3xl bg-white object-contain p-2 shadow-sm sm:h-[380px] lg:h-[430px]"
+          />
+        ) : (
+          <PlaceholderBlock
+            className="h-[320px] w-full rounded-3xl shadow-sm sm:h-[380px] lg:h-[430px]"
+            label={safeImages[activeIndex]?.label}
+          />
+        )}
         <div className="pointer-events-none absolute inset-x-3 top-1/2 flex -translate-y-1/2 items-center justify-between">
           <button
             type="button"
@@ -63,7 +71,15 @@ export default function ImageGallery({ images }) {
                 isActive ? 'border-slate-400 ring-2 ring-slate-200' : 'border-slate-200 hover:border-slate-300'
               }`}
             >
-              <PlaceholderBlock className="h-14 w-full rounded-2xl sm:h-16" />
+              {item.src ? (
+                <img
+                  src={item.src}
+                  alt={item.label || 'Product thumbnail'}
+                  className="h-14 w-full rounded-2xl bg-white object-contain p-1 sm:h-16"
+                />
+              ) : (
+                <PlaceholderBlock className="h-14 w-full rounded-2xl sm:h-16" />
+              )}
             </button>
           )
         })}

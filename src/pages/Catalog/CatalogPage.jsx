@@ -1,6 +1,6 @@
 import { FunnelIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { AnimatePresence, motion as Motion, useReducedMotion } from 'framer-motion'
-import { useCallback, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Navigate, useLocation, useNavigate, useParams, useSearchParams } from 'react-router-dom'
 import CatalogSidebar from '../../components/catalog/CatalogSidebar.jsx'
 import CategoryHero from '../../components/catalog/CategoryHero.jsx'
@@ -15,11 +15,11 @@ import {
   CATALOG_HERO_BY_DIVISION,
   DIVISION_SLUGS,
   FILTER_GROUPS_BY_DIVISION,
-  MOCK_PRODUCTS,
   parseDivisionSlug,
-} from '../../data/catalogMock.js'
+} from '../../data/catalogConfig.js'
 
 const INQUIRY_API_ENDPOINT = import.meta.env.VITE_INQUIRY_API_URL || ''
+const PRODUCTS_PER_PAGE = 24
 
 function toggleSetValue(set, value) {
   const next = new Set(set)
@@ -28,35 +28,57 @@ function toggleSetValue(set, value) {
   return next
 }
 
-function productMatchesFilters(
-  product,
-  division,
-  searchQuery,
-  categories,
-  availability,
-  certifications,
-) {
-  if (division !== 'all' && product.division !== division) return false
-  const q = searchQuery.trim().toLowerCase()
-  if (q) {
-    const blob = `${product.name} ${product.shortDescription ?? ''} ${product.id}`.toLowerCase()
-    if (!blob.includes(q)) return false
+function normalizePublicImagePath(path) {
+  if (typeof path !== 'string' || !path.trim()) return ''
+  const baseUrl = import.meta.env.BASE_URL || '/'
+  const normalized = path.trim().replace(/^\/+/, '')
+  return `${baseUrl}${normalized}`
+}
+
+function mapRealProduct(item, index) {
+  const slug =
+    typeof item?.slug === 'string' && item.slug.trim() ? item.slug.trim() : `product-${index + 1}`
+  const imagePath = Array.isArray(item?.images)
+    ? item.images.find((img) => typeof img === 'string' && img.trim())
+    : ''
+
+  return {
+    id: slug,
+    slug,
+    link: `/product/${slug}`,
+    name: typeof item?.name === 'string' && item.name.trim() ? item.name.trim() : slug,
+    image: normalizePublicImagePath(imagePath || ''),
+    shortDescription: '',
+    division: 'all',
+    category: 'all',
+    availability: 'in_stock',
+    certifications: [],
   }
-  if (categories.size > 0 && !categories.has(product.category)) return false
-  if (availability.size > 0 && !availability.has(product.availability)) return false
-  if (certifications.size > 0) {
-    const hasAny = [...certifications].some((c) => product.certifications.includes(c))
-    if (!hasAny) return false
+}
+
+function buildPaginationItems(currentPage, totalPages) {
+  if (totalPages <= 7) {
+    return Array.from({ length: totalPages }, (_, idx) => idx + 1)
   }
-  return true
+
+  const pages = [1]
+  const start = Math.max(2, currentPage - 1)
+  const end = Math.min(totalPages - 1, currentPage + 1)
+
+  if (start > 2) pages.push('...')
+  for (let page = start; page <= end; page += 1) pages.push(page)
+  if (end < totalPages - 1) pages.push('...')
+
+  pages.push(totalPages)
+  return pages
 }
 
 /**
  * @param {Object} props
  * @param {'all' | 'life-saving' | 'fire-fighting'} props.division
- * @param {boolean} props.isShopRoute — `/shop` uses `?division=` / `?category=`; `/catalog/:division` uses path only
+ * @param {boolean} props.isProductRoute — `/product` uses `?division=` / `?category=`; `/catalog/:division` uses path only
  */
-function CatalogPageInner({ division, isShopRoute }) {
+function CatalogPageInner({ division, isProductRoute }) {
   const navigate = useNavigate()
   const [searchParams, setSearchParams] = useSearchParams()
   const reduce = useReducedMotion()
@@ -84,36 +106,78 @@ function CatalogPageInner({ division, isShopRoute }) {
   const [certifications, setCertifications] = useState(() => new Set())
   const [drawerOpen, setDrawerOpen] = useState(false)
   const [inquiryProduct, setInquiryProduct] = useState(null)
+  const [products, setProducts] = useState([])
+  const [currentPage, setCurrentPage] = useState(1)
 
-  const divisionCatalog = useMemo(
-    () => (division === 'all' ? MOCK_PRODUCTS : MOCK_PRODUCTS.filter((p) => p.division === division)),
-    [division],
+  useEffect(() => {
+    let active = true
+    const sourceUrl = `${import.meta.env.BASE_URL}data/product_full.json`
+
+    fetch(sourceUrl)
+      .then((response) => {
+        if (!response.ok) throw new Error(`Failed to load product data: ${response.status}`)
+        return response.json()
+      })
+      .then((data) => {
+        if (!active) return
+        if (!Array.isArray(data)) {
+          setProducts([])
+          return
+        }
+        const normalized = data.map(mapRealProduct).filter((item) => item.image)
+        setProducts(normalized)
+      })
+      .catch(() => {
+        if (!active) return
+        setProducts([])
+      })
+
+    return () => {
+      active = false
+    }
+  }, [])
+
+  const divisionCatalog = useMemo(() => products, [products])
+
+  const filteredProducts = useMemo(() => products, [products])
+  const totalPages = useMemo(
+    () => Math.max(1, Math.ceil(filteredProducts.length / PRODUCTS_PER_PAGE)),
+    [filteredProducts.length],
   )
 
-  const filteredProducts = useMemo(
-    () =>
-      MOCK_PRODUCTS.filter((p) =>
-        productMatchesFilters(p, division, searchQuery, categories, availability, certifications),
-      ),
-    [division, searchQuery, categories, availability, certifications],
+  const paginatedProducts = useMemo(() => {
+    const start = (currentPage - 1) * PRODUCTS_PER_PAGE
+    return filteredProducts.slice(start, start + PRODUCTS_PER_PAGE)
+  }, [currentPage, filteredProducts])
+
+  const paginationItems = useMemo(
+    () => buildPaginationItems(currentPage, totalPages),
+    [currentPage, totalPages],
   )
+
+  const showingFrom = filteredProducts.length === 0 ? 0 : (currentPage - 1) * PRODUCTS_PER_PAGE + 1
+  const showingTo = Math.min(currentPage * PRODUCTS_PER_PAGE, filteredProducts.length)
+
+  useEffect(() => {
+    setCurrentPage((prev) => Math.min(prev, totalPages))
+  }, [totalPages])
 
   const clearFilters = useCallback(() => {
     setSearchQuery('')
     setCategories(new Set())
     setAvailability(new Set())
     setCertifications(new Set())
-    if (isShopRoute) {
+    if (isProductRoute) {
       const next = new URLSearchParams(searchParams)
       next.delete('category')
       next.delete('group')
       setSearchParams(next, { replace: true })
     }
-  }, [isShopRoute, searchParams, setSearchParams])
+  }, [isProductRoute, searchParams, setSearchParams])
 
   const onDivisionChange = useCallback(
     (next) => {
-      if (isShopRoute) {
+      if (isProductRoute) {
         const nextParams = new URLSearchParams(searchParams)
         if (next === 'all') {
           nextParams.delete('division')
@@ -127,7 +191,7 @@ function CatalogPageInner({ division, isShopRoute }) {
         navigate(`/catalog/${next}`)
       }
     },
-    [isShopRoute, navigate, searchParams, setSearchParams],
+    [isProductRoute, navigate, searchParams, setSearchParams],
   )
 
   const categoryOptions = FILTER_GROUPS_BY_DIVISION[division].categories
@@ -148,16 +212,26 @@ function CatalogPageInner({ division, isShopRoute }) {
   }
 
   const onProductCta = useCallback((productId) => {
-    const selectedProduct = MOCK_PRODUCTS.find((product) => product.id === productId)
+    const selectedProduct = products.find((product) => product.id === productId)
     if (!selectedProduct) return
     setInquiryProduct({ id: selectedProduct.id, name: selectedProduct.name })
-  }, [])
+  }, [products])
 
   const onProductDetail = useCallback(
     (productId) => {
-      navigate(`/shop/product/${productId}`)
+      const selectedProduct = products.find((product) => product.id === productId)
+      if (!selectedProduct?.link) return
+      navigate(selectedProduct.link)
     },
-    [navigate],
+    [navigate, products],
+  )
+
+  const goToPage = useCallback(
+    (nextPage) => {
+      const clamped = Math.max(1, Math.min(totalPages, nextPage))
+      setCurrentPage(clamped)
+    },
+    [totalPages],
   )
 
   const closeInquiryModal = useCallback(() => {
@@ -264,11 +338,10 @@ function CatalogPageInner({ division, isShopRoute }) {
                   animate={{ opacity: 1 }}
                   transition={{ delay: reduce ? 0 : 0.15, duration: reduce ? 0 : 0.35 }}
                 >
-                  Showing{' '}
-                  <span className="font-semibold tabular-nums text-[var(--text-primary)]">
-                    {filteredProducts.length}
-                  </span>{' '}
-                  of <span className="tabular-nums">{divisionCatalog.length}</span> products
+                  Showing <span className="font-semibold tabular-nums text-[var(--text-primary)]">{showingFrom}</span>
+                  {' '}-{' '}
+                  <span className="font-semibold tabular-nums text-[var(--text-primary)]">{showingTo}</span>
+                  {' '}of <span className="tabular-nums">{divisionCatalog.length}</span> products
                 </Motion.p>
 
                 <AnimatePresence mode="wait">
@@ -296,14 +369,14 @@ function CatalogPageInner({ division, isShopRoute }) {
                     </Motion.div>
                   ) : (
                     <Motion.ul
-                      key={`grid-${division}-${filteredProducts.map((p) => p.id).join('|')}`}
+                      key={`grid-${division}-page-${currentPage}`}
                       className="grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-12 xl:grid-cols-3"
                       layout
                       variants={listVariants}
                       initial="hidden"
                       animate="show"
                     >
-                      {filteredProducts.map((product) => (
+                      {paginatedProducts.map((product) => (
                         <Motion.li
                           key={product.id}
                           layout
@@ -316,6 +389,47 @@ function CatalogPageInner({ division, isShopRoute }) {
                     </Motion.ul>
                   )}
                 </AnimatePresence>
+
+                {filteredProducts.length > 0 && totalPages > 1 ? (
+                  <div className="mt-8 flex flex-wrap items-center justify-center gap-2">
+                    <button
+                      type="button"
+                      onClick={() => goToPage(currentPage - 1)}
+                      disabled={currentPage === 1}
+                      className="rounded-md border border-[var(--border)] px-3 py-2 text-sm text-[var(--text-primary)] disabled:cursor-not-allowed disabled:opacity-50"
+                    >
+                      Prev
+                    </button>
+
+                    {paginationItems.map((item, index) => (
+                      item === '...' ? (
+                        <span key={`ellipsis-${index}`} className="px-2 text-sm text-[var(--text-secondary)]">...</span>
+                      ) : (
+                        <button
+                          key={`page-${item}`}
+                          type="button"
+                          onClick={() => goToPage(item)}
+                          className={`rounded-md px-3 py-2 text-sm ${
+                            item === currentPage
+                              ? 'bg-[var(--color-primary-600)] text-white'
+                              : 'border border-[var(--border)] text-[var(--text-primary)]'
+                          }`}
+                        >
+                          {item}
+                        </button>
+                      )
+                    ))}
+
+                    <button
+                      type="button"
+                      onClick={() => goToPage(currentPage + 1)}
+                      disabled={currentPage === totalPages}
+                      className="rounded-md border border-[var(--border)] px-3 py-2 text-sm text-[var(--text-primary)] disabled:cursor-not-allowed disabled:opacity-50"
+                    >
+                      Next
+                    </button>
+                  </div>
+                ) : null}
               </div>
             </div>
           </div>
@@ -390,16 +504,16 @@ export default function CatalogPage() {
   const location = useLocation()
   const { division: divisionSlug } = useParams()
   const [searchParams] = useSearchParams()
-  const isShopRoute = location.pathname === '/shop'
+  const isProductRoute = location.pathname === '/product' || location.pathname === '/shop'
 
-  if (isShopRoute) {
+  if (isProductRoute) {
     const divisionFromQuery = parseDivisionSlug(searchParams.get('division'))
     const division = divisionFromQuery ?? 'all'
     return (
       <CatalogPageInner
-        key={`shop-${searchParams.toString()}`}
+        key={`product-${searchParams.toString()}`}
         division={division}
-        isShopRoute
+        isProductRoute
       />
     )
   }
@@ -410,5 +524,5 @@ export default function CatalogPage() {
     return <Navigate to={`/catalog/${DIVISION_SLUGS.LIFE_SAVING}`} replace />
   }
 
-  return <CatalogPageInner key={division} division={division} isShopRoute={false} />
+  return <CatalogPageInner key={division} division={division} isProductRoute={false} />
 }
