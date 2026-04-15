@@ -27,6 +27,7 @@ jobs:
       - name: Build
         env:
           VITE_INQUIRY_API_URL: ${{ vars.VITE_INQUIRY_API_URL }}
+          VITE_CONTACT_API_URL: ${{ vars.VITE_CONTACT_API_URL }}
         run: |
           echo "VITE_INQUIRY_API_URL=$VITE_INQUIRY_API_URL"
           npm run build
