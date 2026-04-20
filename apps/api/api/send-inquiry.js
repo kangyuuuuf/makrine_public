@@ -83,8 +83,16 @@ function validatePayload(payload) {
   return ''
 }
 
-function buildEmailHtml(payload) {
+function generateInquiryId() {
+  const now = new Date()
+  const date = now.toISOString().slice(0, 10).replace(/-/g, '')
+  const random = Math.random().toString(36).slice(2, 8).toUpperCase()
+  return `INQ-${date}-${random}`
+}
+
+function buildInternalEmailHtml(payload, inquiryId) {
   const pairs = [
+    ['Inquiry ID', inquiryId],
     ['Inquiry Type', INQUIRY_TYPE_LABEL[payload.inquiryType]],
     ['Company Name', payload.companyName],
     ['First Name', payload.firstName],
@@ -114,6 +122,26 @@ function buildEmailHtml(payload) {
   `
 }
 
+function buildCustomerEmailHtml(payload, inquiryId) {
+  const firstName = String(payload.firstName || '').trim() || 'Customer'
+  const inquiryType = INQUIRY_TYPE_LABEL[payload.inquiryType] || payload.inquiryType
+  const productName = String(payload.productName || '-').trim() || '-'
+
+  return `
+    <p>Dear ${escapeHtml(firstName)},</p>
+    <p>Thank you for contacting Makrine.</p>
+    <p>We have received your inquiry and our team will get back to you shortly.</p>
+    <p><strong>Inquiry Details:</strong></p>
+    <ul>
+      <li>Inquiry ID: ${escapeHtml(inquiryId)}</li>
+      <li>Type: ${escapeHtml(inquiryType)}</li>
+      <li>Product: ${escapeHtml(productName)}</li>
+    </ul>
+    <p>If you need to follow up, please reference your Inquiry ID and contact us at <a href="mailto:sales@makrine.com">sales@makrine.com</a>.</p>
+    <p>Best regards,<br />Makrine Team</p>
+  `
+}
+
 export default async function handler(req, res) {
   loadLocalEnvFallback()
   setCorsHeaders(req, res)
@@ -128,26 +156,44 @@ export default async function handler(req, res) {
   }
 
   const env = process.env
-  const apiKey = env.RESEND_API_KEY
-  const fromEmail = env.RESEND_FROM_EMAIL || 'onboarding@resend.dev'
-  const toEmail = env.RESEND_TO_EMAIL || 'tech@makrine.com'
+  const apiKey = String(env.RESEND_API_KEY || '').trim()
+  const fromEmail = String(env.RESEND_FROM_EMAIL || '').trim()
+  const toEmail = String(env.RESEND_TO_EMAIL || '').trim() || 'tech@makrine.com'
+
   if (!apiKey) return json(res, 500, { message: 'RESEND_API_KEY is not configured.' })
+  if (!fromEmail) return json(res, 500, { message: 'RESEND_FROM_EMAIL is not configured.' })
 
   const payload = normalizeBody(req.body)
   const validationMessage = validatePayload(payload)
   if (validationMessage) return json(res, 400, { message: validationMessage })
 
+  let inquiryId = ''
   try {
+    inquiryId = generateInquiryId()
     const resend = new Resend(apiKey)
-    await resend.emails.send({
-      from: fromEmail,
-      to: [toEmail],
-      replyTo: String(payload.email).trim(),
-      subject: `[Test] ${String(payload.productName).trim()}`,
-      html: buildEmailHtml(payload),
-    })
-    return json(res, 200, { ok: true })
+
+    await Promise.all([
+      resend.emails.send({
+        from: fromEmail,
+        to: [toEmail],
+        replyTo: String(payload.email).trim(),
+        subject: `[Inquiry] ${inquiryId} - ${String(payload.productName).trim()}`,
+        html: buildInternalEmailHtml(payload, inquiryId),
+      }),
+      resend.emails.send({
+        from: fromEmail,
+        to: [String(payload.email).trim()],
+        subject: `We received your inquiry - ${inquiryId}`,
+        html: buildCustomerEmailHtml(payload, inquiryId),
+      }),
+    ])
+
+    return json(res, 200, { ok: true, inquiryId })
   } catch (error) {
+    console.error('Failed to deliver inquiry emails.', {
+      inquiryId,
+      message: error instanceof Error ? error.message : String(error),
+    })
     const detail = error instanceof Error ? error.message : ''
     return json(res, 500, {
       message: detail ? `Email delivery failed: ${detail}` : 'Email delivery failed.',

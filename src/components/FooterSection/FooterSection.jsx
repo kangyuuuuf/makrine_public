@@ -224,10 +224,10 @@ function FooterSection() {
                   <option value="" disabled>
                     Select customer type
                   </option>
-                  <option value="end-user">End User</option>
-                  <option value="retailer">Retailer</option>
-                  <option value="boat-builder">Boat Builder</option>
                   <option value="distributor">Distributor</option>
+                  <option value="ship-agent">Ship Agent</option>
+                  <option value="service-station">Service Station</option>
+                  <option value="end-user">End User</option>
                 </select>
               </label>
             </div>

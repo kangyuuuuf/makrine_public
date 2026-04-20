@@ -6,10 +6,10 @@ import { Resend } from 'resend'
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 const REQUIRED_FIELDS = ['companyName', 'customerType', 'email', 'firstName', 'lastName']
 const CUSTOMER_TYPE_LABEL = {
-  'end-user': 'End User',
-  retailer: 'Retailer',
-  'boat-builder': 'Boat Builder',
   distributor: 'Distributor',
+  'ship-agent': 'Ship Agent',
+  'service-station': 'Service Station',
+  'end-user': 'End User',
 }
 
 function loadLocalEnvFallback() {

@@ -18,7 +18,7 @@ import {
   parseDivisionSlug,
 } from '../../data/catalogConfig.js'
 
-const INQUIRY_API_ENDPOINT = import.meta.env.VITE_INQUIRY_API_URL || ''
+const INQUIRY_API_ENDPOINT = import.meta.env.VITE_INQUIRY_API_URL || '/api/inquiry'
 const PRODUCTS_PER_PAGE = 24
 
 function toggleSetValue(set, value) {
@@ -144,23 +144,20 @@ function CatalogPageInner({ division, isProductRoute }) {
     () => Math.max(1, Math.ceil(filteredProducts.length / PRODUCTS_PER_PAGE)),
     [filteredProducts.length],
   )
+  const safeCurrentPage = Math.min(currentPage, totalPages)
 
   const paginatedProducts = useMemo(() => {
-    const start = (currentPage - 1) * PRODUCTS_PER_PAGE
+    const start = (safeCurrentPage - 1) * PRODUCTS_PER_PAGE
     return filteredProducts.slice(start, start + PRODUCTS_PER_PAGE)
-  }, [currentPage, filteredProducts])
+  }, [filteredProducts, safeCurrentPage])
 
   const paginationItems = useMemo(
-    () => buildPaginationItems(currentPage, totalPages),
-    [currentPage, totalPages],
+    () => buildPaginationItems(safeCurrentPage, totalPages),
+    [safeCurrentPage, totalPages],
   )
 
-  const showingFrom = filteredProducts.length === 0 ? 0 : (currentPage - 1) * PRODUCTS_PER_PAGE + 1
-  const showingTo = Math.min(currentPage * PRODUCTS_PER_PAGE, filteredProducts.length)
-
-  useEffect(() => {
-    setCurrentPage((prev) => Math.min(prev, totalPages))
-  }, [totalPages])
+  const showingFrom = filteredProducts.length === 0 ? 0 : (safeCurrentPage - 1) * PRODUCTS_PER_PAGE + 1
+  const showingTo = Math.min(safeCurrentPage * PRODUCTS_PER_PAGE, filteredProducts.length)
 
   const clearFilters = useCallback(() => {
     setSearchQuery('')
@@ -249,7 +246,12 @@ function CatalogPageInner({ division, isProductRoute }) {
       body: JSON.stringify(payload),
     })
 
-    if (response.ok) return
+    if (response.ok) {
+      const data = await response.json().catch(() => ({}))
+      return {
+        inquiryId: typeof data?.inquiryId === 'string' ? data.inquiryId : '',
+      }
+    }
 
     let message = 'Unable to submit your inquiry right now. Please try again later.'
     try {
@@ -369,7 +371,7 @@ function CatalogPageInner({ division, isProductRoute }) {
                     </Motion.div>
                   ) : (
                     <Motion.ul
-                      key={`grid-${division}-page-${currentPage}`}
+                      key={`grid-${division}-page-${safeCurrentPage}`}
                       className="grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-12 xl:grid-cols-3"
                       layout
                       variants={listVariants}
@@ -394,8 +396,8 @@ function CatalogPageInner({ division, isProductRoute }) {
                   <div className="mt-8 flex flex-wrap items-center justify-center gap-2">
                     <button
                       type="button"
-                      onClick={() => goToPage(currentPage - 1)}
-                      disabled={currentPage === 1}
+                      onClick={() => goToPage(safeCurrentPage - 1)}
+                      disabled={safeCurrentPage === 1}
                       className="rounded-md border border-[var(--border)] px-3 py-2 text-sm text-[var(--text-primary)] disabled:cursor-not-allowed disabled:opacity-50"
                     >
                       Prev
@@ -410,7 +412,7 @@ function CatalogPageInner({ division, isProductRoute }) {
                           type="button"
                           onClick={() => goToPage(item)}
                           className={`rounded-md px-3 py-2 text-sm ${
-                            item === currentPage
+                            item === safeCurrentPage
                               ? 'bg-[var(--color-primary-600)] text-white'
                               : 'border border-[var(--border)] text-[var(--text-primary)]'
                           }`}
@@ -422,8 +424,8 @@ function CatalogPageInner({ division, isProductRoute }) {
 
                     <button
                       type="button"
-                      onClick={() => goToPage(currentPage + 1)}
-                      disabled={currentPage === totalPages}
+                      onClick={() => goToPage(safeCurrentPage + 1)}
+                      disabled={safeCurrentPage === totalPages}
                       className="rounded-md border border-[var(--border)] px-3 py-2 text-sm text-[var(--text-primary)] disabled:cursor-not-allowed disabled:opacity-50"
                     >
                       Next

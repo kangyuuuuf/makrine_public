@@ -45,7 +45,7 @@ function buildValidationErrors(form, productName) {
  *  productName: string
  *  productId?: string
  *  message?: string
- * }) => Promise<void> | void} [props.onSubmit]
+ * }) => Promise<{ inquiryId?: string } | void> | { inquiryId?: string } | void} [props.onSubmit]
  */
 export default function QuotationInquiryModal({
   isOpen,
@@ -58,6 +58,7 @@ export default function QuotationInquiryModal({
   const [errors, setErrors] = useState({})
   const [submitting, setSubmitting] = useState(false)
   const [submitSuccess, setSubmitSuccess] = useState(false)
+  const [submittedInquiryId, setSubmittedInquiryId] = useState('')
   const [submitError, setSubmitError] = useState('')
 
   useEffect(() => {
@@ -66,6 +67,7 @@ export default function QuotationInquiryModal({
       setErrors({})
       setSubmitting(false)
       setSubmitSuccess(false)
+      setSubmittedInquiryId('')
       setSubmitError('')
       return
     }
@@ -119,7 +121,7 @@ export default function QuotationInquiryModal({
     setSubmitting(true)
     setSubmitError('')
     try {
-      await onSubmit?.({
+      const result = await onSubmit?.({
         companyName: form.companyName.trim(),
         email: form.email.trim(),
         firstName: form.firstName.trim(),
@@ -129,6 +131,7 @@ export default function QuotationInquiryModal({
         productId,
         message: form.message.trim() || undefined,
       })
+      setSubmittedInquiryId(typeof result?.inquiryId === 'string' ? result.inquiryId : '')
       setSubmitSuccess(true)
     } catch (error) {
       const fallbackMessage = 'Failed to send inquiry. Please try again in a moment.'
@@ -171,6 +174,11 @@ export default function QuotationInquiryModal({
             <p className="mt-3 text-sm leading-relaxed text-[var(--text-secondary)]">
               Thank you for your request. Our team will review your inquiry and get back to you shortly.
             </p>
+            {submittedInquiryId ? (
+              <p className="mt-2 text-sm font-medium text-[var(--text-primary)]">
+                Inquiry ID: {submittedInquiryId}
+              </p>
+            ) : null}
             <button
               type="button"
               onClick={onClose}
