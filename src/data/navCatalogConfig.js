@@ -1,6 +1,7 @@
 /**
- * Top-level navbar sections -> category groups -> leaf subcategories.
- * Leaf `id` values map to `product.category` and product URL `?category=` params.
+ * Top-level navbar sections -> category groups -> display-only leaf labels.
+ * Filterable unit is the parent group’s `subcategory_id` (see `NAV_GROUP_TO_SUBCATEGORY`).
+ * URL `?category=` uses those subcategory slugs; leaf ids are legacy aliases only.
  */
 
 /** @typedef {{ id: string; label: string }} NavLeaf */
@@ -29,7 +30,7 @@ export const NAVBAR_SECTIONS = [
     groups: [
       {
         id: 'grp-life-saving-equipment',
-        label: 'Life-saving Equipment',
+        label: 'Life Jacket / Life Buoy',
         children: [
           { id: 'life-jackets', label: 'Life Jackets' },
           { id: 'inflatable-life-jackets', label: 'Inflatable Life Jackets' },
@@ -47,7 +48,7 @@ export const NAVBAR_SECTIONS = [
       },
       {
         id: 'grp-thermal-protective',
-        label: 'Thermal & Protective',
+        label: 'Immersion Suits & Protective Suits',
         children: [
           { id: 'immersion-suits', label: 'Immersion Suits' },
           { id: 'chemical-protective-suits', label: 'Chemical Protective Suits' },
@@ -56,7 +57,7 @@ export const NAVBAR_SECTIONS = [
       },
       {
         id: 'line-throwing-device',
-        label: 'Line-Throwing Device',
+        label: 'Pneumatic Line Throwing Equipment',
         children: [],
       },
       {
@@ -79,12 +80,21 @@ export const NAVBAR_SECTIONS = [
           { id: 'dry-powder-fire-extinguishers', label: 'Dry Powder Fire Extinguishers' },
           { id: 'foam-fire-extinguishers', label: 'Foam Fire Extinguishers' },
           { id: 'other-fire-extinguishers', label: 'Other Fire Extinguishers' },
-          { id: 'fire-hose-hydrant-systems', label: 'Fire Hose & Hydrant Systems' },
+        ],
+      },
+      {
+        id: 'grp-fire-hose',
+        label: 'Fire Hose',
+        children: [
+          { id: 'hose-coupling', label: 'Hose Coupling' },
+          { id: 'i-s-c', label: 'I.S.C' },
+          { id: 'fire-nozzle', label: 'Fire Nozzle' },
+          { id: 'cap', label: 'Cap' },
         ],
       },
       {
         id: 'grp-firefighting-equipment',
-        label: 'Firefighting Equipment',
+        label: "Firefighter's Equipment",
         children: [
           { id: 'breathing-apparatus', label: 'Breathing Apparatus' },
           { id: 'firefighter-protective-gear', label: 'Firefighter Protective Gear' },
@@ -95,9 +105,9 @@ export const NAVBAR_SECTIONS = [
         id: 'grp-tools-misc',
         label: 'Tools & Miscellaneous',
         children: [
-          { id: 'box-ladder-rope', label: 'Box, Ladder, Rope' },
-          { id: 'toolkit-accessories', label: 'Toolkit & Accessories' },
-          { id: 'miscellaneous-small-items', label: 'Miscellaneous Small Items' },
+          { id: 'calibration-tool', label: 'Calibration Tool' },
+          { id: 'imo-signs', label: 'IMO Signs' },
+          { id: 'ladder', label: 'Ladder' },
         ],
       },
     ],
@@ -146,16 +156,55 @@ export function getCategoryFilterOptionsForAllDivisions() {
 }
 
 /**
- * @param {string} value
+ * Nav group id → `products_web_display.json` `subcategory_id` (sidebar / product filter).
+ * @type {Record<string, string>}
+ */
+export const NAV_GROUP_TO_SUBCATEGORY = {
+  'grp-life-saving-equipment': 'life-jacket-life-buoy',
+  'grp-lights': 'lights',
+  'grp-thermal-protective': 'immersion-suits-protective-suits',
+  'line-throwing-device': 'pneumatic-line-throwing-equipment',
+  'life-rafts': 'life-rafts',
+  'grp-fire-extinguishers': 'fire-extinguishers',
+  'grp-fire-hose': 'fire-hose',
+  'grp-firefighting-equipment': 'firefighters-equipment',
+  'grp-tools-misc': 'tools-miscellaneous',
+}
+
+/**
+ * @param {string} groupId — `NavCategoryGroup.id`
+ * @returns {string | null}
+ */
+export function getSubcategoryIdForNavGroup(groupId) {
+  if (typeof groupId !== 'string' || !groupId.trim()) return null
+  return NAV_GROUP_TO_SUBCATEGORY[groupId.trim()] ?? null
+}
+
+/**
+ * @param {string} value — subcategory id, nav group id, or legacy nav leaf id
  * @returns {'life-saving' | 'fire-fighting' | null}
  */
 export function getDivisionForCategoryValue(value) {
+  if (typeof value !== 'string' || !value.trim()) return null
+  const normalized = value.trim()
+
   for (const section of NAVBAR_SECTIONS) {
     for (const g of section.groups) {
+      const subcategoryId = getSubcategoryIdForNavGroup(g.id)
+      if (subcategoryId === normalized) return section.division
       const leaves = leavesFromGroup(g)
-      if (leaves.some((l) => l.value === value)) return section.division
+      if (leaves.some((l) => l.value === normalized)) return section.division
     }
   }
+
+  if (Object.values(NAV_GROUP_TO_SUBCATEGORY).includes(normalized)) {
+    for (const section of NAVBAR_SECTIONS) {
+      for (const g of section.groups) {
+        if (getSubcategoryIdForNavGroup(g.id) === normalized) return section.division
+      }
+    }
+  }
+
   return null
 }
 
@@ -187,17 +236,82 @@ export function getDivisionForGroupId(groupId) {
 }
 
 /**
+ * Nav / sidebar leaf ids → `products_web_display.json` `subcategory_id` values.
+ * @type {Record<string, string[]>}
+ */
+export const NAV_LEAF_TO_SUBCATEGORIES = {
+  'life-jackets': ['life-jacket-life-buoy'],
+  'inflatable-life-jackets': ['life-jacket-life-buoy'],
+  'life-buoys': ['life-jacket-life-buoy'],
+  'life-buoy-lights': ['lights'],
+  'life-jacket-lights': ['lights'],
+  'explosion-proof-lights': ['lights'],
+  'immersion-suits': ['immersion-suits-protective-suits'],
+  'chemical-protective-suits': ['immersion-suits-protective-suits'],
+  'thermal-protective-aids': ['immersion-suits-protective-suits'],
+  'line-throwing-device': ['pneumatic-line-throwing-equipment'],
+  'life-rafts': ['life-rafts'],
+  'co2-fire-extinguishers': ['fire-extinguishers'],
+  'dry-powder-fire-extinguishers': ['fire-extinguishers'],
+  'foam-fire-extinguishers': ['fire-extinguishers'],
+  'other-fire-extinguishers': ['fire-extinguishers'],
+  'hose-coupling': ['fire-hose'],
+  'i-s-c': ['fire-hose'],
+  'fire-nozzle': ['fire-hose'],
+  cap: ['fire-hose'],
+  'breathing-apparatus': ['firefighters-equipment'],
+  'firefighter-protective-gear': ['firefighters-equipment'],
+  'firefighting-tools-accessories': ['firefighters-equipment'],
+  'calibration-tool': ['tools-miscellaneous'],
+  'imo-signs': ['tools-miscellaneous'],
+  ladder: ['tools-miscellaneous'],
+}
+
+/**
+ * @param {string} categoryId — subcategory id, nav group id, or legacy nav leaf id
+ * @returns {string[]}
+ */
+export function expandCategoryFilterToSubcategoryIds(categoryId) {
+  if (typeof categoryId !== 'string' || !categoryId.trim()) return []
+  const normalized = categoryId.trim()
+
+  const fromGroup = getSubcategoryIdForNavGroup(normalized)
+  if (fromGroup) return [fromGroup]
+
+  const mapped = NAV_LEAF_TO_SUBCATEGORIES[normalized]
+  if (mapped?.length) return mapped
+
+  if (Object.values(NAV_GROUP_TO_SUBCATEGORY).includes(normalized)) return [normalized]
+
+  return [normalized]
+}
+
+/**
+ * @param {Iterable<string>} categoryIds
+ * @returns {Set<string>}
+ */
+export function expandCategoryFiltersToSubcategorySet(categoryIds) {
+  const result = new Set()
+  for (const categoryId of categoryIds) {
+    for (const subcategoryId of expandCategoryFilterToSubcategoryIds(categoryId)) {
+      result.add(subcategoryId)
+    }
+  }
+  return result
+}
+
+/**
  * Product URL with query params (shareable, works with browser history).
  * @param {'life-saving' | 'fire-fighting'} division
- * @param {string} [categoryId] — leaf category slug（与 `group` 二选一）
- * @param {{ group?: string }} [options] — 大类 id，选中该组下全部子类
+ * @param {string} [categoryId] — subcategory slug, nav group id, or legacy leaf id
+ * @param {{ group?: string }} [options] — legacy: nav group id → same subcategory as group title
  */
 export function buildShopUrl(division, categoryId, options) {
   const params = new URLSearchParams({ division })
-  if (options?.group) {
-    params.set('group', options.group)
-  } else if (categoryId) {
-    params.set('category', categoryId)
+  const raw = options?.group ?? categoryId
+  if (raw) {
+    const subcategoryIds = expandCategoryFilterToSubcategoryIds(raw)
+    if (subcategoryIds[0]) params.set('category', subcategoryIds[0])
   }
   const q = params.toString()
   return q ? `/product?${q}` : '/product'

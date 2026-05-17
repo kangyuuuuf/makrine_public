@@ -1,5 +1,9 @@
 import { Link } from 'react-router-dom'
-import { buildShopUrl, NAVBAR_SECTIONS } from '../../data/navCatalogConfig.js'
+import {
+  buildShopUrl,
+  getSubcategoryIdForNavGroup,
+  NAVBAR_SECTIONS,
+} from '../../data/navCatalogConfig.js'
 import './MegaMenuDropdown.css'
 
 /**
@@ -22,37 +26,28 @@ export default function ProductMegaMenuDropdown() {
               <div className="mega-menu__grid mega-menu__grid--section">
                 {section.groups.map((group) => {
                   const hasChildren = group.children && group.children.length > 0
-
-                  if (!hasChildren) {
-                    return (
-                      <div key={group.id} className="mega-menu__column mega-menu__column--single">
-                        <Link
-                          className="mega-menu__group-title mega-menu__group-title--link"
-                          to={buildShopUrl(section.division, group.id)}
-                        >
-                          {group.label}
-                        </Link>
-                      </div>
-                    )
-                  }
+                  const subcategoryId = getSubcategoryIdForNavGroup(group.id)
+                  const groupFilterUrl = buildShopUrl(
+                    section.division,
+                    subcategoryId ?? group.id,
+                  )
 
                   return (
                     <div key={group.id} className="mega-menu__column">
-                      <Link
-                        className="mega-menu__group-title mega-menu__group-title--heading-link"
-                        to={buildShopUrl(section.division, undefined, { group: group.id })}
-                      >
-                        {group.label}
+                      <Link className="mega-menu__column-link" to={groupFilterUrl}>
+                        <span className="mega-menu__group-title mega-menu__group-title--in-link">
+                          {group.label}
+                        </span>
+                        {hasChildren ? (
+                          <ul className="mega-menu__list">
+                            {group.children.map((item) => (
+                              <li key={item.id}>
+                                <span className="mega-menu__sublabel">{item.label}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        ) : null}
                       </Link>
-                      <ul className="mega-menu__list">
-                        {group.children.map((item) => (
-                          <li key={item.id}>
-                            <Link className="mega-menu__link" to={buildShopUrl(section.division, item.id)}>
-                              {item.label}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
                     </div>
                   )
                 })}

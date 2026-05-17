@@ -4,6 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "build:image-index": "node scripts/build-product-image-index.mjs",
+    "predev": "npm run build:image-index",
+    "prebuild": "npm run build:image-index",
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",

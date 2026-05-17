@@ -7,9 +7,11 @@ import CategoryHero from '../../components/catalog/CategoryHero.jsx'
 import ProductCard from '../../components/catalog/ProductCard.jsx'
 import QuotationInquiryModal from '../../components/inquiry/QuotationInquiryModal.jsx'
 import {
+  expandCategoryFilterToSubcategoryIds,
+  expandCategoryFiltersToSubcategorySet,
   getDivisionForCategoryValue,
   getDivisionForGroupId,
-  getLeafCategoryIdsForGroup,
+  getSubcategoryIdForNavGroup,
 } from '../../data/navCatalogConfig.js'
 import {
   CATALOG_HERO_BY_DIVISION,
@@ -17,6 +19,11 @@ import {
   FILTER_GROUPS_BY_DIVISION,
   parseDivisionSlug,
 } from '../../data/catalogConfig.js'
+import {
+  buildSubcategoryFilterOptionsFromWebDisplay,
+  fetchProductImageIndex,
+  mapWebDisplayCatalogProducts,
+} from '../../data/productDisplayUtils.js'
 
 const INQUIRY_API_ENDPOINT = import.meta.env.VITE_INQUIRY_API_URL || '/api/inquiry'
 const PRODUCTS_PER_PAGE = 24
@@ -26,34 +33,6 @@ function toggleSetValue(set, value) {
   if (next.has(value)) next.delete(value)
   else next.add(value)
   return next
-}
-
-function normalizePublicImagePath(path) {
-  if (typeof path !== 'string' || !path.trim()) return ''
-  const baseUrl = import.meta.env.BASE_URL || '/'
-  const normalized = path.trim().replace(/^\/+/, '')
-  return `${baseUrl}${normalized}`
-}
-
-function mapRealProduct(item, index) {
-  const slug =
-    typeof item?.slug === 'string' && item.slug.trim() ? item.slug.trim() : `product-${index + 1}`
-  const imagePath = Array.isArray(item?.images)
-    ? item.images.find((img) => typeof img === 'string' && img.trim())
-    : ''
-
-  return {
-    id: slug,
-    slug,
-    link: `/product/${slug}`,
-    name: typeof item?.name === 'string' && item.name.trim() ? item.name.trim() : slug,
-    image: normalizePublicImagePath(imagePath || ''),
-    shortDescription: '',
-    division: 'all',
-    category: 'all',
-    availability: 'in_stock',
-    certifications: [],
-  }
 }
 
 function buildPaginationItems(currentPage, totalPages) {
@@ -92,13 +71,14 @@ function CatalogPageInner({ division, isProductRoute }) {
     const groupId = searchParams.get('group')
     const groupDivision = groupId ? getDivisionForGroupId(groupId) : null
     if (groupId && groupDivision && (division === 'all' || groupDivision === division)) {
-      const ids = getLeafCategoryIdsForGroup(groupDivision, groupId)
-      if (ids && ids.length > 0) return new Set(ids)
+      const subcategoryId = getSubcategoryIdForNavGroup(groupId)
+      if (subcategoryId) return new Set([subcategoryId])
     }
     const cat = searchParams.get('category')
     const categoryDivision = cat ? getDivisionForCategoryValue(cat) : null
     if (cat && categoryDivision && (division === 'all' || categoryDivision === division)) {
-      return new Set([cat])
+      const subcategoryIds = expandCategoryFilterToSubcategoryIds(cat)
+      if (subcategoryIds.length > 0) return new Set(subcategoryIds)
     }
     return new Set()
   })
@@ -107,29 +87,28 @@ function CatalogPageInner({ division, isProductRoute }) {
   const [drawerOpen, setDrawerOpen] = useState(false)
   const [inquiryProduct, setInquiryProduct] = useState(null)
   const [products, setProducts] = useState([])
+  const [subcategoryFilterOptions, setSubcategoryFilterOptions] = useState(null)
   const [currentPage, setCurrentPage] = useState(1)
 
   useEffect(() => {
     let active = true
-    const sourceUrl = `${import.meta.env.BASE_URL}data/product_full.json`
 
-    fetch(sourceUrl)
-      .then((response) => {
+    Promise.all([
+      fetch(`${import.meta.env.BASE_URL}data/products_web_display.json`).then((response) => {
         if (!response.ok) throw new Error(`Failed to load product data: ${response.status}`)
         return response.json()
-      })
-      .then((data) => {
+      }),
+      fetchProductImageIndex(),
+    ])
+      .then(([data, imageIndex]) => {
         if (!active) return
-        if (!Array.isArray(data)) {
-          setProducts([])
-          return
-        }
-        const normalized = data.map(mapRealProduct).filter((item) => item.image)
-        setProducts(normalized)
+        setProducts(mapWebDisplayCatalogProducts(data, imageIndex))
+        setSubcategoryFilterOptions(buildSubcategoryFilterOptionsFromWebDisplay(data))
       })
       .catch(() => {
         if (!active) return
         setProducts([])
+        setSubcategoryFilterOptions(null)
       })
 
     return () => {
@@ -137,9 +116,60 @@ function CatalogPageInner({ division, isProductRoute }) {
     }
   }, [])
 
-  const divisionCatalog = useMemo(() => products, [products])
+  const activeSubcategoryFilters = useMemo(
+    () => expandCategoryFiltersToSubcategorySet(categories),
+    [categories],
+  )
 
-  const filteredProducts = useMemo(() => products, [products])
+  const filteredProducts = useMemo(() => {
+    let list = products
+    const query = searchQuery.trim().toLowerCase()
+
+    if (division !== 'all') {
+      list = list.filter((product) => product.division === division)
+    }
+
+    if (activeSubcategoryFilters.size > 0) {
+      list = list.filter((product) => activeSubcategoryFilters.has(product.category))
+    }
+
+    if (query) {
+      list = list.filter(
+        (product) =>
+          product.name.toLowerCase().includes(query) ||
+          product.slug.toLowerCase().includes(query) ||
+          product.shortDescription.toLowerCase().includes(query),
+      )
+    }
+
+    if (availability.size > 0) {
+      list = list.filter((product) => availability.has(product.availability))
+    }
+
+    if (certifications.size > 0) {
+      list = list.filter((product) =>
+        product.certifications.some((cert) => certifications.has(cert)),
+      )
+    }
+
+    return list
+  }, [
+    activeSubcategoryFilters,
+    availability,
+    certifications,
+    division,
+    products,
+    searchQuery,
+  ])
+
+  useEffect(() => {
+    setCurrentPage(1)
+  }, [division, searchQuery, categories, availability, certifications])
+
+  const divisionCatalog = useMemo(() => {
+    if (division === 'all') return products
+    return products.filter((product) => product.division === division)
+  }, [division, products])
   const totalPages = useMemo(
     () => Math.max(1, Math.ceil(filteredProducts.length / PRODUCTS_PER_PAGE)),
     [filteredProducts.length],
@@ -191,7 +221,8 @@ function CatalogPageInner({ division, isProductRoute }) {
     [isProductRoute, navigate, searchParams, setSearchParams],
   )
 
-  const categoryOptions = FILTER_GROUPS_BY_DIVISION[division].categories
+  const categoryOptions =
+    subcategoryFilterOptions?.[division] ?? FILTER_GROUPS_BY_DIVISION[division].categories
 
   const sidebarProps = {
     division,

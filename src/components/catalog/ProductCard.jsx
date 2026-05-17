@@ -25,11 +25,20 @@ export default function ProductCard({
   return (
     <article className="group flex h-full flex-col overflow-hidden bg-transparent">
       <div className="relative aspect-[3/2] min-h-[11rem] overflow-hidden bg-neutral-100 sm:min-h-[13rem] md:min-h-[14rem]">
-        <img
-          src={image}
-          alt={name}
-          className="h-full w-full object-contain p-2"
-        />
+        {image ? (
+          <img
+            src={image}
+            alt={name}
+            className="h-full w-full object-contain p-2"
+          />
+        ) : (
+          <div
+            aria-hidden
+            className="flex h-full w-full items-center justify-center bg-neutral-100 text-sm text-neutral-400"
+          >
+            No image
+          </div>
+        )}
         {showBadge ? (
           <span
             className={`absolute right-3 top-3 rounded-md px-2.5 py-1 text-sm font-semibold tracking-wide ${BADGE_STYLES[availability]}`}
