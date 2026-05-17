@@ -1,0 +1,2825 @@
+{
+  "schema_version": "1.0",
+  "usage": "web_display_filter_by_category_and_subcategory",
+  "categories": [
+    {
+      "id": "life-saving-equipment",
+      "name": "Life Saving Equipment",
+      "subcategories": [
+        {
+          "id": "life-jacket-life-buoy",
+          "name": "Life Jacket / Life Buoy",
+          "products": [
+            {
+              "id": "infant-life-jacket-foam",
+              "title": "Infant Life Jacket (Foam)",
+              "stock_status": "in_stock",
+              "approvals": [
+                "SOLAS",
+                "MED",
+                "CCS"
+              ],
+              "model": "HYJ-I",
+              "specifications": [
+                "Buoyancy ≥50N (infant size)",
+                "EPE inherent buoyancy material",
+                "Includes whistle, buddy line, lifting loop, optional light"
+              ],
+              "configurations": [
+                "Reflective tape and whistle as standard",
+                "Lifejacket light (lithium/manganese battery) optional"
+              ],
+              "key_advantages": [
+                "Stable buoyancy, safe for small children",
+                "Comfortable fit, designed for babies body shape",
+                "High durability: UV resistant, withstands high/low temperature cycles"
+              ],
+              "attributes": {},
+              "description": null,
+              "category_id": "life-saving-equipment",
+              "category_name": "Life Saving Equipment",
+              "subcategory_id": "life-jacket-life-buoy",
+              "subcategory_name": "Life Jacket / Life Buoy",
+              "slug": "infant-life-jacket-foam",
+              "images": []
+            },
+            {
+              "id": "child-marine-lifejacket-foam",
+              "title": "Child Marine Lifejacket (Foam)",
+              "stock_status": "in_stock",
+              "approvals": [
+                "SOLAS",
+                "MED",
+                "CCS"
+              ],
+              "model": "HYJ-C1",
+              "specifications": [
+                "Buoyancy ≥100N (child size)",
+                "EPE/EVA inherent buoyancy material",
+                "Includes whistle, buddy line, lifting loop, optional light"
+              ],
+              "configurations": [
+                "Reflective tape and whistle as standard",
+                "Lifejacket light (lithium/manganese battery) optional"
+              ],
+              "key_advantages": [
+                "Provides reliable buoyancy and comfort for children",
+                "Easy to adjust, safe for long-term use",
+                "Durable structure for marine applications"
+              ],
+              "attributes": {},
+              "description": null,
+              "category_id": "life-saving-equipment",
+              "category_name": "Life Saving Equipment",
+              "subcategory_id": "life-jacket-life-buoy",
+              "subcategory_name": "Life Jacket / Life Buoy",
+              "slug": "child-marine-lifejacket-foam",
+              "images": []
+            },
+            {
+              "id": "marine-life-jacket-adult-foam",
+              "title": "Marine Life Jacket (Adult, Foam)",
+              "stock_status": "in_stock",
+              "approvals": [
+                "SOLAS",
+                "MED",
+                "CCS"
+              ],
+              "model": "HYJ-A2",
+              "specifications": [
+                "Buoyancy ≥150N (adult size)",
+                "EPE/EVA inherent buoyancy material",
+                "Reflective tape compliant with MSC.481(102)",
+                "Includes whistle, buddy line, lifting loop, optional light"
+              ],
+              "configurations": [
+                "Reflective tape and whistle as standard",
+                "Lifejacket light (lithium/manganese battery) optional"
+              ],
+              "key_advantages": [
+                "Reliable buoyancy for adult users",
+                "Comfortable fit for long-term wear",
+                "Meets international maritime inspection requirements"
+              ],
+              "attributes": {},
+              "description": null,
+              "category_id": "life-saving-equipment",
+              "category_name": "Life Saving Equipment",
+              "subcategory_id": "life-jacket-life-buoy",
+              "subcategory_name": "Life Jacket / Life Buoy",
+              "slug": "marine-life-jacket-adult-foam",
+              "images": []
+            },
+            {
+              "id": "working-lifejacket-foam",
+              "title": "Working Lifejacket (Foam)",
+              "stock_status": "in_stock",
+              "approvals": [
+                "CCS"
+              ],
+              "model": "HYJ-GB-D5",
+              "specifications": [
+                "Buoyancy ≥74N (work type, adult size)",
+                "EPE inherent buoyancy material",
+                "Outer fabric: high-strength polyester, durable coating"
+              ],
+              "configurations": [
+                "Reflective tape, adjustable belt, and whistle",
+                "Optional light (lithium/Alkaline battery)"
+              ],
+              "key_advantages": [
+                "Provides sufficient buoyancy for near-shore and work applications",
+                "Ergonomic cut for comfort during long-term work",
+                "Lightweight, move freely, ideal for daily operations"
+              ],
+              "attributes": {},
+              "description": null,
+              "category_id": "life-saving-equipment",
+              "category_name": "Life Saving Equipment",
+              "subcategory_id": "life-jacket-life-buoy",
+              "subcategory_name": "Life Jacket / Life Buoy",
+              "slug": "working-lifejacket-foam",
+              "images": []
+            },
+            {
+              "id": "thermal-working-life-jacket-foam",
+              "title": "Thermal Working Life Jacket (Foam)",
+              "stock_status": "unknown",
+              "approvals": [
+                "CCS"
+              ],
+              "model": "HYJ-GB-D3",
+              "specifications": [
+                "Buoyancy ≥74N",
+                "EPE inherent buoyancy material",
+                "Outer fabric material: Polyester",
+                "Suitable for fishing boats and marine operations"
+              ],
+              "configurations": [
+                "Reflective tape as standard",
+                "Jacket and trousers two-piece design",
+                "Sizes: L, XL, XXL"
+              ],
+              "key_advantages": [
+                "Provides both buoyancy and thermal protection",
+                "Easy to wear and remove, suitable for long-term use",
+                "Practical design combining safety and comfort"
+              ],
+              "attributes": {},
+              "description": null,
+              "category_id": "life-saving-equipment",
+              "category_name": "Life Saving Equipment",
+              "subcategory_id": "life-jacket-life-buoy",
+              "subcategory_name": "Life Jacket / Life Buoy",
+              "slug": "thermal-working-life-jacket-foam",
+              "images": []
+            },
+            {
+              "id": "life-vest-50n-f10",
+              "title": "Life Vest 50N F10",
+              "stock_status": "unknown",
+              "approvals": [
+                "CCS",
+                "ISO"
+              ],
+              "model": "AUQUE-F10",
+              "specifications": [
+                "Buoyancy: ≥40N (S/M), ≥50N (L)",
+                "Buoyancy material: PVC foam",
+                "Outer fabric: Nylon Oxford",
+                "Provides stable buoyancy for inland and coastal waters"
+              ],
+              "configurations": [
+                "Reflective tape as standard",
+                "Adjustable shoulder and waist straps",
+                "Front pocket design for practical use",
+                "Sizes: S, M, L (with adjustable straps)"
+              ],
+              "key_advantages": [
+                "Lightweight vest design for comfort and flexibility",
+                "Adjustable fit for a wide range of body sizes"
+              ],
+              "attributes": {},
+              "description": null,
+              "category_id": "life-saving-equipment",
+              "category_name": "Life Saving Equipment",
+              "subcategory_id": "life-jacket-life-buoy",
+              "subcategory_name": "Life Jacket / Life Buoy",
+              "slug": "life-vest-50n-f10",
+              "images": []
+            },
+            {
+              "id": "life-vest-50n-f01",
+              "title": "Life Vest 50N F01",
+              "stock_status": "unknown",
+              "approvals": [
+                "CCS",
+                "ISO"
+              ],
+              "model": "AUQUE-F01",
+              "specifications": [
+                "Buoyancy: ≥40N (S/M), ≥50N (L/XL)",
+                "Buoyancy material: EPE foam",
+                "Outer fabric: Polyester"
+              ],
+              "configurations": [
+                "Reflective tape as standard",
+                "Adjustable waist and crotch straps",
+                "Lightweight vest design",
+                "Sizes: S, M, L, XL"
+              ],
+              "key_advantages": [
+                "Provides stable buoyancy for inland and coastal waters",
+                "High visibility with fluorescent yellow color for enhanced safety",
+                "Comfortable and flexible design with adjustable fit"
+              ],
+              "attributes": {},
+              "description": null,
+              "category_id": "life-saving-equipment",
+              "category_name": "Life Saving Equipment",
+              "subcategory_id": "life-jacket-life-buoy",
+              "subcategory_name": "Life Jacket / Life Buoy",
+              "slug": "life-vest-50n-f01",
+              "images": []
+            },
+            {
+              "id": "life-vest-100n-l01",
+              "title": "Life Vest 100N L01",
+              "stock_status": "unknown",
+              "approvals": [
+                "CCS",
+                "ISO"
+              ],
+              "model": "AUQUE-L01",
+              "specifications": [
+                "Buoyancy: ≥80N (M), ≥100N (L)",
+                "Buoyancy material: EPE foam",
+                "Outer fabric: Polyester Oxford"
+              ],
+              "configurations": [
+                "Reflective tape as standard",
+                "Adjustable waist and chest belts",
+                "Whistle equipped",
+                "Sizes: S, M, L"
+              ],
+              "key_advantages": [
+                "High buoyancy and stable performance",
+                "Comfortable vest-style design, suitable for universal use"
+              ],
+              "attributes": {},
+              "description": null,
+              "category_id": "life-saving-equipment",
+              "category_name": "Life Saving Equipment",
+              "subcategory_id": "life-jacket-life-buoy",
+              "subcategory_name": "Life Jacket / Life Buoy",
+              "slug": "life-vest-100n-l01",
+              "images": []
+            },
+            {
+              "id": "inflatable-life-jacket-adult-150n",
+              "title": "Inflatable Life Jacket (Adult) 150N",
+              "stock_status": "unknown",
+              "approvals": [
+                "CCS",
+                "SOLAS",
+                "MED"
+              ],
+              "model": "HYJ-QA-S1",
+              "specifications": [
+                "Buoyancy ≥150N",
+                "Inflation: Auto (≤5s), manual backup",
+                "Temperature range: -30°C ~ +65°C"
+              ],
+              "configurations": [
+                "Reflective tape as standard",
+                "Equipped with whistle, buddy line, lifting becket",
+                "CO₂ cylinder: 1×33 g",
+                "Size: ≤1750 mm chest, ≤140 kg body weight"
+              ],
+              "key_advantages": [
+                "Dual bladder system ensures high safety",
+                "Easy to wear, allows full range of movement"
+              ],
+              "attributes": {},
+              "description": null,
+              "category_id": "life-saving-equipment",
+              "category_name": "Life Saving Equipment",
+              "subcategory_id": "life-jacket-life-buoy",
+              "subcategory_name": "Life Jacket / Life Buoy",
+              "slug": "inflatable-life-jacket-adult-150n",
+              "images": []
+            },
+            {
+              "id": "inflatable-life-jacket-adult-275n",
+              "title": "Inflatable Life Jacket (Adult) 275N",
+              "stock_status": "unknown",
+              "approvals": [
+                "CCS",
+                "SOLAS",
+                "MED"
+              ],
+              "model": "HYJ-QA-D1",
+              "specifications": [
+                "Buoyancy ≥275N",
+                "Inflation: Auto (≤5s), manual backup",
+                "Temperature range: -30°C ~ +65°C"
+              ],
+              "configurations": [
+                "Reflective tape as standard",
+                "Equipped with whistle, buddy line, lifting becket",
+                "CO₂ cylinder: 1×60 g",
+                "Size: ≤1750 mm chest, ≤140 kg body weight"
+              ],
+              "key_advantages": [
+                "275N buoyancy, suitable for heavy gear or rough waters",
+                "Durable design for professional maritime use",
+                "Dual bladder system enhances safety redundancy"
+              ],
+              "attributes": {},
+              "description": null,
+              "category_id": "life-saving-equipment",
+              "category_name": "Life Saving Equipment",
+              "subcategory_id": "life-jacket-life-buoy",
+              "subcategory_name": "Life Jacket / Life Buoy",
+              "slug": "inflatable-life-jacket-adult-275n",
+              "images": []
+            },
+            {
+              "id": "inflatable-life-jacket-child-150n",
+              "title": "Inflatable Life Jacket (Child) 150N",
+              "stock_status": "unknown",
+              "approvals": [
+                "CCS",
+                "SOLAS",
+                "MED"
+              ],
+              "model": "HWAYAN-QC-D1",
+              "specifications": [
+                "Buoyancy ≥150N",
+                "Single bladder with dual chamber design",
+                "Inflation: Auto (≤5s), manual backup",
+                "Temperature range: -30°C ~ +65°C"
+              ],
+              "configurations": [
+                "Reflective tape as standard",
+                "Equipped with whistle, buddy line, lifting becket",
+                "CO₂ cylinder: 1×23 g",
+                "For children: 15–43 kg, 100–155 cm height"
+              ],
+              "key_advantages": [
+                "Designed specifically for child safety",
+                "Lightweight, easy to wear",
+                "High buoyancy ensures stability in water"
+              ],
+              "attributes": {},
+              "description": null,
+              "category_id": "life-saving-equipment",
+              "category_name": "Life Saving Equipment",
+              "subcategory_id": "life-jacket-life-buoy",
+              "subcategory_name": "Life Jacket / Life Buoy",
+              "slug": "inflatable-life-jacket-child-150n",
+              "images": []
+            },
+            {
+              "id": "lifebuoy-2-5-kg",
+              "title": "Lifebuoy (2.5 kg)",
+              "stock_status": "in_stock",
+              "approvals": [
+                "SOLAS",
+                "MED",
+                "CCS"
+              ],
+              "model": "HY5555",
+              "specifications": [
+                "Outer diameter ≥710 mm",
+                "Inner diameter ≥445 mm",
+                "Weight 2.5 kg",
+                "Buoyancy ≥14.5N"
+              ],
+              "configurations": [
+                "Fitted with SOLAS reflective tape and PE rope",
+                "Compatible with lifebuoy light or smoke signal"
+              ],
+              "key_advantages": [
+                "HDPE shell UV-resistant, flame-retardant",
+                "Passed 2 m concrete drop test (3 times)",
+                "Drop height up to 100 m"
+              ],
+              "attributes": {},
+              "description": null,
+              "category_id": "life-saving-equipment",
+              "category_name": "Life Saving Equipment",
+              "subcategory_id": "life-jacket-life-buoy",
+              "subcategory_name": "Life Jacket / Life Buoy",
+              "slug": "lifebuoy-2-5-kg",
+              "images": []
+            },
+            {
+              "id": "lifebuoy-4-3-kg",
+              "title": "Lifebuoy (4.3 kg)",
+              "stock_status": "in_stock",
+              "approvals": [
+                "SOLAS",
+                "MED",
+                "CCS"
+              ],
+              "model": "HY5555-4",
+              "specifications": [
+                "Outer diameter ≥750 mm",
+                "Inner diameter ≥468 mm",
+                "Weight 4.3 kg",
+                "Buoyancy ≥14.5N",
+                "Fitted with SOLAS reflective tape and PE rope"
+              ],
+              "configurations": [
+                "Fitted with SOLAS reflective tape and PE rope",
+                "Compatible with lifebuoy light or smoke signal"
+              ],
+              "key_advantages": [
+                "HDPE shell UV-resistant, flame-retardant",
+                "Passed 2 m concrete drop test (3 times)",
+                "Drop height up to 100 m"
+              ],
+              "attributes": {},
+              "description": null,
+              "category_id": "life-saving-equipment",
+              "category_name": "Life Saving Equipment",
+              "subcategory_id": "life-jacket-life-buoy",
+              "subcategory_name": "Life Jacket / Life Buoy",
+              "slug": "lifebuoy-4-3-kg",
+              "images": []
+            },
+            {
+              "id": "lifebuoy-bracket",
+              "title": "Lifebuoy Bracket",
+              "stock_status": "in_stock",
+              "approvals": [],
+              "model": null,
+              "specifications": [
+                "Model: Standard marine lifebuoy bracket",
+                "Material: Carbon steel",
+                "For use with 2.5 kg lifebuoys"
+              ],
+              "configurations": [
+                "Single-piece bracket with round opening",
+                "Compatible with lifebuoy lights"
+              ],
+              "key_advantages": [
+                "Durable and resistant to marine corrosion",
+                "Easy installation and maintenance",
+                "Ensures lifebuoy is securely mounted and accessible"
+              ],
+              "attributes": {},
+              "description": null,
+              "category_id": "life-saving-equipment",
+              "category_name": "Life Saving Equipment",
+              "subcategory_id": "life-jacket-life-buoy",
+              "subcategory_name": "Life Jacket / Life Buoy",
+              "slug": "lifebuoy-bracket",
+              "images": []
+            },
+            {
+              "id": "buoyant-lifeline",
+              "title": "Buoyant Lifeline",
+              "stock_status": "unknown",
+              "approvals": [],
+              "model": null,
+              "specifications": [
+                "Length ≥30 m",
+                "Material: PP",
+                "Breaking strength ≥5KN"
+              ],
+              "configurations": [
+                "With plastic casing",
+                "Without casing"
+              ],
+              "key_advantages": [],
+              "attributes": {},
+              "description": null,
+              "category_id": "life-saving-equipment",
+              "category_name": "Life Saving Equipment",
+              "subcategory_id": "life-jacket-life-buoy",
+              "subcategory_name": "Life Jacket / Life Buoy",
+              "slug": "buoyant-lifeline",
+              "images": []
+            }
+          ]
+        },
+        {
+          "id": "lights",
+          "name": "Lights",
+          "products": [
+            {
+              "id": "lifejacket-light-lithium-battery",
+              "title": "Lifejacket Light Lithium Battery",
+              "stock_status": "in_stock",
+              "approvals": [
+                "SOLAS",
+                "MED",
+                "CCS"
+              ],
+              "model": "YDL20",
+              "specifications": [
+                "Operation: Water activated / Manually",
+                "Light source: LED (flashing)",
+                "Battery type: Lithium battery",
+                "Light intensity: ≥0.75 cd",
+                "Flash frequency: 50–70 times/min",
+                "Operating time: ≥8 h",
+                "Operating temperature: -1°C ~ +30°C"
+              ],
+              "configurations": [
+                "Equipped with fixing bracket and lanyard",
+                "Automatically activated when in contact with water"
+              ],
+              "key_advantages": [
+                "Compact and lightweight for easy integration with lifejackets",
+                "High durability and stable performance under marine conditions"
+              ],
+              "attributes": {},
+              "description": null,
+              "category_id": "life-saving-equipment",
+              "category_name": "Life Saving Equipment",
+              "subcategory_id": "lights",
+              "subcategory_name": "Lights",
+              "slug": "lifejacket-light-lithium-battery",
+              "images": []
+            },
+            {
+              "id": "lifejacket-light-alkaline-battery",
+              "title": "Lifejacket Light Alkaline Battery",
+              "stock_status": "in_stock",
+              "approvals": [
+                "SOLAS",
+                "MED",
+                "CCS"
+              ],
+              "model": "YD50",
+              "specifications": [
+                "LED light source",
+                "Alkaline battery, operating time ≥8 h",
+                "Luminous intensity ≥0.75 cd",
+                "Water-activated, with manual switch"
+              ],
+              "configurations": [
+                "Clip-on mount",
+                "Water-activated as standard",
+                "Manual switch"
+              ],
+              "key_advantages": [
+                "Cost-effective, reliable for standard applications",
+                "Compact and lightweight",
+                "Long operating time ensures visibility at sea",
+                "Easy installation and operation"
+              ],
+              "attributes": {},
+              "description": null,
+              "category_id": "life-saving-equipment",
+              "category_name": "Life Saving Equipment",
+              "subcategory_id": "lights",
+              "subcategory_name": "Lights",
+              "slug": "lifejacket-light-alkaline-battery",
+              "images": []
+            },
+            {
+              "id": "lifejacket-light-alkaline-battery-ydg1c",
+              "title": "Lifejacket Light Alkaline Battery YDG1C",
+              "stock_status": "unknown",
+              "approvals": [
+                "SOLAS",
+                "MED",
+                "CCS"
+              ],
+              "model": "YDG1C",
+              "specifications": [
+                "Light source: LED (flashing)",
+                "Battery type: Alkaline",
+                "Light intensity: ≥0.75 cd",
+                "Flash frequency: 50–70 times/min",
+                "Operating time: ≥8 h",
+                "Operating temperature: -1°C ~ +30°C",
+                "Weight: 35 g"
+              ],
+              "configurations": [
+                "Equipped with clip and lanyard for easy attachment",
+                "Automatically activated when in contact with water"
+              ],
+              "key_advantages": [
+                "Compact and lightweight for comfortable wearing",
+                "Waterproof and corrosion-resistant"
+              ],
+              "attributes": {},
+              "description": null,
+              "category_id": "life-saving-equipment",
+              "category_name": "Life Saving Equipment",
+              "subcategory_id": "lights",
+              "subcategory_name": "Lights",
+              "slug": "lifejacket-light-alkaline-battery-ydg1c",
+              "images": []
+            },
+            {
+              "id": "lifejacket-light-polar-type",
+              "title": "Lifejacket Light Polar Type",
+              "stock_status": "unknown",
+              "approvals": [
+                "SOLAS",
+                "MED",
+                "CCS"
+              ],
+              "model": "YD50-JD",
+              "specifications": [
+                "Light source: LED (flashing)",
+                "Battery type: Alkaline",
+                "Light intensity: ≥0.75 cd",
+                "Flash frequency: 50–70 times/min",
+                "Operating time: ≥8 h",
+                "Storage temperature: -62°C ~ +65°C",
+                "Operating temperature: -40°C ~ +45°C",
+                "Weight: 35 g"
+              ],
+              "configurations": [
+                "Equipped with fixing bracket and lanyard",
+                "Manual push-button switch"
+              ],
+              "key_advantages": [
+                "Designed for polar and extreme cold environments",
+                "High durability under low temperature operation",
+                "Compact design and easy installation"
+              ],
+              "attributes": {},
+              "description": null,
+              "category_id": "life-saving-equipment",
+              "category_name": "Life Saving Equipment",
+              "subcategory_id": "lights",
+              "subcategory_name": "Lights",
+              "slug": "lifejacket-light-polar-type",
+              "images": []
+            },
+            {
+              "id": "lifejacket-light-explosion-proof",
+              "title": "Lifejacket Light Explosion Proof",
+              "stock_status": "in_stock",
+              "approvals": [
+                "SOLAS",
+                "MED",
+                "CCS",
+                "ATEX (Explosion-proof)"
+              ],
+              "model": "YDL12-Ex",
+              "specifications": [
+                "LED light source",
+                "Explosion-proof, intrinsically safe design",
+                "Lithium battery, operating time ≥12 h",
+                "Luminous intensity ≥0.75 cd",
+                "Water-activated, manual switch backup"
+              ],
+              "configurations": [
+                "Explosion-proof housing",
+                "Clip-on mount",
+                "Manual switch"
+              ],
+              "key_advantages": [
+                "Safe for oil tankers, chemical carriers, hazardous environments",
+                "Certified explosion-proof performance",
+                "Durable and reliable in harsh conditions"
+              ],
+              "attributes": {},
+              "description": null,
+              "category_id": "life-saving-equipment",
+              "category_name": "Life Saving Equipment",
+              "subcategory_id": "lights",
+              "subcategory_name": "Lights",
+              "slug": "lifejacket-light-explosion-proof",
+              "images": []
+            },
+            {
+              "id": "lifebuoy-self-igniting-light",
+              "title": "Lifebuoy Self Igniting Light",
+              "stock_status": "in_stock",
+              "approvals": [
+                "SOLAS",
+                "MED",
+                "CCS"
+              ],
+              "model": "HYQD20",
+              "specifications": [
+                "LED light source",
+                "Alkaline battery, operating time ≥2 h",
+                "Luminous intensity ≥2.0 cd",
+                "Self-activated by tilt-switch"
+              ],
+              "configurations": [
+                "Plastic attachment bracket for lifebuoy",
+                "Stainless steel bracket optional"
+              ],
+              "key_advantages": [
+                "Replaceable Battery extends product lifespan",
+                "Compact and durable design, easy installation"
+              ],
+              "attributes": {},
+              "description": null,
+              "category_id": "life-saving-equipment",
+              "category_name": "Life Saving Equipment",
+              "subcategory_id": "lights",
+              "subcategory_name": "Lights",
+              "slug": "lifebuoy-self-igniting-light",
+              "images": []
+            },
+            {
+              "id": "explosion-proof-lifebuoy-light",
+              "title": "Explosion-proof Lifebuoy Light",
+              "stock_status": "in_stock",
+              "approvals": [
+                "SOLAS",
+                "MED",
+                "CCS"
+              ],
+              "model": "FBQD2",
+              "specifications": [
+                "Light type: Flashing LED",
+                "Activation: Self-activated by tilt switch",
+                "Replaceable battery: 2 × LR20 Alkaline battery",
+                "Explosion-proof level: Ex ia II C T4"
+              ],
+              "configurations": [
+                "Explosion-proof housing",
+                "Replaceable alkaline batteries",
+                "Water protection, shock-proof design"
+              ],
+              "key_advantages": [
+                "Intrinsically safe, explosion-proof certified",
+                "Reliable in oil/chemical tanker environments",
+                "Operates in harsh climates (−30℃ to +65℃)",
+                "Replaceable batteries extend product lifespan"
+              ],
+              "attributes": {},
+              "description": null,
+              "category_id": "life-saving-equipment",
+              "category_name": "Life Saving Equipment",
+              "subcategory_id": "lights",
+              "subcategory_name": "Lights",
+              "slug": "explosion-proof-lifebuoy-light",
+              "images": []
+            }
+          ]
+        },
+        {
+          "id": "immersion-suits-protective-suits",
+          "name": "Immersion Suits & Protective Suits",
+          "products": [
+            {
+              "id": "thermal-protective-aid",
+              "title": "Thermal Protective Aid",
+              "stock_status": "in_stock",
+              "approvals": [
+                "SOLAS",
+                "CCS",
+                "MED"
+              ],
+              "model": "HYB-2",
+              "specifications": [
+                "Material: Polyester oxford spinning + aluminum film",
+                "Fabric watertight integrity: ≥2 m water column",
+                "Thermal conductance: ≤7500 W/m²·K",
+                "Size: 225 × 90 cm"
+              ],
+              "configurations": [
+                "One-piece protective bag design"
+              ],
+              "key_advantages": [
+                "Provides certified thermal protection in survival conditions",
+                "Lightweight and compact, easy to stow on board"
+              ],
+              "attributes": {},
+              "description": null,
+              "category_id": "life-saving-equipment",
+              "category_name": "Life Saving Equipment",
+              "subcategory_id": "immersion-suits-protective-suits",
+              "subcategory_name": "Immersion Suits & Protective Suits",
+              "slug": "thermal-protective-aid",
+              "images": []
+            },
+            {
+              "id": "insulated-immersion-suit-n1-series",
+              "title": "Insulated Immersion Suit N1 Series",
+              "stock_status": "unknown",
+              "approvals": [
+                "SOLAS",
+                "MED",
+                "CCS"
+              ],
+              "model": "HYF-N1",
+              "specifications": [
+                "Integrated buoyancy, designed to wear without lifejacket",
+                "Thermal performance: In 0 °C ~ +2 °C calm water for 6 h, body temperature drop ≤ 2 °C",
+                "Outer fabric: Terylene + TPU waterproof composite",
+                "Buoyancy material: PE foam",
+                "Buoyancy: ≥ 142 N"
+              ],
+              "configurations": [
+                "Equipped with lifejacket light, whistle, buddy line, and lifting becket"
+              ],
+              "key_advantages": [
+                "Combines buoyancy and thermal insulation for survival protection",
+                "Waterproof composite outer layer, highly durable",
+                "High-visibility orange color with reflective tape for enhanced safety",
+                "Designed for full-body coverage in cold-water immersion"
+              ],
+              "attributes": {},
+              "description": null,
+              "category_id": "life-saving-equipment",
+              "category_name": "Life Saving Equipment",
+              "subcategory_id": "immersion-suits-protective-suits",
+              "subcategory_name": "Immersion Suits & Protective Suits",
+              "slug": "insulated-immersion-suit-n1-series",
+              "images": []
+            },
+            {
+              "id": "insulated-immersion-suit-n2-w-buoyancy",
+              "title": "Insulated Immersion Suit N2 w/ Buoyancy",
+              "stock_status": "in_stock",
+              "approvals": [
+                "CCS",
+                "MED",
+                "MER"
+              ],
+              "model": "HYF-N2 / HYF-2-R",
+              "specifications": [
+                "Material: CR neoprene",
+                "Buoyancy: ≥150N",
+                "Designed to be worn without lifejacket",
+                "Flame-retardant outer layer",
+                "Moisture barrier and thermal liner"
+              ],
+              "configurations": [
+                "Reflective tape as standard",
+                "Whistle, buddy line and lifting becket included",
+                "Optional light (lithium/manganese battery)"
+              ],
+              "key_advantages": [
+                "Thermal performance: After immersing in 0℃~+2℃ calm water for 6h, body core temperature drops ≤2℃",
+                "Designed for shipboard firefighting operations"
+              ],
+              "attributes": {},
+              "description": null,
+              "category_id": "life-saving-equipment",
+              "category_name": "Life Saving Equipment",
+              "subcategory_id": "immersion-suits-protective-suits",
+              "subcategory_name": "Immersion Suits & Protective Suits",
+              "slug": "insulated-immersion-suit-n2-w-buoyancy",
+              "images": []
+            },
+            {
+              "id": "immersion-suit-n6-series-w-o-buoyancy",
+              "title": "Immersion Suit N6 Series w/o Buoyancy",
+              "stock_status": "unknown",
+              "approvals": [
+                "SOLAS",
+                "MED",
+                "CCS"
+              ],
+              "model": "HYF-N6",
+              "specifications": [
+                "Designed to be worn with an approved lifejacket",
+                "Thermal performance: In 0 °C ~ +2 °C calm water for 6 h, body temperature drop ≤ 2 °C",
+                "Material: CR neoprene",
+                "Buoyancy: ≥100 N"
+              ],
+              "configurations": [
+                "Comes with waterproof zipper and reflective tape",
+                "Optional light (lithium/manganese battery) and gloves"
+              ],
+              "key_advantages": [
+                "Excellent insulation and waterproof performance",
+                "Durable CR neoprene provides both elasticity and comfort",
+                "High-visibility design for easy identification"
+              ],
+              "attributes": {},
+              "description": null,
+              "category_id": "life-saving-equipment",
+              "category_name": "Life Saving Equipment",
+              "subcategory_id": "immersion-suits-protective-suits",
+              "subcategory_name": "Immersion Suits & Protective Suits",
+              "slug": "immersion-suit-n6-series-w-o-buoyancy",
+              "images": []
+            },
+            {
+              "id": "non-insulated-immersion-suit",
+              "title": "Non-Insulated Immersion Suit",
+              "stock_status": "unknown",
+              "approvals": [
+                "CCS",
+                "MED"
+              ],
+              "model": "HYF-NI/F2",
+              "specifications": [
+                "Material: Terylene + TPU",
+                "Designed to be worn with an approved lifejacket",
+                "Flame-retardant and waterproof outer fabric",
+                "Size range: 140–205 cm"
+              ],
+              "configurations": [
+                "Reflective tape as standard",
+                "Optional lifejacket light and buddy line"
+              ],
+              "key_advantages": [
+                "Thermal performance: When immersed in 5 °C static water for 1 h, body temperature drop ≤ 2 °C",
+                "Durable, flexible construction for shipboard emergency use"
+              ],
+              "attributes": {},
+              "description": null,
+              "category_id": "life-saving-equipment",
+              "category_name": "Life Saving Equipment",
+              "subcategory_id": "immersion-suits-protective-suits",
+              "subcategory_name": "Immersion Suits & Protective Suits",
+              "slug": "non-insulated-immersion-suit",
+              "images": []
+            },
+            {
+              "id": "child-immersion-suit",
+              "title": "Child Immersion Suit",
+              "stock_status": "unknown",
+              "approvals": [],
+              "model": null,
+              "specifications": [
+                "Material: CR neoprene",
+                "Buoyancy: ≥100N",
+                "Flame-retardant, water-resistant outer layer",
+                "Designed for children aged 2–10 years"
+              ],
+              "configurations": [
+                "Includes whistle, buddy line, and lifting becket",
+                "Reflective tape as standard",
+                "Optional lifejacket light"
+              ],
+              "key_advantages": [
+                "Excellent insulation for prolonged cold-water survival",
+                "Designed for comfort and safety of small children"
+              ],
+              "attributes": {},
+              "description": null,
+              "category_id": "life-saving-equipment",
+              "category_name": "Life Saving Equipment",
+              "subcategory_id": "immersion-suits-protective-suits",
+              "subcategory_name": "Immersion Suits & Protective Suits",
+              "slug": "child-immersion-suit",
+              "images": []
+            },
+            {
+              "id": "insulated-immersion-suit-polar",
+              "title": "Insulated Immersion Suit (Polar)",
+              "stock_status": "unknown",
+              "approvals": [
+                "MED",
+                "SOLAS"
+              ],
+              "model": "HYF-JD",
+              "specifications": [
+                "Material: Terylene + TPU waterproof fabric",
+                "Buoyancy: ≥142N",
+                "Designed to be worn without lifejacket",
+                "24h buoyancy loss ≤5%",
+                "Storage temperature: −62°C to +65°C",
+                "Lowest operating temperature: −45°C"
+              ],
+              "configurations": [
+                "Reflective tape as standard",
+                "Waterproof zipper, whistle, buddy line, and lifting becket included"
+              ],
+              "key_advantages": [
+                "Thermal performance: After immersing in 0°C~+2°C calm water for 6h, body core temperature drops ≤2°C",
+                "High resistance to extreme cold and thermal preservation for polar environments"
+              ],
+              "attributes": {},
+              "description": null,
+              "category_id": "life-saving-equipment",
+              "category_name": "Life Saving Equipment",
+              "subcategory_id": "immersion-suits-protective-suits",
+              "subcategory_name": "Immersion Suits & Protective Suits",
+              "slug": "insulated-immersion-suit-polar",
+              "images": []
+            },
+            {
+              "id": "non-gas-tightness-type-chemical-protective-suit",
+              "title": "Non-Gas-Tightness Type Chemical Protective Suit",
+              "stock_status": "in_stock",
+              "approvals": [
+                "RINA"
+              ],
+              "model": "HYFH-C1",
+              "specifications": [
+                "Applicable temperature:-30C~+65℃",
+                "Protecting fire fighting personnel from harmful chemicals andcorrosive substances in a fire or accident.",
+                "Complete set including chemical resistance suits, boots, gloves and goggles."
+              ],
+              "configurations": [],
+              "key_advantages": [],
+              "attributes": {
+                "size": "Size L&XL"
+              },
+              "description": null,
+              "category_id": "life-saving-equipment",
+              "category_name": "Life Saving Equipment",
+              "subcategory_id": "immersion-suits-protective-suits",
+              "subcategory_name": "Immersion Suits & Protective Suits",
+              "slug": "non-gas-tightness-type-chemical-protective-suit",
+              "images": []
+            },
+            {
+              "id": "gas-tightness-type-chemical-protective-suit",
+              "title": "Gas-Tightness Type Chemical Protective Suit",
+              "stock_status": "in_stock",
+              "approvals": [
+                "RINA"
+              ],
+              "model": "HYFH-C2",
+              "specifications": ["Protecting people who work on dangerous sites form being damaged by hazardous chemicals or corrosive materials."],
+              "configurations": [],
+              "key_advantages": [],
+              "attributes": {
+                "size": "Size L&XL"
+              },
+              "description": null,
+              "category_id": "life-saving-equipment",
+              "category_name": "Life Saving Equipment",
+              "subcategory_id": "immersion-suits-protective-suits",
+              "subcategory_name": "Immersion Suits & Protective Suits",
+              "slug": "gas-tightness-type-chemical-protective-suit",
+              "images": []
+            }
+          ]
+        },
+        {
+          "id": "life-rafts",
+          "name": "Life Rafts",
+          "products": [
+            {
+              "id": "throw-overboard-type-inflatable-life-raft",
+              "title": "Throw Overboard Type Inflatable Life Raft",
+              "stock_status": "unknown",
+              "approvals": [
+                "SOLAS",
+                "MED",
+                "CCS"
+              ],
+              "model": null,
+              "specifications": [],
+              "configurations": [],
+              "key_advantages": [],
+              "attributes": {},
+              "description": null,
+              "category_id": "life-saving-equipment",
+              "category_name": "Life Saving Equipment",
+              "subcategory_id": "life-rafts",
+              "subcategory_name": "Life Rafts",
+              "slug": "throw-overboard-type-inflatable-life-raft",
+              "images": []
+            },
+            {
+              "id": "davit-type-inflatable-life-raft",
+              "title": "Davit Type Inflatable Life Raft",
+              "stock_status": "unknown",
+              "approvals": [
+                "SOLAS",
+                "MED",
+                "CCS"
+              ],
+              "model": null,
+              "specifications": [],
+              "configurations": [],
+              "key_advantages": [],
+              "attributes": {},
+              "description": null,
+              "category_id": "life-saving-equipment",
+              "category_name": "Life Saving Equipment",
+              "subcategory_id": "life-rafts",
+              "subcategory_name": "Life Rafts",
+              "slug": "davit-type-inflatable-life-raft",
+              "images": []
+            }
+          ]
+        },
+        {
+          "id": "pneumatic-line-throwing-equipment",
+          "name": "Pneumatic Line Throwing Equipment",
+          "products": [
+            {
+              "id": "pneumatic-line-throwing-equipment",
+              "title": "Pneumatic Line-Throwing Equipment",
+              "stock_status": "unknown",
+              "approvals": [
+                "SOLAS",
+                "MED",
+                "CCS",
+                "USCG"
+              ],
+              "model": null,
+              "specifications": [],
+              "configurations": [],
+              "key_advantages": [],
+              "attributes": {},
+              "description": "Pneumatic line-throwing equipment (Model PTQ8.5-Y230/1) is ahandheld type and it uses compressed air as the power for longdistance throwing. This equipment can launch the rope to a distanceof at least 230 meters in a few seconds. It can be applied to long-distance water rescue such as river, lake, river and seaside, lt is also suitable for civilian, police, military, fire, ship and otherrescue places.",
+              "category_id": "life-saving-equipment",
+              "category_name": "Life Saving Equipment",
+              "subcategory_id": "pneumatic-line-throwing-equipment",
+              "subcategory_name": "Pneumatic Line Throwing Equipment",
+              "slug": "pneumatic-line-throwing-equipment",
+              "images": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fire-fighting-equipment",
+      "name": "Fire Fighting Equipment",
+      "subcategories": [
+        {
+          "id": "firefighters-equipment",
+          "name": "Firefighter’s Equipment",
+          "products": [
+            {
+              "id": "scba-steel",
+              "title": "SCBA (Steel)",
+              "stock_status": "in_stock",
+              "approvals": [
+                "SOLAS",
+                "MED",
+                "CCS"
+              ],
+              "model": "RHZK6/30",
+              "specifications": [
+                "Cylinder material: Alloy steel",
+                "Cylinder volume: 6L",
+                "Air Capacity: 1800L",
+                "Working pressure: 300 bar",
+                "Weight: ≤ 18 kg"
+              ],
+              "configurations": [
+                "Complete set includes full face mask, pressure reducer, supply valve, and alarm device",
+                "Comfortable harness and reliable air supply system"
+              ],
+              "key_advantages": [
+                "High-pressure alloy steel cylinder, durable and corrosion-resistant",
+                "Equipped with both audible and visual alarm devices",
+                "Certified for marine, firefighting, and industrial rescue use"
+              ],
+              "attributes": {},
+              "description": null,
+              "category_id": "fire-fighting-equipment",
+              "category_name": "Fire Fighting Equipment",
+              "subcategory_id": "firefighters-equipment",
+              "subcategory_name": "Firefighter’s Equipment",
+              "slug": "scba-steel",
+              "images": []
+            },
+            {
+              "id": "scba-carbon-fiber",
+              "title": "SCBA (Carbon Fiber)",
+              "stock_status": "in_stock",
+              "approvals": [
+                "SOLAS",
+                "MED",
+                "CCS"
+              ],
+              "model": null,
+              "specifications": [
+                "Cylinder material: Carbon fiber composite",
+                "Cylinder volume: 6.8 L",
+                "Air capacity: 2040 L (300 bar) / 1360 L (200 bar)",
+                "Weight: ≤ 12 kg"
+              ],
+              "configurations": [
+                "Complete set includes full face mask, pressure reducer, supply valve, and alarm device",
+                "Ergonomic back frame with adjustable harness"
+              ],
+              "key_advantages": [
+                "Lightweight carbon fiber composite cylinder for enhanced mobility",
+                "Excellent corrosion and high-pressure resistance",
+                "Audible and visual alarm for safety assurance",
+                "Certified for marine, offshore, and firefighting applications"
+              ],
+              "attributes": {},
+              "description": null,
+              "category_id": "fire-fighting-equipment",
+              "category_name": "Fire Fighting Equipment",
+              "subcategory_id": "firefighters-equipment",
+              "subcategory_name": "Firefighter’s Equipment",
+              "slug": "scba-carbon-fiber",
+              "images": []
+            },
+            {
+              "id": "scba-parts",
+              "title": "SCBA Parts",
+              "stock_status": "in_stock",
+              "approvals": [],
+              "model": null,
+              "specifications": [{
+                "Cylinder": [
+                  "Cylinder materials: Alloy steel & carbon fiber composite",
+                  "Air capacities: 1800 L",
+                  "Working pressure: 300 bar",
+                  "Cylinder valve: G5/8 female thread"
+                ]
+              }, {
+                "Refilling adapter": [
+                  "Connection thread to air compressor: G5/8 or M27×1.5",
+                  "Material: Stainless steel"
+                ]
+              }, {
+                "Full face mask" : [
+                  "Lens: Transparent, spherical design"
+                ]
+              }, {
+                "Supply valve" : [
+                  "Exhalation resistance: <700 Pa",
+                  "Inhalation resistance: <500 Pa",
+                  "Static pressure: <300 Pa"
+                ]
+              }, {
+                "Cylinder valve" : [
+                  "Connection: G5/8 female thread"
+                ]
+              }, {
+                "Pressure reducer unit" : []
+              }, {
+                "High-pressure pipe assembly" : []
+              }, {
+                "Backboard" : [
+                  "Adjustable shoulder and waist straps for ergonomic fit",
+                  "Equipped with quick-release buckle system"
+                ]
+              }],
+              "configurations": [],
+              "key_advantages": [{
+                "Backboard" : [
+                  "Lightweight and comfortable for extended wear",
+                  "Strong load-bearing capacity",
+                  "Compatible with standard SCBA systems"
+                ]
+              }],
+              "attributes": {},
+              "description": null,
+              "category_id": "fire-fighting-equipment",
+              "category_name": "Fire Fighting Equipment",
+              "subcategory_id": "firefighters-equipment",
+              "subcategory_name": "Firefighter’s Equipment",
+              "slug": "scba-parts",
+              "images": []
+            },
+            {
+              "id": "eebd-15min",
+              "title": "EEBD 15min",
+              "stock_status": "in_stock",
+              "approvals": [
+                "SOLAS",
+                "MED",
+                "CCS"
+              ],
+              "model": "TH15B",
+              "specifications": [
+                "Cylinder Material: Alloy Steel",
+                "Cylinder Volume: 3.2L",
+                "Working Duration: ≥15",
+                "Working Pressure: 210bar",
+                "Weight: ≤7.5"
+              ],
+              "configurations": [],
+              "key_advantages": [],
+              "attributes": {},
+              "description": null,
+              "category_id": "fire-fighting-equipment",
+              "category_name": "Fire Fighting Equipment",
+              "subcategory_id": "firefighters-equipment",
+              "subcategory_name": "Firefighter’s Equipment",
+              "slug": "eebd-15min",
+              "images": []
+            },
+            {
+              "id": "firefighters-protective-suit-scba-inside-type",
+              "title": "Firefighter’s Protective Suit (SCBA Inside Type)",
+              "stock_status": "in_stock",
+              "approvals": [
+                "SOLAS",
+                "MED",
+                "CCS"
+              ],
+              "model": null,
+              "specifications": [
+                "Designed as SCBA inside firefighter’s protective clothing",
+                "Main material: Aramid",
+                "Protection class: EN 469 Level 2 (X2, Y2, Z2)",
+                "Size: L"
+              ],
+              "configurations": [
+                "Complete set including coat and trousers",
+                "Supplied as part of a complete FFS set (helmet, gloves, boots, suit)"
+              ],
+              "key_advantages": [
+                "Provides full body protection against heat and flames"
+              ],
+              "attributes": {},
+              "description": null,
+              "category_id": "fire-fighting-equipment",
+              "category_name": "Fire Fighting Equipment",
+              "subcategory_id": "firefighters-equipment",
+              "subcategory_name": "Firefighter’s Equipment",
+              "slug": "firefighters-protective-suit-scba-inside-type",
+              "images": []
+            },
+            {
+              "id": "firefighters-protective-suit-yxf-c8-scba-outside-type",
+              "title": "Firefighter’s Protective Suit YXF-C8 (SCBA Outside Type)",
+              "stock_status": "unknown",
+              "approvals": [
+                "SOLAS",
+                "MED",
+                "CCS"
+              ],
+              "model": null,
+              "specifications": [
+                "Designed as SCBA outside firefighter’s protective clothing",
+                "Main material: Aramid",
+                "Protection class: EN 469 Level 2 (X2, Y2, Z2)"
+              ],
+              "configurations": [
+                "Complete set including coat and trousers",
+                "Supplied as part of complete FFS set (helmet, gloves, boots, suit)"
+              ],
+              "key_advantages": [
+                "Provides full-body protection against heat, flame, and water",
+                "Lightweight, breathable, and comfortable for long-term operation"
+              ],
+              "attributes": {},
+              "description": null,
+              "category_id": "fire-fighting-equipment",
+              "category_name": "Fire Fighting Equipment",
+              "subcategory_id": "firefighters-equipment",
+              "subcategory_name": "Firefighter’s Equipment",
+              "slug": "firefighters-protective-suit-yxf-c8-scba-outside-type",
+              "images": []
+            },
+            {
+              "id": "fire-fighters-helmet",
+              "title": "Fire-fighter’s Helmet",
+              "stock_status": "in_stock",
+              "approvals": [
+                "MED"
+              ],
+              "model": null,
+              "specifications": [
+                "High-strength outer shell with face shield",
+                "Size: adjustable, one-size"
+              ],
+              "configurations": [
+                "Helmet with integrated visor"
+              ],
+              "key_advantages": [
+                "Provides head and face protection for firefighters"
+              ],
+              "attributes": {},
+              "description": null,
+              "category_id": "fire-fighting-equipment",
+              "category_name": "Fire Fighting Equipment",
+              "subcategory_id": "firefighters-equipment",
+              "subcategory_name": "Firefighter’s Equipment",
+              "slug": "fire-fighters-helmet",
+              "images": []
+            },
+            {
+              "id": "fire-fighters-gloves",
+              "title": "Fire-fighter’s Gloves",
+              "stock_status": "in_stock",
+              "approvals": [
+                "MED"
+              ],
+              "model": null,
+              "specifications": [
+                "In accordance with EN659 standard",
+                "Flame-retardant, heat-resistant",
+                "Size: standard adult"
+              ],
+              "configurations": [
+                "Reinforced palm and finger areas"
+              ],
+              "key_advantages": [
+                "Provides hand protection against heat and flames"
+              ],
+              "attributes": {},
+              "description": null,
+              "category_id": "fire-fighting-equipment",
+              "category_name": "Fire Fighting Equipment",
+              "subcategory_id": "firefighters-equipment",
+              "subcategory_name": "Firefighter’s Equipment",
+              "slug": "fire-fighters-gloves",
+              "images": []
+            },
+            {
+              "id": "fire-fighters-boots",
+              "title": "Fire-fighter’s Boots",
+              "stock_status": "in_stock",
+              "approvals": [
+                "MED"
+              ],
+              "model": null,
+              "specifications": [
+                "In accordance with EN15090 standard",
+                "Waterproof and flame-retardant",
+                "Non-slip outsole"
+              ],
+              "configurations": [
+                "Steel toe and midsole protection"
+              ],
+              "key_advantages": [
+                "Provides reliable foot protection in fire conditions"
+              ],
+              "attributes": {},
+              "description": null,
+              "category_id": "fire-fighting-equipment",
+              "category_name": "Fire Fighting Equipment",
+              "subcategory_id": "firefighters-equipment",
+              "subcategory_name": "Firefighter’s Equipment",
+              "slug": "fire-fighters-boots",
+              "images": []
+            },
+            {
+              "id": "portable-explosion-proof-light-4dcb-e-intrinsic-safety-type",
+              "title": "Portable Explosion-Proof Light 4DCB-E (Intrinsic Safety Type)",
+              "stock_status": "unknown",
+              "approvals": [
+                "SOLAS",
+                "CCS",
+                "IECEx"
+              ],
+              "model": null,
+              "specifications": [
+                "Explosion-proof type: Ex ia IIC T4 Ga",
+                "Material: Anti-corrosive and flame-retardant",
+                "Illumination distance ≥ 500 m"
+              ],
+              "configurations": [],
+              "key_advantages": [
+                "Intrinsically safe, lightweight, and portable",
+                "Suitable for shipboard and confined-space firefighting"
+              ],
+              "attributes": {},
+              "description": null,
+              "category_id": "fire-fighting-equipment",
+              "category_name": "Fire Fighting Equipment",
+              "subcategory_id": "firefighters-equipment",
+              "subcategory_name": "Firefighter’s Equipment",
+              "slug": "portable-explosion-proof-light-4dcb-e-intrinsic-safety-type",
+              "images": []
+            },
+            {
+              "id": "explosion-proof-torch-fbsd",
+              "title": "Explosion-Proof Torch FBSD",
+              "stock_status": "unknown",
+              "approvals": [
+                "SOLAS",
+                "CCS",
+                "IECEx",
+                "ATEX"
+              ],
+              "model": null,
+              "specifications": [
+                "Explosion-proof type: Ex ib IIC T4 Gb",
+                "Power: 2 × 1.5 V AA alkaline batteries",
+                "Light output: Up to 80LM"
+              ],
+              "configurations": [],
+              "key_advantages": [
+                "Compact and durable structure",
+                "Safe for hazardous gas zones 1 & 2"
+              ],
+              "attributes": {},
+              "description": null,
+              "category_id": "fire-fighting-equipment",
+              "category_name": "Fire Fighting Equipment",
+              "subcategory_id": "firefighters-equipment",
+              "subcategory_name": "Firefighter’s Equipment",
+              "slug": "explosion-proof-torch-fbsd",
+              "images": []
+            },
+            {
+              "id": "fireproof-lifeline",
+              "title": "Fireproof Lifeline",
+              "stock_status": "in_stock",
+              "approvals": [
+                "SOLAS",
+                "CCS"
+              ],
+              "model": null,
+              "specifications": [
+                "Length: ≥ 30 m",
+                "Static tension: 3.5 KN for 5 min",
+                "Material: Ø 4 mm aerospace wire rope"
+              ],
+              "configurations": [],
+              "key_advantages": [
+                "Excellent fire resistance and tensile strength",
+                "Lightweight and corrosion-resistant",
+                "Suitable for marine and offshore firefighting rescue use"
+              ],
+              "attributes": {},
+              "description": null,
+              "category_id": "fire-fighting-equipment",
+              "category_name": "Fire Fighting Equipment",
+              "subcategory_id": "firefighters-equipment",
+              "subcategory_name": "Firefighter’s Equipment",
+              "slug": "fireproof-lifeline",
+              "images": []
+            },
+            {
+              "id": "fire-axe-with-insulated-rubber-handle",
+              "title": "Fire Axe with Insulated Rubber Handle",
+              "stock_status": "in_stock",
+              "approvals": [],
+              "model": null,
+              "specifications": [
+                "Length: 340 mm",
+                "High voltage resistance: 20,000 V"
+              ],
+              "configurations": [],
+              "key_advantages": [],
+              "attributes": {},
+              "description": null,
+              "category_id": "fire-fighting-equipment",
+              "category_name": "Fire Fighting Equipment",
+              "subcategory_id": "firefighters-equipment",
+              "subcategory_name": "Firefighter’s Equipment",
+              "slug": "fire-axe-with-insulated-rubber-handle",
+              "images": []
+            },
+            {
+              "id": "leather-bag-for-fire-axe",
+              "title": "Leather Bag for Fire Axe",
+              "stock_status": "in_stock",
+              "approvals": [],
+              "model": null,
+              "specifications": [
+                "Material: Leather",
+                "Designed for insulated rubber handle fire axe"
+              ],
+              "configurations": [
+                "Fixed bag type, belt-mountable"
+              ],
+              "key_advantages": [
+                "Durable leather construction",
+                "Provides safe and reliable storage for fire axe",
+                "Easy to carry and access during firefighting"
+              ],
+              "attributes": {},
+              "description": null,
+              "category_id": "fire-fighting-equipment",
+              "category_name": "Fire Fighting Equipment",
+              "subcategory_id": "firefighters-equipment",
+              "subcategory_name": "Firefighter’s Equipment",
+              "slug": "leather-bag-for-fire-axe",
+              "images": []
+            },
+            {
+              "id": "safety-belt",
+              "title": "Safety Belt",
+              "stock_status": "in_stock",
+              "approvals": [],
+              "model": null,
+              "specifications": [
+                "Size: L = 1.5 m",
+                "Material: High-strength flame-retardant fabric"
+              ],
+              "configurations": [],
+              "key_advantages": [],
+              "attributes": {},
+              "description": null,
+              "category_id": "fire-fighting-equipment",
+              "category_name": "Fire Fighting Equipment",
+              "subcategory_id": "firefighters-equipment",
+              "subcategory_name": "Firefighter’s Equipment",
+              "slug": "safety-belt",
+              "images": []
+            },
+            {
+              "id": "cylinder-pressure-tester",
+              "title": "Cylinder Pressure Tester",
+              "stock_status": "unknown",
+              "approvals": [],
+              "model": null,
+              "specifications": [
+                "Connection: G5/8",
+                "Pressure gauge: 0-400 bar"
+              ],
+              "configurations": [],
+              "key_advantages": [],
+              "attributes": {},
+              "description": null,
+              "category_id": "fire-fighting-equipment",
+              "category_name": "Fire Fighting Equipment",
+              "subcategory_id": "firefighters-equipment",
+              "subcategory_name": "Firefighter’s Equipment",
+              "slug": "cylinder-pressure-tester",
+              "images": []
+            },
+            {
+              "id": "fire-fighters-equipment-storage-bag",
+              "title": "Fire Fighter’s Equipment Storage Bag",
+              "stock_status": "in_stock",
+              "approvals": [],
+              "model": null,
+              "specifications": [],
+              "configurations": [],
+              "key_advantages": [],
+              "attributes": {},
+              "description": null,
+              "category_id": "fire-fighting-equipment",
+              "category_name": "Fire Fighting Equipment",
+              "subcategory_id": "firefighters-equipment",
+              "subcategory_name": "Firefighter’s Equipment",
+              "slug": "fire-fighters-equipment-storage-bag",
+              "images": []
+            }
+          ]
+        },
+        {
+          "id": "fire-extinguishers",
+          "name": "Fire Extinguishers",
+          "products": [
+            {
+              "id": "portable-5-kg-co-fe-wn-m5",
+              "title": "Portable 5 kg CO₂ FE WN/M5",
+              "stock_status": "in_stock",
+              "approvals": [
+                "MED"
+              ],
+              "model": null,
+              "specifications": [
+                "Cylinder material: Chromium-Molybdenum Steel l",
+                "Fire rating: 89 B",
+                "Cylinder diameter: 133 mm",
+                "Overall height: 655 mm",
+                "Approx. full weight: 14.0 kg",
+                "Working temperature: –30 °C ~ +60 °C",
+                "Working pressure: 169.3 bar (at 20 °C)",
+                "Capacity: 5 kg"
+              ],
+              "configurations": [
+                "Compact handheld CO₂ extinguisher for electric and flammable liquid fires",
+                "Non-conductive discharge horn with strong discharge pressure"
+              ],
+              "key_advantages": [
+                "Clean and residue-free extinguishing agent",
+                "Suitable for precision equipment and confined spaces",
+                "Lightweight and easy to operate"
+              ],
+              "attributes": {},
+              "description": null,
+              "category_id": "fire-fighting-equipment",
+              "category_name": "Fire Fighting Equipment",
+              "subcategory_id": "fire-extinguishers",
+              "subcategory_name": "Fire Extinguishers",
+              "slug": "portable-5-kg-co-fe-wn-m5",
+              "images": []
+            },
+            {
+              "id": "wheeled-10-kg-co-fe-wn-mtt10",
+              "title": "Wheeled 10 kg CO₂ FE WN/MTT10",
+              "stock_status": "unknown",
+              "approvals": [
+                "MED"
+              ],
+              "model": null,
+              "specifications": [
+                "Extinguishing agent: Carbon dioxide",
+                "Fire rating: 113 B",
+                "Cylinder diameter: 156 mm",
+                "Overall height: 980 mm",
+                "Approx. full weight: 42 kg",
+                "Working temperature: –30 °C ~ +60 °C",
+                "Working pressure: 174 bar (at 20 °C)",
+                "Capacity: 10 kg"
+              ],
+              "configurations": [
+                "Wheeled design for rapid movement and deployment"
+              ],
+              "key_advantages": [
+                "Large-capacity discharge for industrial environments",
+                "High performance under low-temperature conditions"
+              ],
+              "attributes": {},
+              "description": null,
+              "category_id": "fire-fighting-equipment",
+              "category_name": "Fire Fighting Equipment",
+              "subcategory_id": "fire-extinguishers",
+              "subcategory_name": "Fire Extinguishers",
+              "slug": "wheeled-10-kg-co-fe-wn-mtt10",
+              "images": []
+            },
+            {
+              "id": "wheeled-30-kg-co-fe-wn-mtt30",
+              "title": "Wheeled 30 kg CO₂ FE WN/MTT30",
+              "stock_status": "unknown",
+              "approvals": [
+                "MED"
+              ],
+              "model": null,
+              "specifications": [
+                "Extinguishing agent: Carbon dioxide",
+                "Fire rating: 144 B",
+                "Cylinder diameter: 229 mm",
+                "Overall height: 1290 mm",
+                "Approx. full weight: 104 kg",
+                "Working temperature: –30 °C ~ +60 °C",
+                "Working pressure: 200 bar (at 20 °C)",
+                "Capacity: 30 kg"
+              ],
+              "configurations": [
+                "Heavy-duty wheeled unit for wide-area fire protection",
+                "Dual-wheel frame for stability and easy transport"
+              ],
+              "key_advantages": [
+                "Long-range and high-output discharge",
+                "Reliable for shipyards, warehouses, and workshops",
+                "Robust cylinder and valve assembly ensure safety"
+              ],
+              "attributes": {},
+              "description": null,
+              "category_id": "fire-fighting-equipment",
+              "category_name": "Fire Fighting Equipment",
+              "subcategory_id": "fire-extinguishers",
+              "subcategory_name": "Fire Extinguishers",
+              "slug": "wheeled-30-kg-co-fe-wn-mtt30",
+              "images": []
+            },
+            {
+              "id": "portable-2-kg-dry-powder-fe-stored-pressure-hy-p2",
+              "title": "Portable 2 kg Dry Powder FE (Stored Pressure) HY-P2",
+              "stock_status": "unknown",
+              "approvals": [
+                "MED"
+              ],
+              "model": null,
+              "specifications": [
+                "Fire rating: 13A 70 B C",
+                "Cylinder diameter: 110 mm",
+                "Overall height: 385 mm",
+                "Discharge time: ≈ 12 s",
+                "Spray range: ≥ 3 m",
+                "Working temperature: –30 °C ~ +60 °C",
+                "Working pressure: 14 bar (at 20 °C)",
+                "Extinguish agent: ABC Dry Powder",
+                "Weight: 3.25 kg"
+              ],
+              "configurations": [
+                "Stored-pressure dry powder extinguisher suitable for Class A/B/C fires",
+                "Compact and portable for emergency use"
+              ],
+              "key_advantages": [
+                "Reliable pressure gauge monitoring",
+                "Durable powder-coated cylinder finish"
+              ],
+              "attributes": {},
+              "description": null,
+              "category_id": "fire-fighting-equipment",
+              "category_name": "Fire Fighting Equipment",
+              "subcategory_id": "fire-extinguishers",
+              "subcategory_name": "Fire Extinguishers",
+              "slug": "portable-2-kg-dry-powder-fe-stored-pressure-hy-p2",
+              "images": []
+            },
+            {
+              "id": "portable-6-kg-dry-powder-fe-stored-pressure-hy-p6",
+              "title": "Portable 6 kg Dry Powder FE (Stored Pressure) HY-P6",
+              "stock_status": "in_stock",
+              "approvals": [
+                "MED"
+              ],
+              "model": null,
+              "specifications": [
+                "Fire rating: 43A 233B C",
+                "Discharge time: 18 s",
+                "Spray distance: ≥ 3.5 m",
+                "Residual discharge rate: ≤ 15 %",
+                "Discharge delay: ≤ 5 s",
+                "Working pressure: 14 Bar (20 °C)",
+                "Burst pressure: > 55 Bar",
+                "Extinguish agent: ABC Dry Powder",
+                "Weight: 8.8 kg",
+                "Storage temperature: –30 °C ~ +60 °C"
+              ],
+              "configurations": [
+                "Compact stored-pressure dry powder extinguisher for Class A/B/C fires",
+                "Fitted with discharge hose and nozzle for directional control",
+                "Pressure gauge and metal valve body for reliability and safety"
+              ],
+              "key_advantages": [],
+              "attributes": {},
+              "description": null,
+              "category_id": "fire-fighting-equipment",
+              "category_name": "Fire Fighting Equipment",
+              "subcategory_id": "fire-extinguishers",
+              "subcategory_name": "Fire Extinguishers",
+              "slug": "portable-6-kg-dry-powder-fe-stored-pressure-hy-p6",
+              "images": []
+            },
+            {
+              "id": "portable-6-kg-dry-powder-fe-cartridge-hy-p6c",
+              "title": "Portable 6 kg Dry Powder FE (Cartridge) HY-P6C",
+              "stock_status": "in_stock",
+              "approvals": [
+                "MED"
+              ],
+              "model": null,
+              "specifications": [
+                "Fire rating: 43A 233B C",
+                "Discharge time: 18 s",
+                "Spray distance: ≥ 3.5 m",
+                "Residual discharge rate: ≤ 15 %",
+                "Discharge delay: ≤ 5 s",
+                "Working pressure: 14 Bar (20 °C)",
+                "Burst pressure: > 55 Bar",
+                "Extinguish agent: ABC Dry Powder",
+                "Weight: 8.8 kg",
+                "Storage temperature: –30 °C ~ +60 °C"
+              ],
+              "configurations": [
+                "Compact stored-pressure dry powder extinguisher for Class A/B/C fires",
+                "Fitted with discharge hose and nozzle for directional control",
+                "Pressure gauge and metal valve body for reliability and safety"
+              ],
+              "key_advantages": [],
+              "attributes": {},
+              "description": null,
+              "category_id": "fire-fighting-equipment",
+              "category_name": "Fire Fighting Equipment",
+              "subcategory_id": "fire-extinguishers",
+              "subcategory_name": "Fire Extinguishers",
+              "slug": "portable-6-kg-dry-powder-fe-cartridge-hy-p6c",
+              "images": []
+            },
+            {
+              "id": "portable-12-kg-dry-powder-fe-pressure-storage-type-hy-p12",
+              "title": "Portable 12 kg Dry Powder FE (Pressure Storage Type) HY-P12",
+              "stock_status": "in_stock",
+              "approvals": [
+                "MED"
+              ],
+              "model": null,
+              "specifications": [
+                "Fire rating: 55A 233B C",
+                "Discharge time: 35 s",
+                "Spray distance: ≥ 5 m",
+                "Residual discharge rate: ≤ 15 %",
+                "Discharge delay: ≤ 5 s",
+                "Working pressure: 14 Bar (20 °C)",
+                "Burst pressure: > 55 Bar",
+                "Extinguish agent: ABC Dry Powder",
+                "Extinguishant weight: 12 kg",
+                "Storage temperature: –30 °C ~ +60 °C"
+              ],
+              "configurations": [
+                "High-capacity portable dry powder extinguisher for Class A/B/C fires",
+                "Reinforced discharge hose for extended reach",
+                "Compact design with stable base"
+              ],
+              "key_advantages": [
+                "Suitable for industrial and warehouse environments",
+                "Extended discharge duration for large-area protection"
+              ],
+              "attributes": {},
+              "description": null,
+              "category_id": "fire-fighting-equipment",
+              "category_name": "Fire Fighting Equipment",
+              "subcategory_id": "fire-extinguishers",
+              "subcategory_name": "Fire Extinguishers",
+              "slug": "portable-12-kg-dry-powder-fe-pressure-storage-type-hy-p12",
+              "images": []
+            },
+            {
+              "id": "portable-12-kg-dry-powder-fe-cartridge-hy-p12c",
+              "title": "Portable 12 kg Dry Powder FE (Cartridge) HY-P12C",
+              "stock_status": "in_stock",
+              "approvals": [
+                "MED"
+              ],
+              "model": null,
+              "specifications": [
+                "Fire rating: 55A 233B C",
+                "Discharge time: 35 s",
+                "Working pressure: 14 Bar (20 °C)",
+                "Burst pressure: > 55 Bar",
+                "Extinguish agent: ABC Dry Powder",
+                "Weight: 18.28 kg",
+                "Storage temperature: –30 °C ~ +60 °C"
+              ],
+              "configurations": [],
+              "key_advantages": [
+                "Easy to recharge and maintain",
+                "Suitable for factories, warehouses, and workshops"
+              ],
+              "attributes": {},
+              "description": null,
+              "category_id": "fire-fighting-equipment",
+              "category_name": "Fire Fighting Equipment",
+              "subcategory_id": "fire-extinguishers",
+              "subcategory_name": "Fire Extinguishers",
+              "slug": "portable-12-kg-dry-powder-fe-cartridge-hy-p12c",
+              "images": []
+            },
+            {
+              "id": "wheeled-25-kg-dry-powder-fe-stored-pressure-hy-p25",
+              "title": "Wheeled 25 kg Dry Powder FE (Stored Pressure) HY-P25",
+              "stock_status": "in_stock",
+              "approvals": [
+                "MED"
+              ],
+              "model": null,
+              "specifications": [
+                "Fire rating: A IB C",
+                "Discharge time: ≥ 75 s",
+                "Spray distance: ≥ 6 m",
+                "Residual discharge rate: ≤ 10 %",
+                "Discharge delay: ≤ 5 s",
+                "Working pressure: 14 Bar (20 °C)",
+                "Burst pressure: > 55 Bar",
+                "Extinguish agent: ABC Dry Powder",
+                "Extinguishant weight: 25 kg",
+                "Storage temperature: –30 °C ~ +60 °C"
+              ],
+              "configurations": [
+                "Wheeled dry powder extinguisher designed for Class A/B/C/E fires",
+                "Fitted with a heavy-duty steel frame and rubber wheels",
+                "Long flexible hose and ergonomic dual-handle nozzle"
+              ],
+              "key_advantages": [
+                "Easy mobility and rapid deployment",
+                "Long discharge duration and wide coverage",
+                "Suitable for factories, garages, and open areas"
+              ],
+              "attributes": {},
+              "description": null,
+              "category_id": "fire-fighting-equipment",
+              "category_name": "Fire Fighting Equipment",
+              "subcategory_id": "fire-extinguishers",
+              "subcategory_name": "Fire Extinguishers",
+              "slug": "wheeled-25-kg-dry-powder-fe-stored-pressure-hy-p25",
+              "images": []
+            },
+            {
+              "id": "wheeled-25-kg-dry-powder-fe-cartridge-hy-p25c",
+              "title": "Wheeled 25 kg Dry Powder FE (Cartridge) HY-P25C",
+              "stock_status": "in_stock",
+              "approvals": [
+                "MED"
+              ],
+              "model": null,
+              "specifications": [
+                "Fire rating: A IB C",
+                "Discharge time: ≥ 75 s",
+                "Discharge delay: ≤ 5 s",
+                "Working pressure: 14 Bar (20 °C)",
+                "Burst pressure: > 55 Bar",
+                "Extinguish agent: ABC Dry Powder",
+                "Extinguishant weight: 25 kg",
+                "Storage temperature: –30 °C ~ +60 °C"
+              ],
+              "configurations": [
+                "Wheeled dry powder extinguisher with external cartridge design"
+              ],
+              "key_advantages": [
+                "Long discharge duration and wide coverage",
+                "Easy to operate and move",
+                "Suitable for factories, ports, and workshops"
+              ],
+              "attributes": {},
+              "description": null,
+              "category_id": "fire-fighting-equipment",
+              "category_name": "Fire Fighting Equipment",
+              "subcategory_id": "fire-extinguishers",
+              "subcategory_name": "Fire Extinguishers",
+              "slug": "wheeled-25-kg-dry-powder-fe-cartridge-hy-p25c",
+              "images": []
+            },
+            {
+              "id": "wheeled-50-kg-dry-powder-fe-stored-pressure-hy-p50",
+              "title": "Wheeled 50 kg Dry Powder FE (Stored Pressure) HY-P50",
+              "stock_status": "in_stock",
+              "approvals": [
+                "MED"
+              ],
+              "model": null,
+              "specifications": [
+                "Fire rating: A IIB C",
+                "Discharge time: ≥ 95 s",
+                "Spray distance: ≥ 6 m",
+                "Residual discharge rate: ≤ 10 %",
+                "Discharge delay: ≤ 95 s",
+                "Working pressure: 14 Bar (20 °C)",
+                "Burst pressure: > 55 Bar",
+                "Extinguish agent: ABC Dry Powder",
+                "Extinguishant weight: 50 kg",
+                "Storage temperature: –30 °C ~ +60 °C"
+              ],
+              "configurations": [
+                "Rugged construction for outdoor and industrial environments"
+              ],
+              "key_advantages": [
+                "Extended discharge duration and wider protection area",
+                "Ideal for workshops, factories, and heavy-duty facilities",
+                "Strong steel cylinder and frame for long service life"
+              ],
+              "attributes": {},
+              "description": null,
+              "category_id": "fire-fighting-equipment",
+              "category_name": "Fire Fighting Equipment",
+              "subcategory_id": "fire-extinguishers",
+              "subcategory_name": "Fire Extinguishers",
+              "slug": "wheeled-50-kg-dry-powder-fe-stored-pressure-hy-p50",
+              "images": []
+            },
+            {
+              "id": "wheeled-50-kg-dry-powder-fe-cartridge-hy-p50c",
+              "title": "Wheeled 50 kg Dry Powder FE (Cartridge) HY-P50C",
+              "stock_status": "in_stock",
+              "approvals": [
+                "MED"
+              ],
+              "model": null,
+              "specifications": [
+                "Fire rating: A IIB C",
+                "Discharge time: 95 s",
+                "Discharge delay: ≤ 5 s",
+                "Working pressure: 14 Bar (20 °C)",
+                "Burst pressure: > 55 Bar",
+                "Extinguish agent: ABC Dry Powder",
+                "Weight: 85 kg",
+                "Storage temperature: –30 °C ~ +60 °C"
+              ],
+              "configurations": [
+                "High-capacity wheeled extinguisher with external CO₂ cartridge"
+              ],
+              "key_advantages": [
+                "Designed for industrial and marine applications",
+                "Robust structure for long-term durability and reliability"
+              ],
+              "attributes": {},
+              "description": null,
+              "category_id": "fire-fighting-equipment",
+              "category_name": "Fire Fighting Equipment",
+              "subcategory_id": "fire-extinguishers",
+              "subcategory_name": "Fire Extinguishers",
+              "slug": "wheeled-50-kg-dry-powder-fe-cartridge-hy-p50c",
+              "images": []
+            },
+            {
+              "id": "portable-9l-foam-fe-pfos-pfoa-free-stored-pressure-hy-f9",
+              "title": "Portable 9L Foam FE PFOS/PFOA Free (stored pressure) HY-F9",
+              "stock_status": "unknown",
+              "approvals": [
+                "MED"
+              ],
+              "model": null,
+              "specifications": [
+                "Fire rating: 21A, 183B, 75F",
+                "Discharge time: 58s",
+                "Extinguish agent: 3% AFFF Foam",
+                "Working temperature range: 0 °C ~ +60 °C",
+                "Working pressure: 12bar at 20 °C"
+              ],
+              "configurations": [],
+              "key_advantages": [],
+              "attributes": {},
+              "description": null,
+              "category_id": "fire-fighting-equipment",
+              "category_name": "Fire Fighting Equipment",
+              "subcategory_id": "fire-extinguishers",
+              "subcategory_name": "Fire Extinguishers",
+              "slug": "portable-9l-foam-fe-pfos-pfoa-free-stored-pressure-hy-f9",
+              "images": []
+            },
+            {
+              "id": "portable-9l-foam-fe-pfos-pfoa-free-cartridge-hy-f9c",
+              "title": "Portable 9L Foam FE PFOS/PFOA Free (Cartridge) HY-F9C",
+              "stock_status": "in_stock",
+              "approvals": [
+                "MED"
+              ],
+              "model": null,
+              "specifications": [
+                "Fire rating: 21A, 183B, 75F",
+                "Discharge time: 58s",
+                "Extinguish agent: 3% AFFF Foam",
+                "Working temperature range: 0 °C ~ +60 °C",
+                "Working pressure: 12bar at 20 °C"
+              ],
+              "configurations": [],
+              "key_advantages": [],
+              "attributes": {},
+              "description": null,
+              "category_id": "fire-fighting-equipment",
+              "category_name": "Fire Fighting Equipment",
+              "subcategory_id": "fire-extinguishers",
+              "subcategory_name": "Fire Extinguishers",
+              "slug": "portable-9l-foam-fe-pfos-pfoa-free-cartridge-hy-f9c",
+              "images": []
+            },
+            {
+              "id": "wheeled-45l-foam-fe-pfos-pfoa-free-stored-pressure-hy-f45",
+              "title": "Wheeled 45L Foam FE PFOS/PFOA Free (Stored Pressure) HY-F45",
+              "stock_status": "unknown",
+              "approvals": [
+                "MED"
+              ],
+              "model": null,
+              "specifications": [
+                "Fire rating: A-II B",
+                "Extinguish agent: 3% AFFF Foam",
+                "Working temperature range: 0°C ~ +60 °C",
+                "Discharge Time: 88s"
+              ],
+              "configurations": [],
+              "key_advantages": [],
+              "attributes": {},
+              "description": null,
+              "category_id": "fire-fighting-equipment",
+              "category_name": "Fire Fighting Equipment",
+              "subcategory_id": "fire-extinguishers",
+              "subcategory_name": "Fire Extinguishers",
+              "slug": "wheeled-45l-foam-fe-pfos-pfoa-free-stored-pressure-hy-f45",
+              "images": []
+            },
+            {
+              "id": "wheeled-45l-foam-fe-pfos-pfoa-free-cartridge-hy-f45c",
+              "title": "Wheeled 45L Foam FE PFOS/PFOA Free (Cartridge) HY-F45C",
+              "stock_status": "in_stock",
+              "approvals": [
+                "MED"
+              ],
+              "model": null,
+              "specifications": [
+                "Fire rating: A-II B",
+                "Extinguish agent: 3% AFFF Foam",
+                "Working temperature range: 0°C ~ +60 °C",
+                "Discharge Time: 88s"
+              ],
+              "configurations": [],
+              "key_advantages": [],
+              "attributes": {},
+              "description": null,
+              "category_id": "fire-fighting-equipment",
+              "category_name": "Fire Fighting Equipment",
+              "subcategory_id": "fire-extinguishers",
+              "subcategory_name": "Fire Extinguishers",
+              "slug": "wheeled-45l-foam-fe-pfos-pfoa-free-cartridge-hy-f45c",
+              "images": []
+            },
+            {
+              "id": "wheeled-135l-foam-fe-pfos-pfoa-free-stored-pressure-hy-f135",
+              "title": "Wheeled 135L Foam FE PFOS/PFOA Free (Stored Pressure) HY-F135",
+              "stock_status": "unknown",
+              "approvals": [
+                "MED"
+              ],
+              "model": null,
+              "specifications": [
+                "Fire rating: A-IV B",
+                "Extinguish agent: 3% AFFF Foam",
+                "Working temperature range: 0°C ~ +60 °C",
+                "Discharge Time: 120s"
+              ],
+              "configurations": [],
+              "key_advantages": [],
+              "attributes": {},
+              "description": null,
+              "category_id": "fire-fighting-equipment",
+              "category_name": "Fire Fighting Equipment",
+              "subcategory_id": "fire-extinguishers",
+              "subcategory_name": "Fire Extinguishers",
+              "slug": "wheeled-135l-foam-fe-pfos-pfoa-free-stored-pressure-hy-f135",
+              "images": []
+            },
+            {
+              "id": "wheeled-135l-foam-fe-pfos-pfoa-free-cartridge-hy-f135c",
+              "title": "Wheeled 135L Foam FE PFOS/PFOA Free (Cartridge) HY-F135C",
+              "stock_status": "in_stock",
+              "approvals": [
+                "MED"
+              ],
+              "model": null,
+              "specifications": [
+                "Fire rating: A-IV B",
+                "Extinguish agent: 3% AFFF Foam",
+                "Working temperature range: 0°C ~ +60 °C",
+                "Discharge Time: 120s"
+              ],
+              "configurations": [],
+              "key_advantages": [],
+              "attributes": {},
+              "description": null,
+              "category_id": "fire-fighting-equipment",
+              "category_name": "Fire Fighting Equipment",
+              "subcategory_id": "fire-extinguishers",
+              "subcategory_name": "Fire Extinguishers",
+              "slug": "wheeled-135l-foam-fe-pfos-pfoa-free-cartridge-hy-f135c",
+              "images": []
+            },
+            {
+              "id": "portable-9l-wet-chemical-fe-hy-wc9-stored-pressure",
+              "title": "Portable 9L Wet Chemical FE HY-WC9 (Stored Pressure)",
+              "stock_status": "unknown",
+              "approvals": [
+                "MED"
+              ],
+              "model": null,
+              "specifications": [
+                "Fire rating: 21A, 75F",
+                "Extinguish agent: Wet Chemical",
+                "Working temperature range: 0°C ~ +60 °C",
+                "Discharge Time: 58s"
+              ],
+              "configurations": [],
+              "key_advantages": [],
+              "attributes": {},
+              "description": null,
+              "category_id": "fire-fighting-equipment",
+              "category_name": "Fire Fighting Equipment",
+              "subcategory_id": "fire-extinguishers",
+              "subcategory_name": "Fire Extinguishers",
+              "slug": "portable-9l-wet-chemical-fe-hy-wc9-stored-pressure",
+              "images": []
+            },
+            {
+              "id": "multi-purpose-fire-extinguisher-retaining-strap",
+              "title": "Multi-purpose (Fire Extinguisher) Retaining Strap",
+              "stock_status": "in_stock",
+              "approvals": [],
+              "model": null,
+              "specifications": [],
+              "configurations": [],
+              "key_advantages": [],
+              "attributes": {},
+              "description": null,
+              "category_id": "fire-fighting-equipment",
+              "category_name": "Fire Fighting Equipment",
+              "subcategory_id": "fire-extinguishers",
+              "subcategory_name": "Fire Extinguishers",
+              "slug": "multi-purpose-fire-extinguisher-retaining-strap",
+              "images": []
+            }
+          ]
+        },
+        {
+          "id": "fire-hose",
+          "name": "Fire Hose",
+          "products": [
+            {
+              "id": "fire-hose-hyfh40-hyfh50",
+              "title": "Fire Hose HYFH40, HYFH50",
+              "stock_status": "in_stock",
+              "approvals": [
+                "MED"
+              ],
+              "model": "HYFH40, HYFH50",
+              "specifications": [
+                "SOLAS 1974,as amended",
+                "In accordance with EN 14540",
+                "Jacket material:Long fiber polyester",
+                "Lining material:EPDM",
+                "Max. working pressure: 1.5MPa",
+                "Colour:white, red"
+              ],
+              "configurations": [],
+              "key_advantages": [],
+              "attributes": {},
+              "description": null,
+              "category_id": "fire-fighting-equipment",
+              "category_name": "Fire Fighting Equipment",
+              "subcategory_id": "fire-hose",
+              "subcategory_name": "Fire Hose",
+              "slug": "fire-hose-hyfh40-hyfh50",
+              "images": []
+            },
+            {
+              "id": "fire-hose-dn65",
+              "title": "Fire Hose DN65",
+              "stock_status": "in_stock",
+              "approvals": [
+                "MED"
+              ],
+              "model": null,
+              "specifications": [
+                "Jacket material:Long fiber polyester",
+                "Lining material:EPDM",
+                "Max. working pressure:1.5MPa",
+                "Colour:white,red"
+              ],
+              "configurations": [],
+              "key_advantages": [],
+              "attributes": {},
+              "description": null,
+              "category_id": "fire-fighting-equipment",
+              "category_name": "Fire Fighting Equipment",
+              "subcategory_id": "fire-hose",
+              "subcategory_name": "Fire Hose",
+              "slug": "fire-hose-dn65",
+              "images": []
+            },
+            {
+              "id": "storz-type-nozzle-adaptor",
+              "title": "Storz Type Nozzle Adaptor",
+              "stock_status": "in_stock",
+              "approvals": [
+                "MED"
+              ],
+              "model": null,
+              "specifications": [],
+              "configurations": [],
+              "key_advantages": [],
+              "attributes": {
+                "material": "Brass"
+              },
+              "description": null,
+              "category_id": "fire-fighting-equipment",
+              "category_name": "Fire Fighting Equipment",
+              "subcategory_id": "fire-hose",
+              "subcategory_name": "Fire Hose",
+              "slug": "storz-type-nozzle-adaptor",
+              "images": []
+            },
+            {
+              "id": "nakajima-type-nozzle-adaptor",
+              "title": "Nakajima Type Nozzle Adaptor",
+              "stock_status": "in_stock",
+              "approvals": [
+                "MED"
+              ],
+              "model": null,
+              "specifications": [],
+              "configurations": [],
+              "key_advantages": [],
+              "attributes": {
+                "material": "Brass"
+              },
+              "description": null,
+              "category_id": "fire-fighting-equipment",
+              "category_name": "Fire Fighting Equipment",
+              "subcategory_id": "fire-hose",
+              "subcategory_name": "Fire Hose",
+              "slug": "nakajima-type-nozzle-adaptor",
+              "images": []
+            },
+            {
+              "id": "us-ansi-type-nozzle-adaptor",
+              "title": "US ANSI Type Nozzle Adaptor",
+              "stock_status": "in_stock",
+              "approvals": [
+                "MED"
+              ],
+              "model": null,
+              "specifications": [],
+              "configurations": [],
+              "key_advantages": [],
+              "attributes": {
+                "material": "Brass"
+              },
+              "description": null,
+              "category_id": "fire-fighting-equipment",
+              "category_name": "Fire Fighting Equipment",
+              "subcategory_id": "fire-hose",
+              "subcategory_name": "Fire Hose",
+              "slug": "us-ansi-type-nozzle-adaptor",
+              "images": []
+            },
+            {
+              "id": "storz-gb-type-hose-coupling",
+              "title": "Storz/GB Type Hose Coupling",
+              "stock_status": "in_stock",
+              "approvals": [
+                "MED"
+              ],
+              "model": null,
+              "specifications": [],
+              "configurations": [],
+              "key_advantages": [],
+              "attributes": {
+                "material": "Brass"
+              },
+              "description": null,
+              "category_id": "fire-fighting-equipment",
+              "category_name": "Fire Fighting Equipment",
+              "subcategory_id": "fire-hose",
+              "subcategory_name": "Fire Hose",
+              "slug": "storz-gb-type-hose-coupling",
+              "images": []
+            },
+            {
+              "id": "nakajima-type-hose-coupling",
+              "title": "Nakajima Type Hose Coupling",
+              "stock_status": "in_stock",
+              "approvals": [
+                "MED"
+              ],
+              "model": null,
+              "specifications": [],
+              "configurations": [],
+              "key_advantages": [],
+              "attributes": {
+                "material": "Brass"
+              },
+              "description": null,
+              "category_id": "fire-fighting-equipment",
+              "category_name": "Fire Fighting Equipment",
+              "subcategory_id": "fire-hose",
+              "subcategory_name": "Fire Hose",
+              "slug": "nakajima-type-hose-coupling",
+              "images": []
+            },
+            {
+              "id": "spanner-for-storz-type-hose-coupling",
+              "title": "Spanner for Storz Type Hose Coupling",
+              "stock_status": "unknown",
+              "approvals": [],
+              "model": null,
+              "specifications": [],
+              "configurations": [],
+              "key_advantages": [],
+              "attributes": {
+                "material": "Brass"
+              },
+              "description": null,
+              "category_id": "fire-fighting-equipment",
+              "category_name": "Fire Fighting Equipment",
+              "subcategory_id": "fire-hose",
+              "subcategory_name": "Fire Hose",
+              "slug": "spanner-for-storz-type-hose-coupling",
+              "images": []
+            },
+            {
+              "id": "spanner-for-ansi-type-hose-coupling",
+              "title": "Spanner for ANSI Type Hose Coupling",
+              "stock_status": "unknown",
+              "approvals": [],
+              "model": null,
+              "specifications": [],
+              "configurations": [],
+              "key_advantages": [],
+              "attributes": {
+                "material": "Brass"
+              },
+              "description": null,
+              "category_id": "fire-fighting-equipment",
+              "category_name": "Fire Fighting Equipment",
+              "subcategory_id": "fire-hose",
+              "subcategory_name": "Fire Hose",
+              "slug": "spanner-for-ansi-type-hose-coupling",
+              "images": []
+            },
+            {
+              "id": "spanner-for-nakajima-type-hose-coupling",
+              "title": "Spanner for Nakajima Type Hose Coupling",
+              "stock_status": "unknown",
+              "approvals": [],
+              "model": null,
+              "specifications": [],
+              "configurations": [],
+              "key_advantages": [],
+              "attributes": {
+                "material": "Brass"
+              },
+              "description": null,
+              "category_id": "fire-fighting-equipment",
+              "category_name": "Fire Fighting Equipment",
+              "subcategory_id": "fire-hose",
+              "subcategory_name": "Fire Hose",
+              "slug": "spanner-for-nakajima-type-hose-coupling",
+              "images": []
+            },
+            {
+              "id": "nakajima-type-cap",
+              "title": "Nakajima Type Cap",
+              "stock_status": "in_stock",
+              "approvals": [
+                "MED"
+              ],
+              "model": null,
+              "specifications": [],
+              "configurations": [],
+              "key_advantages": [],
+              "attributes": {
+                "material": "Brass"
+              },
+              "description": null,
+              "category_id": "fire-fighting-equipment",
+              "category_name": "Fire Fighting Equipment",
+              "subcategory_id": "fire-hose",
+              "subcategory_name": "Fire Hose",
+              "slug": "nakajima-type-cap",
+              "images": []
+            },
+            {
+              "id": "storz-type-cap",
+              "title": "Storz Type Cap",
+              "stock_status": "in_stock",
+              "approvals": [
+                "MED"
+              ],
+              "model": null,
+              "specifications": [],
+              "configurations": [],
+              "key_advantages": [],
+              "attributes": {
+                "material": "Brass"
+              },
+              "description": null,
+              "category_id": "fire-fighting-equipment",
+              "category_name": "Fire Fighting Equipment",
+              "subcategory_id": "fire-hose",
+              "subcategory_name": "Fire Hose",
+              "slug": "storz-type-cap",
+              "images": []
+            },
+            {
+              "id": "storz-gb-type-connector",
+              "title": "Storz/GB Type Connector",
+              "stock_status": "unknown",
+              "approvals": [
+                "MED"
+              ],
+              "model": null,
+              "specifications": [],
+              "configurations": [],
+              "key_advantages": [],
+              "attributes": {
+                "material": "Brass"
+              },
+              "description": null,
+              "category_id": "fire-fighting-equipment",
+              "category_name": "Fire Fighting Equipment",
+              "subcategory_id": "fire-hose",
+              "subcategory_name": "Fire Hose",
+              "slug": "storz-gb-type-connector",
+              "images": []
+            },
+            {
+              "id": "nakajima-type-connector",
+              "title": "Nakajima Type Connector",
+              "stock_status": "unknown",
+              "approvals": [
+                "MED"
+              ],
+              "model": null,
+              "specifications": [],
+              "configurations": [],
+              "key_advantages": [],
+              "attributes": {
+                "material": "Brass"
+              },
+              "description": null,
+              "category_id": "fire-fighting-equipment",
+              "category_name": "Fire Fighting Equipment",
+              "subcategory_id": "fire-hose",
+              "subcategory_name": "Fire Hose",
+              "slug": "nakajima-type-connector",
+              "images": []
+            },
+            {
+              "id": "flanged-fire-hydrant",
+              "title": "Flanged Fire Hydrant",
+              "stock_status": "unknown",
+              "approvals": [
+                "MED"
+              ],
+              "model": null,
+              "specifications": [],
+              "configurations": [],
+              "key_advantages": [],
+              "attributes": {
+                "material": "Brass"
+              },
+              "description": null,
+              "category_id": "fire-fighting-equipment",
+              "category_name": "Fire Fighting Equipment",
+              "subcategory_id": "fire-hose",
+              "subcategory_name": "Fire Hose",
+              "slug": "flanged-fire-hydrant",
+              "images": []
+            },
+            {
+              "id": "bsp-pin-fire-hydrant",
+              "title": "BSP PIN Fire Hydrant",
+              "stock_status": "unknown",
+              "approvals": [
+                "MED"
+              ],
+              "model": null,
+              "specifications": [],
+              "configurations": [],
+              "key_advantages": [],
+              "attributes": {
+                "material": "Brass"
+              },
+              "description": null,
+              "category_id": "fire-fighting-equipment",
+              "category_name": "Fire Fighting Equipment",
+              "subcategory_id": "fire-hose",
+              "subcategory_name": "Fire Hose",
+              "slug": "bsp-pin-fire-hydrant",
+              "images": []
+            },
+            {
+              "id": "nakajima-type-i-s-c",
+              "title": "Nakajima Type I.S.C",
+              "stock_status": "in_stock",
+              "approvals": [
+                "MED"
+              ],
+              "model": null,
+              "specifications": [],
+              "configurations": [],
+              "key_advantages": [],
+              "attributes": {
+                "material": "Brass"
+              },
+              "description": null,
+              "category_id": "fire-fighting-equipment",
+              "category_name": "Fire Fighting Equipment",
+              "subcategory_id": "fire-hose",
+              "subcategory_name": "Fire Hose",
+              "slug": "nakajima-type-i-s-c",
+              "images": []
+            },
+            {
+              "id": "storz-gb-type-i-s-c",
+              "title": "Storz/GB Type I.S.C",
+              "stock_status": "in_stock",
+              "approvals": [
+                "MED"
+              ],
+              "model": null,
+              "specifications": [],
+              "configurations": [],
+              "key_advantages": [],
+              "attributes": {
+                "material": "Brass"
+              },
+              "description": null,
+              "category_id": "fire-fighting-equipment",
+              "category_name": "Fire Fighting Equipment",
+              "subcategory_id": "fire-hose",
+              "subcategory_name": "Fire Hose",
+              "slug": "storz-gb-type-i-s-c",
+              "images": []
+            }
+          ]
+        },
+        {
+          "id": "tools-miscellaneous",
+          "name": "Tools & Miscellaneous",
+          "products": [
+            {
+              "id": "immersion-suit-calibration-tool-manual",
+              "title": "Immersion-suit Calibration Tool (Manual)",
+              "stock_status": "in_stock",
+              "approvals": [],
+              "model": "BWFY-3",
+              "specifications": [
+                "For testing immersion suit thermal performance",
+                "Portable tool, designed for marine use"
+              ],
+              "configurations": [
+                "Standard calibration tool set"
+              ],
+              "key_advantages": [],
+              "attributes": {},
+              "description": null,
+              "category_id": "fire-fighting-equipment",
+              "category_name": "Fire Fighting Equipment",
+              "subcategory_id": "tools-miscellaneous",
+              "subcategory_name": "Tools & Miscellaneous",
+              "slug": "immersion-suit-calibration-tool-manual",
+              "images": []
+            },
+            {
+              "id": "immersion-suit-calibration-tool-air-inspection",
+              "title": "Immersion-suit Calibration Tool (Air Inspection)",
+              "stock_status": "unknown",
+              "approvals": [],
+              "model": "BWFY-6",
+              "specifications": [
+                "For testing immersion suit thermal performance",
+                "Portable tool, designed for marine use",
+                "Inflate the immersion suit by using external air source for airtightness inspection",
+                "Suitable for all immerison suits of HWAYAN brand"
+              ],
+              "configurations": [],
+              "key_advantages": [],
+              "attributes": {},
+              "description": null,
+              "category_id": "fire-fighting-equipment",
+              "category_name": "Fire Fighting Equipment",
+              "subcategory_id": "tools-miscellaneous",
+              "subcategory_name": "Tools & Miscellaneous",
+              "slug": "immersion-suit-calibration-tool-air-inspection",
+              "images": []
+            },
+            {
+              "id": "imo-signs",
+              "title": "IMO Signs",
+              "stock_status": "in_stock",
+              "approvals": [],
+              "model": null,
+              "specifications": [],
+              "configurations": [],
+              "key_advantages": [],
+              "attributes": {},
+              "description": null,
+              "category_id": "fire-fighting-equipment",
+              "category_name": "Fire Fighting Equipment",
+              "subcategory_id": "tools-miscellaneous",
+              "subcategory_name": "Tools & Miscellaneous",
+              "slug": "imo-signs",
+              "images": []
+            },
+            {
+              "id": "pilot-ladder-b-type",
+              "title": "Pilot Ladder B Type",
+              "stock_status": "unknown",
+              "approvals": [
+                "MED",
+                "CCS"
+              ],
+              "model": null,
+              "specifications": [
+                "The distance between two neighboring steps is 330±20mm",
+                "Binging method: aluminum buckle",
+                "Step material:hard wood",
+                "The lowest four steps are rubber plates with steel lining"
+              ],
+              "configurations": [],
+              "key_advantages": [],
+              "attributes": {},
+              "description": null,
+              "category_id": "fire-fighting-equipment",
+              "category_name": "Fire Fighting Equipment",
+              "subcategory_id": "tools-miscellaneous",
+              "subcategory_name": "Tools & Miscellaneous",
+              "slug": "pilot-ladder-b-type",
+              "images": []
+            },
+            {
+              "id": "embarkation-ladder-a-type",
+              "title": "Embarkation Ladder A Type",
+              "stock_status": "unknown",
+              "approvals": [
+                "MED",
+                "CCS"
+              ],
+              "model": null,
+              "specifications": [
+                "The distance between two neighboring steps is 330±20mm",
+                "Binging method: aluminum buckle or rope tied",
+                "Step material: Aluminum",
+                "The lowest four steps are rubber plates with steel lining"
+              ],
+              "configurations": [],
+              "key_advantages": [],
+              "attributes": {},
+              "description": null,
+              "category_id": "fire-fighting-equipment",
+              "category_name": "Fire Fighting Equipment",
+              "subcategory_id": "tools-miscellaneous",
+              "subcategory_name": "Tools & Miscellaneous",
+              "slug": "embarkation-ladder-a-type",
+              "images": []
+            },
+            {
+              "id": "embarkation-ladder-b-type",
+              "title": "Embarkation Ladder B Type",
+              "stock_status": "unknown",
+              "approvals": [
+                "MED",
+                "CCS"
+              ],
+              "model": null,
+              "specifications": [
+                "The distance between two neighboring steps is 330±20mm",
+                "Binging method: aluminum buckle or rope tied",
+                "Step material: Hard Wood",
+                "The lowest four steps are rubber plates with steel lining"
+              ],
+              "configurations": [],
+              "key_advantages": [],
+              "attributes": {},
+              "description": null,
+              "category_id": "fire-fighting-equipment",
+              "category_name": "Fire Fighting Equipment",
+              "subcategory_id": "tools-miscellaneous",
+              "subcategory_name": "Tools & Miscellaneous",
+              "slug": "embarkation-ladder-b-type",
+              "images": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,321 @@
+{
+  "schema_version": "1.1",
+  "generated_at": "2026-05-17T02:44:10.195Z",
+  "image_root": "data/img-slug",
+  "byNormalizedTitle": {
+    "bsp pin fire hydrant": [
+      "data/img-slug/bsp-pin-fire-hydrant/53-54.jpg",
+      "data/img-slug/bsp-pin-fire-hydrant/image-2.png"
+    ],
+    "buoyant lifeline": [
+      "data/img-slug/buoyant-lifeline/1-21.jpg",
+      "data/img-slug/buoyant-lifeline/1-22.jpg"
+    ],
+    "child immersion suit": [
+      "data/img-slug/child-immersion-suit/29-301.jpg"
+    ],
+    "child marine lifejacket (foam)": [
+      "data/img-slug/child-marine-lifejacket-foam/image-1.png"
+    ],
+    "cylinder pressure tester": [
+      "data/img-slug/cylinder-pressure-tester/image-1.png"
+    ],
+    "davit type inflatable life raft": [
+      "data/img-slug/davit-type-inflatable-life-raft/37-381.jpg",
+      "data/img-slug/davit-type-inflatable-life-raft/image-2.png"
+    ],
+    "eebd 15min": [
+      "data/img-slug/eebd-15min/71-72.jpg"
+    ],
+    "embarkation ladder a type": [
+      "data/img-slug/embarkation-ladder-a-type/image-1.png"
+    ],
+    "embarkation ladder b type": [
+      "data/img-slug/embarkation-ladder-b-type/image-1.png"
+    ],
+    "explosion-proof torch fbsd": [
+      "data/img-slug/explosion-proof-torch-fbsd/65-661.jpg"
+    ],
+    "explosion-proof lifebuoy light": [
+      "data/img-slug/explosion-proof-lifebuoy-light/5-61.jpg"
+    ],
+    "fire axe with insulated rubber handle": [
+      "data/img-slug/fire-axe-with-insulated-rubber-handle/65-663.jpg"
+    ],
+    "fire fighter’s equipment storage bag": [
+      "data/img-slug/fire-fighters-equipment-storage-bag/image-1.png"
+    ],
+    "fire hose dn65": [
+      "data/img-slug/fire-hose-dn65/41-421.jpg"
+    ],
+    "fire hose hyfh40, hyfh50": [
+      "data/img-slug/fire-hose-hyfh40-hyfh50/41-42.jpg"
+    ],
+    "fire-fighter’s boots": [
+      "data/img-slug/fire-fighters-boots/63-643.jpg"
+    ],
+    "fire-fighter’s gloves": [
+      "data/img-slug/fire-fighters-gloves/63-641.jpg"
+    ],
+    "fire-fighter’s helmet": [
+      "data/img-slug/fire-fighters-helmet/63-64.jpg"
+    ],
+    "firefighter’s protective suit (scba inside type)": [
+      "data/img-slug/firefighters-protective-suit-scba-inside-type/63-644.jpg"
+    ],
+    "fireproof lifeline": [
+      "data/img-slug/fireproof-lifeline/65-665.jpg"
+    ],
+    "flanged fire hydrant": [
+      "data/img-slug/flanged-fire-hydrant/53-541.jpg",
+      "data/img-slug/flanged-fire-hydrant/image-2.png"
+    ],
+    "gas-tightness type chemical protective suit": [
+      "data/img-slug/gas-tightness-type-chemical-protective-suit/image-1.png",
+      "data/img-slug/gas-tightness-type-chemical-protective-suit/image-2.png"
+    ],
+    "imo signs": [
+      "data/img-slug/imo-signs/image-1.png"
+    ],
+    "immersion suit n6 series w:o buoyancy": [
+      "data/img-slug/immersion-suit-n6-series-w-o-buoyancy/27-28.jpg",
+      "data/img-slug/immersion-suit-n6-series-w-o-buoyancy/image-2.png"
+    ],
+    "immersion-suit calibration tool (air inspection)": [
+      "data/img-slug/immersion-suit-calibration-tool-air-inspection/31-321.jpg"
+    ],
+    "immersion-suit calibration tool (manual)": [
+      "data/img-slug/immersion-suit-calibration-tool-manual/31-32.jpg"
+    ],
+    "infant life jacket (foam)": [
+      "data/img-slug/infant-life-jacket-foam/image-1.png"
+    ],
+    "inflatable life jacket (adult) 150n": [
+      "data/img-slug/inflatable-life-jacket-adult-150n/15-164.jpg",
+      "data/img-slug/inflatable-life-jacket-adult-150n/17-18.jpg"
+    ],
+    "inflatable life jacket (adult) 275n": [
+      "data/img-slug/inflatable-life-jacket-adult-275n/17-182.jpg"
+    ],
+    "inflatable life jacket (child) 150n": [
+      "data/img-slug/inflatable-life-jacket-child-150n/17-184.jpg"
+    ],
+    "insulated immersion suit (polar)": [
+      "data/img-slug/insulated-immersion-suit-polar/29-302.jpg"
+    ],
+    "insulated immersion suit n1 series": [
+      "data/img-slug/insulated-immersion-suit-n1-series/23-24.jpg"
+    ],
+    "insulated immersion suit n2 w: buoyancy": [
+      "data/img-slug/insulated-immersion-suit-n2-w-buoyancy/25-26.jpg",
+      "data/img-slug/insulated-immersion-suit-n2-w-buoyancy/image-2.png",
+      "data/img-slug/insulated-immersion-suit-n2-w-buoyancy/image-3.png",
+      "data/img-slug/insulated-immersion-suit-n2-w-buoyancy/image-4.png",
+      "data/img-slug/insulated-immersion-suit-n2-w-buoyancy/image-5.png"
+    ],
+    "leather bag for fire axe": [
+      "data/img-slug/leather-bag-for-fire-axe/65-664.jpg"
+    ],
+    "life vest 100n l01": [
+      "data/img-slug/life-vest-100n-l01/13-143.jpg"
+    ],
+    "life vest 50n f01": [
+      "data/img-slug/life-vest-50n-f01/13-145.jpg"
+    ],
+    "life vest 50n f10": [
+      "data/img-slug/life-vest-50n-f10/13-141.jpg"
+    ],
+    "lifebuoy (2.5 kg)": [
+      "data/img-slug/lifebuoy-2-5-kg/1-2.jpg"
+    ],
+    "lifebuoy (4.3 kg)": [
+      "data/img-slug/lifebuoy-4-3-kg/image-1.jpg",
+      "data/img-slug/lifebuoy-4-3-kg/1-23.jpg",
+      "data/img-slug/lifebuoy-4-3-kg/1-24.jpg",
+      "data/img-slug/lifebuoy-4-3-kg/1-25.jpg"
+    ],
+    "lifebuoy bracket": [
+      "data/img-slug/lifebuoy-bracket/3-41.jpg"
+    ],
+    "lifebuoy self igniting light": [
+      "data/img-slug/lifebuoy-self-igniting-light/5-62.jpg"
+    ],
+    "lifejacket light alkaline battery": [
+      "data/img-slug/lifejacket-light-alkaline-battery/19-201.jpg"
+    ],
+    "lifejacket light alkaline battery ydg1c": [
+      "data/img-slug/lifejacket-light-alkaline-battery-ydg1c/19-20.jpg"
+    ],
+    "lifejacket light explosion proof": [
+      "data/img-slug/lifejacket-light-explosion-proof/21-221.jpg"
+    ],
+    "lifejacket light lithium battery": [
+      "data/img-slug/lifejacket-light-lithium-battery/21-222.jpg"
+    ],
+    "lifejacket light polar type": [
+      "data/img-slug/lifejacket-light-polar-type/21-22.jpg"
+    ],
+    "marine life jacket (adult, foam)": [
+      "data/img-slug/marine-life-jacket-adult-foam/9-10.jpg"
+    ],
+    "multi-purpose (fire extinguisher) retaining strap": [
+      "data/img-slug/multi-purpose-fire-extinguisher-retaining-strap/image-1.png"
+    ],
+    "nakajima type cap": [
+      "data/img-slug/nakajima-type-cap/51-523.jpg",
+      "data/img-slug/nakajima-type-cap/image-2.png"
+    ],
+    "nakajima type connector": [
+      "data/img-slug/nakajima-type-connector/51-525.jpg",
+      "data/img-slug/nakajima-type-connector/image-2.png"
+    ],
+    "nakajima type hose coupling": [
+      "data/img-slug/nakajima-type-hose-coupling/image-1.png",
+      "data/img-slug/nakajima-type-hose-coupling/image-2.png"
+    ],
+    "nakajima type isc.s": [
+      "data/img-slug/nakajima-type-isc-s/53-544.jpg",
+      "data/img-slug/nakajima-type-isc-s/image-2.png"
+    ],
+    "nakajima type nozzle adaptor": [
+      "data/img-slug/nakajima-type-nozzle-adaptor/45-46.jpg",
+      "data/img-slug/nakajima-type-nozzle-adaptor/image-2.png"
+    ],
+    "non-gas-tightness type chemical protective suit": [
+      "data/img-slug/non-gas-tightness-type-chemical-protective-suit/image-1.png",
+      "data/img-slug/non-gas-tightness-type-chemical-protective-suit/image-2.png"
+    ],
+    "non-insulated immersion suit": [
+      "data/img-slug/non-insulated-immersion-suit/29-30.jpg"
+    ],
+    "pilot ladder b type": [
+      "data/img-slug/pilot-ladder-b-type/image-1.png",
+      "data/img-slug/pilot-ladder-b-type/image-2.png"
+    ],
+    "pneumatic line-throwing equipment": [
+      "data/img-slug/pneumatic-line-throwing-equipment/35-362.jpg",
+      "data/img-slug/pneumatic-line-throwing-equipment/image-2.png",
+      "data/img-slug/pneumatic-line-throwing-equipment/image-3.png",
+      "data/img-slug/pneumatic-line-throwing-equipment/image-4.png"
+    ],
+    "portable 12 kg dry powder fe (cartridge) hy-p12c": [
+      "data/img-slug/portable-12-kg-dry-powder-fe-cartridge-hy-p12c/85-861.jpg"
+    ],
+    "portable 2 kg dry powder fe (stored pressure) hy-p2": [
+      "data/img-slug/portable-2-kg-dry-powder-fe-stored-pressure-hy-p2/81-823.jpg"
+    ],
+    "portable 5 kg co₂ fe wn:m5": [
+      "data/img-slug/portable-5-kg-co-fe-wn-m5/81-82.jpg"
+    ],
+    "portable 6 kg dry powder fe (cartridge) hy-p6c": [
+      "data/img-slug/portable-6-kg-dry-powder-fe-cartridge-hy-p6c/85-86.jpg"
+    ],
+    "portable 6 kg dry powder fe (stored pressure) hy-p6": [
+      "data/img-slug/portable-6-kg-dry-powder-fe-stored-pressure-hy-p6/83-84.jpg"
+    ],
+    "portable 9l foam fe pfos:pfoa free (cartridge) hy-f9c": [
+      "data/img-slug/portable-9l-foam-fe-pfos-pfoa-free-cartridge-hy-f9c/89-90.jpg"
+    ],
+    "portable 9l foam fe pfos:pfoa free (stored pressure) hy-f9": [
+      "data/img-slug/portable-9l-foam-fe-pfos-pfoa-free-stored-pressure-hy-f9/87-88.jpg"
+    ],
+    "portable 9l wet chemical fe hy-wc9 (stored pressure)": [
+      "data/img-slug/portable-9l-wet-chemical-fe-hy-wc9-stored-pressure/image-1.png"
+    ],
+    "portable explosion-proof light 4dcb-e (intrinsic safety type)": [
+      "data/img-slug/portable-explosion-proof-light-4dcb-e-intrinsic-safety-type/65-66.jpg"
+    ],
+    "scba (carbon fiber)": [
+      "data/img-slug/scba-carbon-fiber/image-1.jpg"
+    ],
+    "scba (steel)": [
+      "data/img-slug/scba-steel/59-601.jpg"
+    ],
+    "scba parts": [
+      "data/img-slug/scba-parts/Backboard.jpg",
+      "data/img-slug/scba-parts/image-2.jpg",
+      "data/img-slug/scba-parts/Cylinder.jpg",
+      "data/img-slug/scba-parts/image-4.jpg",
+      "data/img-slug/scba-parts/image-5.jpg",
+      "data/img-slug/scba-parts/image-6.jpg",
+      "data/img-slug/scba-parts/image-7.jpg",
+      "data/img-slug/scba-parts/image-8.jpg"
+    ],
+    "safety belt": [
+      "data/img-slug/safety-belt/65-666.jpg"
+    ],
+    "spanner for ansi type hose coupling": [
+      "data/img-slug/spanner-for-ansi-type-hose-coupling/51-52.jpg"
+    ],
+    "spanner for nakajima type hose coupling": [
+      "data/img-slug/spanner-for-nakajima-type-hose-coupling/51-521.jpg"
+    ],
+    "spanner for storz type hose coupling": [
+      "data/img-slug/spanner-for-storz-type-hose-coupling/49-503.jpg"
+    ],
+    "storz type cap": [
+      "data/img-slug/storz-type-cap/51-522.jpg",
+      "data/img-slug/storz-type-cap/image-2.png"
+    ],
+    "storz type nozzle adaptor": [
+      "data/img-slug/storz-type-nozzle-adaptor/43-44.jpg",
+      "data/img-slug/storz-type-nozzle-adaptor/image-2.png"
+    ],
+    "storz:gb type connector": [
+      "data/img-slug/storz-gb-type-connector/51-524.jpg",
+      "data/img-slug/storz-gb-type-connector/image-2.png"
+    ],
+    "storz:gb type hose coupling": [
+      "data/img-slug/storz-gb-type-hose-coupling/47-483.jpg",
+      "data/img-slug/storz-gb-type-hose-coupling/image-2.png"
+    ],
+    "storz:gb type i.s.c": [
+      "data/img-slug/storz-gb-type-i-s-c/image-1.png"
+    ],
+    "thermal protective aid": [
+      "data/img-slug/thermal-protective-aid/image-1.png"
+    ],
+    "thermal working life jacket (foam)": [
+      "data/img-slug/thermal-working-life-jacket-foam/13-14.jpg"
+    ],
+    "throw overboard type inflatable life raft": [
+      "data/img-slug/throw-overboard-type-inflatable-life-raft/37-38.jpg",
+      "data/img-slug/throw-overboard-type-inflatable-life-raft/image-2.png"
+    ],
+    "us ansi type nozzle adaptor": [
+      "data/img-slug/us-ansi-type-nozzle-adaptor/45-461.jpg",
+      "data/img-slug/us-ansi-type-nozzle-adaptor/image-2.png"
+    ],
+    "wheeled 10 kg co₂ fe wn:mtt10": [
+      "data/img-slug/wheeled-10-kg-co-fe-wn-mtt10/81-821.jpg"
+    ],
+    "wheeled 25 kg dry powder fe (cartridge) hy-p25c": [
+      "data/img-slug/wheeled-25-kg-dry-powder-fe-cartridge-hy-p25c/83-843.jpg"
+    ],
+    "wheeled 25 kg dry powder fe (stored pressure) hy-p25": [
+      "data/img-slug/wheeled-25-kg-dry-powder-fe-stored-pressure-hy-p25/83-842.jpg"
+    ],
+    "wheeled 30 kg co₂ fe wn:mtt30": [
+      "data/img-slug/wheeled-30-kg-co-fe-wn-mtt30/81-822.jpg"
+    ],
+    "wheeled 45l foam fe pfos:pfoa free (cartridge) hy-f45c": [
+      "data/img-slug/wheeled-45l-foam-fe-pfos-pfoa-free-cartridge-hy-f45c/image-1.png"
+    ],
+    "wheeled 45l foam fe pfos:pfoa free (stored pressure) hy-f45": [
+      "data/img-slug/wheeled-45l-foam-fe-pfos-pfoa-free-stored-pressure-hy-f45/image-1.png"
+    ],
+    "wheeled 50 kg dry powder fe (cartridge) hy-p50c": [
+      "data/img-slug/wheeled-50-kg-dry-powder-fe-cartridge-hy-p50c/85-862.jpg"
+    ],
+    "wheeled 50 kg dry powder fe (stored pressure) hy-p50": [
+      "data/img-slug/wheeled-50-kg-dry-powder-fe-stored-pressure-hy-p50/85-863.jpg"
+    ],
+    "working lifejacket (foam)": [
+      "data/img-slug/working-lifejacket-foam/11-124.jpg"
+    ],
+    "nakajima type i.s.c": [
+      "data/img-slug/nakajima-type-isc-s/53-544.jpg",
+      "data/img-slug/nakajima-type-isc-s/image-2.png"
+    ]
+  }
+}
