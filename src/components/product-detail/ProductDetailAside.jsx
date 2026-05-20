@@ -1,6 +1,16 @@
 import ApprovalBadge from './ApprovalBadge.jsx'
 import InquiryAsideAction from './InquiryAsideAction.jsx'
 
+const AVAILABILITY_LABELS = {
+  in_stock: 'In Stock',
+  limited: 'Limited',
+}
+
+const AVAILABILITY_STYLES = {
+  in_stock: 'border-sky-200 bg-sky-50 text-sky-800',
+  limited: 'border-amber-200 bg-amber-50 text-amber-800',
+}
+
 function SectionHeading({ id, children }) {
   return (
     <div className="flex items-center gap-2.5">
@@ -25,6 +35,7 @@ function SectionHeading({ id, children }) {
  * @param {string} [props.model]
  * @param {string} [props.categoryName]
  * @param {string} [props.subcategoryName]
+ * @param {'in_stock' | 'limited' | 'unknown'} [props.availability]
  * @param {{ label: string; imageSrc?: string | null }[]} props.approvals
  * @param {{ title?: string; items: string[] }[] | null} props.specifications
  * @param {() => void} [props.onAddToInquiry]
@@ -34,6 +45,7 @@ export default function ProductDetailAside({
   model = '',
   categoryName = '',
   subcategoryName = '',
+  availability = 'unknown',
   approvals = [],
   specifications = null,
   onAddToInquiry,
@@ -42,6 +54,9 @@ export default function ProductDetailAside({
   const showCategory = typeof categoryName === 'string' && categoryName.trim().length > 0
   const showSubcategory = typeof subcategoryName === 'string' && subcategoryName.trim().length > 0
   const showBreadcrumb = showCategory || showSubcategory
+  const availabilityLabel = AVAILABILITY_LABELS[availability]
+  const availabilityClass = AVAILABILITY_STYLES[availability]
+  const showAvailability = Boolean(availabilityLabel && availabilityClass)
   const showApprovals = approvals?.length > 0
   const showSpecifications = specifications?.length > 0
 
@@ -74,8 +89,14 @@ export default function ProductDetailAside({
           {title}
         </h1>
 
+        {showAvailability ? (
+          <p className={`mt-5 inline-flex items-center rounded-lg border px-3.5 py-2 text-sm font-semibold shadow-sm ${availabilityClass}`}>
+            {availabilityLabel}
+          </p>
+        ) : null}
+
         {showModel ? (
-          <p className="mt-5 inline-flex items-center gap-2 rounded-lg border border-[var(--color-primary-200)] bg-white/80 px-3.5 py-2 text-sm shadow-sm backdrop-blur-sm">
+          <p className={`${showAvailability ? 'ml-0 mt-3 sm:ml-3 sm:mt-5' : 'mt-5'} inline-flex items-center gap-2 rounded-lg border border-[var(--color-primary-200)] bg-white/80 px-3.5 py-2 text-sm shadow-sm backdrop-blur-sm`}>
             <span className="font-semibold uppercase tracking-wide text-[var(--color-primary-600)]">
               Model
             </span>

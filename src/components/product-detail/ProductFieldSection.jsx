@@ -1,3 +1,5 @@
+import DetailSectionHeading from './DetailSectionHeading.jsx'
+
 /**
  * @param {Object} props
  * @param {string} props.title
@@ -8,7 +10,7 @@ export default function ProductFieldSection({ title, groups }) {
 
   return (
     <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-7">
-      <h2 className="text-xl font-semibold text-slate-900">{title}</h2>
+      <DetailSectionHeading>{title}</DetailSectionHeading>
 
       <div className="mt-5 space-y-6">
         {groups.map((group, groupIndex) => {

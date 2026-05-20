@@ -1,6 +1,7 @@
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline'
 import { AnimatePresence, motion as Motion, useReducedMotion } from 'framer-motion'
 import { useMemo, useState } from 'react'
+import ImageMagnifier from './ImageMagnifier.jsx'
 import PlaceholderBlock from './PlaceholderBlock.jsx'
 
 /**
@@ -34,16 +35,21 @@ export default function ImageGallery({ images }) {
       >
         <AnimatePresence mode="wait">
           {activeImage?.src ? (
-            <Motion.img
+            <Motion.div
               key={imageKey}
-              src={activeImage.src}
-              alt={activeImage?.label || 'Product image'}
-              className="absolute inset-0 h-full w-full rounded-3xl bg-white object-contain p-2 shadow-sm"
+              className="absolute inset-0 h-full w-full"
               initial={{ opacity: 0, scale: reduce ? 1 : 0.98 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: reduce ? 1 : 0.98 }}
               transition={{ duration: reduce ? 0 : 0.22, ease: [0.22, 1, 0.36, 1] }}
-            />
+            >
+              <ImageMagnifier
+                src={activeImage.src}
+                alt={activeImage?.label || 'Product image'}
+                disabled={reduce}
+                className="h-full w-full rounded-3xl bg-white object-contain p-2 shadow-sm"
+              />
+            </Motion.div>
           ) : (
             <Motion.div
               key={imageKey}

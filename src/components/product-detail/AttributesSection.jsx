@@ -1,3 +1,5 @@
+import DetailSectionHeading from './DetailSectionHeading.jsx'
+
 /**
  * @param {Object} props
  * @param {{ key: string; label: string; value: string }[]} props.attributes
@@ -7,7 +9,7 @@ export default function AttributesSection({ attributes }) {
 
   return (
     <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-7">
-      <h2 className="text-xl font-semibold text-slate-900">Attributes</h2>
+      <DetailSectionHeading>Attributes</DetailSectionHeading>
 
       <dl className="mt-5 divide-y divide-slate-100 rounded-2xl border border-slate-100">
         {attributes.map((attribute) => (

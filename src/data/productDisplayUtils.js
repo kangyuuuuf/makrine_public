@@ -230,7 +230,7 @@ function formatAttributeValue(rawValue) {
  * @param {ReturnType<typeof flattenProductsFromWebDisplay>[number]} product
  * @param {number} index
  */
-export function mapWebDisplayProductToCatalog(product, index = 0, imageIndex = null) {
+export function mapWebDisplayProductToCatalog(product, index = 0, imageIndex = null, inventoryStatusMap = null) {
   const slug = hasNonEmptyString(product?.slug)
     ? product.slug.trim()
     : hasNonEmptyString(product?.id)
@@ -240,8 +240,11 @@ export function mapWebDisplayProductToCatalog(product, index = 0, imageIndex = n
   const imagePaths = resolveProductImagePaths(product, imageIndex)
   const imagePath = imagePaths[0] ?? ''
 
-  let availability = 'out_of_stock'
-  if (product?.stock_status === 'in_stock') availability = 'in_stock'
+  let availability = 'unknown'
+  const inventoryStatus = inventoryStatusMap?.[slug]
+  if (inventoryStatus === 'in_stock' || inventoryStatus === 'limited' || inventoryStatus === 'unknown') {
+    availability = inventoryStatus
+  } else if (product?.stock_status === 'in_stock') availability = 'in_stock'
   else if (product?.stock_status === 'limited') availability = 'limited'
 
   const certifications = hasNonEmptyStringArray(product?.approvals)
@@ -272,9 +275,9 @@ export function mapWebDisplayProductToCatalog(product, index = 0, imageIndex = n
   }
 }
 
-export function mapWebDisplayCatalogProducts(catalog, imageIndex = null) {
+export function mapWebDisplayCatalogProducts(catalog, imageIndex = null, inventoryStatusMap = null) {
   return flattenProductsFromWebDisplay(catalog).map((product, index) =>
-    mapWebDisplayProductToCatalog(product, index, imageIndex),
+    mapWebDisplayProductToCatalog(product, index, imageIndex, inventoryStatusMap),
   )
 }
 
@@ -318,7 +321,7 @@ export function buildSubcategoryFilterOptionsFromWebDisplay(catalog) {
   return options
 }
 
-export function mapWebDisplayProductToDetail(product, imageIndex = null) {
+export function mapWebDisplayProductToDetail(product, imageIndex = null, inventoryStatusMap = null) {
   if (!product) return null
 
   const imagePaths = resolveProductImagePaths(product, imageIndex)
@@ -336,6 +339,13 @@ export function mapWebDisplayProductToDetail(product, imageIndex = null) {
       ? product.id.trim()
       : ''
 
+  let availability = 'unknown'
+  const inventoryStatus = inventoryStatusMap?.[slug]
+  if (inventoryStatus === 'in_stock' || inventoryStatus === 'limited' || inventoryStatus === 'unknown') {
+    availability = inventoryStatus
+  } else if (product?.stock_status === 'in_stock') availability = 'in_stock'
+  else if (product?.stock_status === 'limited') availability = 'limited'
+
   return {
     id: slug,
     title: hasNonEmptyString(product.title) ? product.title.trim() : 'Product',
@@ -343,6 +353,7 @@ export function mapWebDisplayProductToDetail(product, imageIndex = null) {
     categoryName: hasNonEmptyString(product.category_name) ? product.category_name.trim() : '',
     subcategoryName: hasNonEmptyString(product.subcategory_name) ? product.subcategory_name.trim() : '',
     slug,
+    availability,
     images,
     approvals,
     specifications: parseFlexibleListField(product.specifications),

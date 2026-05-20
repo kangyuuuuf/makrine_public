@@ -3,9 +3,14 @@ const BADGE_STYLES = {
   limited: 'bg-amber-600 text-white',
 }
 
+const BADGE_LABELS = {
+  in_stock: 'In Stock',
+  limited: 'Limited',
+}
+
 /**
  * @param {Object} props
- * @param {{ id: string; name: string; shortDescription?: string; image: string; availability: 'in_stock' | 'limited' | 'out_of_stock' }} props.product
+ * @param {{ id: string; name: string; shortDescription?: string; image: string; availability: 'in_stock' | 'limited' | 'unknown' }} props.product
  * @param {string} [props.ctaLabel]
  * @param {string} [props.detailLabel]
  * @param {(id: string) => void} [props.onDetail]
@@ -19,8 +24,8 @@ export default function ProductCard({
   onCta,
 }) {
   const { id, name, shortDescription, image, availability } = product
-  const showBadge = availability === 'in_stock' || availability === 'limited'
-  const badgeLabel = availability === 'in_stock' ? 'In Stock' : 'Limited'
+  const showBadge = Boolean(BADGE_LABELS[availability])
+  const badgeLabel = BADGE_LABELS[availability]
 
   return (
     <article className="group flex h-full flex-col overflow-hidden bg-transparent">

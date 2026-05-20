@@ -66,7 +66,6 @@ export const FILTER_GROUPS = {
   availability: [
     { value: 'in_stock', label: 'In Stock' },
     { value: 'limited', label: 'Limited' },
-    { value: 'out_of_stock', label: 'Out of Stock' },
   ],
   certifications: [
     { value: 'CCS', label: 'CCS' },

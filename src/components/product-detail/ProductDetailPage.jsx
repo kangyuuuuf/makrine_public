@@ -12,6 +12,7 @@ const DEFAULT_DETAIL_DATA = {
   model: '',
   categoryName: '',
   subcategoryName: '',
+  availability: 'unknown',
   slug: '',
   images: [],
   approvals: /** @type {{ label: string; imageSrc: string | null }[]} */ ([]),
@@ -73,6 +74,7 @@ export default function ProductDetailPage({ data = DEFAULT_DETAIL_DATA, onAddToI
   const model = data.model ?? DEFAULT_DETAIL_DATA.model
   const categoryName = data.categoryName ?? DEFAULT_DETAIL_DATA.categoryName
   const subcategoryName = data.subcategoryName ?? DEFAULT_DETAIL_DATA.subcategoryName
+  const availability = data.availability ?? DEFAULT_DETAIL_DATA.availability
   const images = data.images ?? DEFAULT_DETAIL_DATA.images
   const approvals = data.approvals ?? DEFAULT_DETAIL_DATA.approvals
   const specifications = data.specifications ?? DEFAULT_DETAIL_DATA.specifications
@@ -109,6 +111,7 @@ export default function ProductDetailPage({ data = DEFAULT_DETAIL_DATA, onAddToI
                 model={model}
                 categoryName={categoryName}
                 subcategoryName={subcategoryName}
+                availability={availability}
                 approvals={approvals}
                 specifications={specifications}
                 onAddToInquiry={onAddToInquiry}
