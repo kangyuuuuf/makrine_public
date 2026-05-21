@@ -1,4 +1,4 @@
-import { mapApprovalToDisplay } from '../../data/productDisplayUtils.js'
+import { mapApprovalsToDisplay } from '../../data/productDisplayUtils.js'
 import ApprovalBadge from './ApprovalBadge.jsx'
 
 /**
@@ -8,9 +8,10 @@ import ApprovalBadge from './ApprovalBadge.jsx'
 export default function ApprovalsSection({ approvals }) {
   if (!approvals?.length) return null
 
-  const items = approvals.map((item) =>
-    typeof item === 'string' ? mapApprovalToDisplay(item) : item,
-  )
+  const items =
+    typeof approvals[0] === 'string'
+      ? mapApprovalsToDisplay(/** @type {string[]} */ (approvals))
+      : approvals
 
   return (
     <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-7">

@@ -37,8 +37,8 @@ function FilterSection({ title, defaultOpen = true, children }) {
  * @param {(value: string) => void} props.onCategoryToggle
  * @param {Set<string>} props.availability
  * @param {(value: string) => void} props.onAvailabilityToggle
- * @param {Set<string>} props.certifications
- * @param {(value: string) => void} props.onCertToggle
+ * @param {Set<string>} props.approvals
+ * @param {(value: string) => void} props.onApprovalToggle
  * @param {() => void} props.onClearFilters
  * @param {boolean} [props.suppressMobileHeader]
  */
@@ -52,8 +52,8 @@ export default function CatalogSidebar({
   onCategoryToggle,
   availability,
   onAvailabilityToggle,
-  certifications,
-  onCertToggle,
+  approvals,
+  onApprovalToggle,
   onClearFilters,
   suppressMobileHeader = false,
 }) {
@@ -142,16 +142,16 @@ export default function CatalogSidebar({
           ))}
         </FilterSection>
 
-        <FilterSection title="Certification">
-          {FILTER_GROUPS.certifications.map(({ value, label }) => (
+        <FilterSection title="Approval">
+          {FILTER_GROUPS.approvals.map(({ value, label }) => (
             <label
               key={value}
               className="flex cursor-pointer items-center gap-2.5 text-sm text-[var(--text-secondary)]"
             >
               <input
                 type="checkbox"
-                checked={certifications.has(value)}
-                onChange={() => onCertToggle(value)}
+                checked={approvals.has(value)}
+                onChange={() => onApprovalToggle(value)}
                 className="h-4 w-4 rounded border-[var(--border)] text-[var(--color-primary-600)] focus:ring-[var(--focus-ring)]"
               />
               {label}

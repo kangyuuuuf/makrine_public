@@ -47,11 +47,6 @@ export function resolveProductImagePaths(product, imageIndex) {
   return imageIndex.byNormalizedTitle[key] ?? []
 }
 
-/** Approval code (lowercase slug) → image filename under public/data/approval/ */
-const APPROVAL_IMAGE_FILE_ALIASES = {
-  ccs: 'css',
-}
-
 /**
  * @param {string} label
  * @returns {string | null}
@@ -60,8 +55,7 @@ export function getApprovalImageSrc(label) {
   if (!hasNonEmptyString(label)) return null
   const slug = label.trim().toLowerCase().replace(/[^a-z0-9]/g, '')
   if (!slug) return null
-  const fileSlug = APPROVAL_IMAGE_FILE_ALIASES[slug] ?? slug
-  return normalizePublicImagePath(`data/approval/${fileSlug}.png`)
+  return normalizePublicImagePath(`data/approval/${slug}.png`)
 }
 
 /**
@@ -76,13 +70,82 @@ export function mapApprovalToDisplay(label) {
   }
 }
 
+const MED_APPROVAL_DISPLAY_LABEL = 'MED'
+
 /**
+ * @param {string} label
+ */
+function isMedApprovalLabel(label) {
+  return label.trim().toUpperCase() === 'MED'
+}
+
+/**
+ * @param {string} label
+ */
+function isSolasApprovalLabel(label) {
+  return label.trim().toUpperCase() === 'SOLAS'
+}
+
+/** Catalog sidebar filter values (OR across selected checkboxes). */
+export const APPROVAL_FILTER_KEYS = /** @type {const} */ ({
+  CCS: 'ccs',
+  USCG: 'uscg',
+  MED_SOLAS: 'med-solas',
+  IECEX: 'iecex',
+  ATEX: 'atex',
+  MER: 'mer',
+  RINA: 'rina',
+})
+
+/**
+ * @param {string} label
+ * @returns {typeof APPROVAL_FILTER_KEYS[keyof typeof APPROVAL_FILTER_KEYS] | null}
+ */
+function approvalLabelToFilterKey(label) {
+  const normalized = label.trim().toUpperCase()
+  if (normalized === 'CCS') return APPROVAL_FILTER_KEYS.CCS
+  if (normalized === 'USCG') return APPROVAL_FILTER_KEYS.USCG
+  if (normalized === 'MED' || normalized === 'SOLAS') return APPROVAL_FILTER_KEYS.MED_SOLAS
+  if (normalized === 'IECEX') return APPROVAL_FILTER_KEYS.IECEX
+  if (normalized === 'ATEX' || normalized.startsWith('ATEX ')) return APPROVAL_FILTER_KEYS.ATEX
+  if (normalized === 'MER') return APPROVAL_FILTER_KEYS.MER
+  if (normalized === 'RINA') return APPROVAL_FILTER_KEYS.RINA
+  return null
+}
+
+/**
+ * @param {string[] | undefined} approvals
+ * @returns {string[]}
+ */
+export function getProductApprovalFilterKeys(approvals) {
+  if (!Array.isArray(approvals)) return []
+  const keys = new Set()
+  for (const item of approvals) {
+    if (!hasNonEmptyString(item)) continue
+    const key = approvalLabelToFilterKey(item)
+    if (key) keys.add(key)
+  }
+  return [...keys]
+}
+
+/**
+ * SOLAS and MED share one MED badge on the site (med.png).
+ *
  * @param {string[]} approvals
  * @returns {{ label: string; imageSrc: string | null }[]}
  */
 export function mapApprovalsToDisplay(approvals) {
   if (!Array.isArray(approvals)) return []
-  return approvals.filter((item) => hasNonEmptyString(item)).map((item) => mapApprovalToDisplay(item))
+
+  const labels = approvals.filter((item) => hasNonEmptyString(item)).map((item) => item.trim())
+  const showMedBadge = labels.some((item) => isMedApprovalLabel(item) || isSolasApprovalLabel(item))
+  const otherLabels = labels.filter((item) => !isMedApprovalLabel(item) && !isSolasApprovalLabel(item))
+
+  const result = showMedBadge ? [mapApprovalToDisplay(MED_APPROVAL_DISPLAY_LABEL)] : []
+  for (const label of otherLabels) {
+    result.push(mapApprovalToDisplay(label))
+  }
+  return result
 }
 
 const CATEGORY_ID_TO_DIVISION = {
@@ -247,9 +310,7 @@ export function mapWebDisplayProductToCatalog(product, index = 0, imageIndex = n
   } else if (product?.stock_status === 'in_stock') availability = 'in_stock'
   else if (product?.stock_status === 'limited') availability = 'limited'
 
-  const certifications = hasNonEmptyStringArray(product?.approvals)
-    ? product.approvals.filter((item) => hasNonEmptyString(item))
-    : []
+  const approvalFilters = getProductApprovalFilterKeys(product?.approvals)
 
   const firstSpecification =
     Array.isArray(product?.specifications) && typeof product.specifications[0] === 'string'
@@ -271,7 +332,7 @@ export function mapWebDisplayProductToCatalog(product, index = 0, imageIndex = n
     division: CATEGORY_ID_TO_DIVISION[product?.category_id] || 'all',
     category: hasNonEmptyString(product?.subcategory_id) ? product.subcategory_id.trim() : '',
     availability,
-    certifications,
+    approvalFilters,
   }
 }
 

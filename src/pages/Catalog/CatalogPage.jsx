@@ -83,7 +83,7 @@ function CatalogPageInner({ division, isProductRoute }) {
     return new Set()
   })
   const [availability, setAvailability] = useState(() => new Set())
-  const [certifications, setCertifications] = useState(() => new Set())
+  const [approvals, setApprovals] = useState(() => new Set())
   const [drawerOpen, setDrawerOpen] = useState(false)
   const [inquiryProduct, setInquiryProduct] = useState(null)
   const [products, setProducts] = useState([])
@@ -146,9 +146,9 @@ function CatalogPageInner({ division, isProductRoute }) {
       list = list.filter((product) => availability.has(product.availability))
     }
 
-    if (certifications.size > 0) {
+    if (approvals.size > 0) {
       list = list.filter((product) =>
-        product.certifications.some((cert) => certifications.has(cert)),
+        product.approvalFilters.some((key) => approvals.has(key)),
       )
     }
 
@@ -156,7 +156,7 @@ function CatalogPageInner({ division, isProductRoute }) {
   }, [
     activeSubcategoryFilters,
     availability,
-    certifications,
+    approvals,
     division,
     products,
     searchQuery,
@@ -164,7 +164,7 @@ function CatalogPageInner({ division, isProductRoute }) {
 
   useEffect(() => {
     setCurrentPage(1)
-  }, [division, searchQuery, categories, availability, certifications])
+  }, [division, searchQuery, categories, availability, approvals])
 
   const divisionCatalog = useMemo(() => {
     if (division === 'all') return products
@@ -193,7 +193,7 @@ function CatalogPageInner({ division, isProductRoute }) {
     setSearchQuery('')
     setCategories(new Set())
     setAvailability(new Set())
-    setCertifications(new Set())
+    setApprovals(new Set())
     if (isProductRoute) {
       const next = new URLSearchParams(searchParams)
       next.delete('category')
@@ -234,8 +234,8 @@ function CatalogPageInner({ division, isProductRoute }) {
     onCategoryToggle: (v) => setCategories((s) => toggleSetValue(s, v)),
     availability,
     onAvailabilityToggle: (v) => setAvailability((s) => toggleSetValue(s, v)),
-    certifications,
-    onCertToggle: (v) => setCertifications((s) => toggleSetValue(s, v)),
+    approvals,
+    onApprovalToggle: (v) => setApprovals((s) => toggleSetValue(s, v)),
     onClearFilters: clearFilters,
   }
 

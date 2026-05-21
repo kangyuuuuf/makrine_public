@@ -67,10 +67,14 @@ export const FILTER_GROUPS = {
     { value: 'in_stock', label: 'In Stock' },
     { value: 'limited', label: 'Limited' },
   ],
-  certifications: [
-    { value: 'CCS', label: 'CCS' },
-    { value: 'MED', label: 'MED' },
-    { value: 'USCG', label: 'USCG' },
+  approvals: [
+    { value: 'ccs', label: 'CCS' },
+    { value: 'uscg', label: 'USCG' },
+    { value: 'med-solas', label: 'MED/SOLAS' },
+    { value: 'iecex', label: 'IECEx' },
+    { value: 'atex', label: 'ATEX' },
+    { value: 'mer', label: 'MER' },
+    { value: 'rina', label: 'RINA' },
   ],
 }
 
