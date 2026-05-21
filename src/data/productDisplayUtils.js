@@ -289,6 +289,29 @@ function formatAttributeValue(rawValue) {
   return ''
 }
 
+const AVAILABILITY_SORT_RANK = {
+  in_stock: 0,
+  limited: 1,
+  unknown: 2,
+}
+
+/** @param {'in_stock' | 'limited' | 'unknown'} availability */
+export function getAvailabilitySortRank(availability) {
+  return AVAILABILITY_SORT_RANK[availability] ?? AVAILABILITY_SORT_RANK.unknown
+}
+
+/**
+ * Puts in-stock products first, then limited, then unknown (stable within each tier).
+ * @template {{ availability?: 'in_stock' | 'limited' | 'unknown' }} T
+ * @param {T[]} products
+ * @returns {T[]}
+ */
+export function sortProductsByAvailability(products) {
+  return [...products].sort(
+    (a, b) => getAvailabilitySortRank(a?.availability) - getAvailabilitySortRank(b?.availability),
+  )
+}
+
 /**
  * @param {ReturnType<typeof flattenProductsFromWebDisplay>[number]} product
  * @param {number} index
@@ -337,9 +360,10 @@ export function mapWebDisplayProductToCatalog(product, index = 0, imageIndex = n
 }
 
 export function mapWebDisplayCatalogProducts(catalog, imageIndex = null, inventoryStatusMap = null) {
-  return flattenProductsFromWebDisplay(catalog).map((product, index) =>
+  const mapped = flattenProductsFromWebDisplay(catalog).map((product, index) =>
     mapWebDisplayProductToCatalog(product, index, imageIndex, inventoryStatusMap),
   )
+  return sortProductsByAvailability(mapped)
 }
 
 export async function fetchProductImageIndex() {

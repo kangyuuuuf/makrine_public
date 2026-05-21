@@ -23,6 +23,7 @@ import {
   buildSubcategoryFilterOptionsFromWebDisplay,
   fetchProductImageIndex,
   mapWebDisplayCatalogProducts,
+  sortProductsByAvailability,
 } from '../../data/productDisplayUtils.js'
 
 const INQUIRY_API_ENDPOINT = import.meta.env.VITE_INQUIRY_API_URL || '/api/inquiry'
@@ -152,7 +153,7 @@ function CatalogPageInner({ division, isProductRoute }) {
       )
     }
 
-    return list
+    return sortProductsByAvailability(list)
   }, [
     activeSubcategoryFilters,
     availability,
