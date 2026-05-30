@@ -5,8 +5,9 @@
   "type": "module",
   "scripts": {
     "build:image-index": "node scripts/build-product-image-index.mjs",
+    "build:sitemap": "node scripts/build-sitemap.mjs",
     "predev": "npm run build:image-index",
-    "prebuild": "npm run build:image-index",
+    "prebuild": "npm run build:image-index && npm run build:sitemap",
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
