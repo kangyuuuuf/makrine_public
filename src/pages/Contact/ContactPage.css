@@ -293,9 +293,15 @@
   justify-content: center;
   width: 2.5rem;
   height: 2.5rem;
-  color: var(--color-primary-600, #0f355e);
-  background: color-mix(in srgb, var(--color-primary-100, #dfe8f2) 85%, transparent);
-  border: 1px solid color-mix(in srgb, var(--color-primary-200, #1a4a7a) 35%, transparent);
+  color: #ffffff;
+  background: linear-gradient(
+    to bottom right,
+    var(--color-primary-600, #0f355e),
+    var(--color-primary-500, #112f57),
+    var(--color-primary-400, #3d5f7a)
+  );
+  border: 1px solid color-mix(in srgb, var(--color-primary-400, #3d5f7a) 55%, transparent);
+  box-shadow: 0 2px 8px color-mix(in srgb, var(--color-primary-700, #0d3d6b) 22%, transparent);
 }
 
 .contact-page__meta-icon svg {
