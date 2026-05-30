@@ -1,4 +1,4 @@
-import heroImg from '../assets/hero.png'
+import heroImg from '../assets/allproduct.png'
 import webAssert11 from '../assets/web/webAssert11.avif'
 import webAssert12 from '../assets/web/webAssert12.avif'
 import {

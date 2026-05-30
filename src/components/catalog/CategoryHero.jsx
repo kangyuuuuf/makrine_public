@@ -1,5 +1,64 @@
+import { ChevronRightIcon } from '@heroicons/react/24/outline'
 import { motion as Motion, useReducedMotion } from 'framer-motion'
 import { DIVISION_LABELS } from '../../data/catalogConfig.js'
+
+const JUMP_BUTTON_CLASS =
+  'group inline-flex w-full cursor-pointer items-center justify-between gap-3 rounded-md border border-[var(--color-primary-600)] bg-gradient-to-r from-[var(--color-primary-700)] via-[var(--color-primary-500)] to-[var(--color-primary-400)] px-4 py-3.5 text-sm font-semibold text-white shadow-[0_4px_14px_color-mix(in_srgb,var(--color-primary-700)_28%,transparent)] transition-[background,box-shadow,border-color] duration-200 hover:border-[var(--color-primary-700)] hover:from-[var(--color-primary-800)] hover:via-[var(--color-primary-600)] hover:to-[var(--color-primary-500)] hover:shadow-[0_6px_18px_color-mix(in_srgb,var(--color-primary-800)_32%,transparent)] active:border-[var(--color-primary-900)] active:from-[var(--color-primary-900)] active:via-[var(--color-primary-700)] active:to-[var(--color-primary-600)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus-ring)]'
+
+const JUMP_ICON_CLASS =
+  'h-4 w-4 shrink-0 text-white/85 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:text-white'
+
+/** @type {Record<'all' | 'life-saving' | 'fire-fighting', ('all' | 'life-saving' | 'fire-fighting')[]>} */
+const JUMP_TARGETS_BY_DIVISION = {
+  all: ['life-saving', 'fire-fighting'],
+  'life-saving': ['all', 'fire-fighting'],
+  'fire-fighting': ['all', 'life-saving'],
+}
+
+/** @type {Record<'all' | 'life-saving' | 'fire-fighting', string>} */
+const JUMP_SECTION_LABEL_BY_DIVISION = {
+  all: 'Browse by section',
+  'life-saving': 'Browse other section',
+  'fire-fighting': 'Browse other section',
+}
+
+/**
+ * @param {Object} props
+ * @param {'all' | 'life-saving' | 'fire-fighting'} props.division
+ * @param {('all' | 'life-saving' | 'fire-fighting')[]} props.targets
+ * @param {(id: 'all' | 'life-saving' | 'fire-fighting') => void} props.onDivisionChange
+ */
+function SectionJumpButtons({ division, targets, onDivisionChange }) {
+  if (targets.length === 0) return null
+
+  const sectionLabel = JUMP_SECTION_LABEL_BY_DIVISION[division] ?? 'Browse by section'
+
+  const gridClass =
+    targets.length > 1
+      ? 'grid grid-cols-1 gap-2.5 sm:grid-cols-2 sm:gap-3'
+      : 'grid grid-cols-1 gap-2.5'
+
+  return (
+    <div className="flex w-full max-w-2xl flex-col gap-3 pt-1">
+      <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[var(--color-primary-700)]">
+        {sectionLabel}
+      </p>
+      <div className={gridClass} role="group" aria-label={sectionLabel}>
+        {targets.map((targetId) => (
+          <button
+            key={targetId}
+            type="button"
+            onClick={() => onDivisionChange(targetId)}
+            className={JUMP_BUTTON_CLASS}
+          >
+            <span>{DIVISION_LABELS[targetId]}</span>
+            <ChevronRightIcon className={JUMP_ICON_CLASS} aria-hidden />
+          </button>
+        ))}
+      </div>
+    </div>
+  )
+}
 
 /**
  * @param {Object} props
@@ -11,8 +70,6 @@ import { DIVISION_LABELS } from '../../data/catalogConfig.js'
  */
 export default function CategoryHero({ title, paragraphs, image, division, onDivisionChange }) {
   const reduce = useReducedMotion()
-  const jumpButtonClass =
-    'inline-flex w-full items-center justify-center rounded-lg border border-[var(--border)] bg-white px-4 py-3 text-sm font-semibold text-[var(--text-primary)] shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--color-primary-300)] hover:bg-[var(--color-primary-50)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus-ring)]'
 
   const dur = reduce ? 0 : 0.45
   const stagger = reduce ? 0 : 0.07
@@ -48,7 +105,7 @@ export default function CategoryHero({ title, paragraphs, image, division, onDiv
         >
           <Motion.p
             variants={item}
-            className="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--text-secondary)]"
+            className="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--color-primary-600)]"
           >
             Product category
           </Motion.p>
@@ -69,27 +126,13 @@ export default function CategoryHero({ title, paragraphs, image, division, onDiv
               </Motion.p>
             ))}
           </div>
-          {division === 'all' && typeof onDivisionChange === 'function' ? (
-            <Motion.div
-              variants={item}
-              className="grid w-full max-w-2xl grid-cols-1 gap-3 pt-1 sm:grid-cols-2"
-              role="group"
-              aria-label="Jump to product section"
-            >
-              <button
-                type="button"
-                onClick={() => onDivisionChange('life-saving')}
-                className={jumpButtonClass}
-              >
-                {DIVISION_LABELS['life-saving']}
-              </button>
-              <button
-                type="button"
-                onClick={() => onDivisionChange('fire-fighting')}
-                className={jumpButtonClass}
-              >
-                {DIVISION_LABELS['fire-fighting']}
-              </button>
+          {division && typeof onDivisionChange === 'function' ? (
+            <Motion.div variants={item}>
+              <SectionJumpButtons
+                division={division}
+                targets={JUMP_TARGETS_BY_DIVISION[division] ?? []}
+                onDivisionChange={onDivisionChange}
+              />
             </Motion.div>
           ) : null}
         </Motion.div>

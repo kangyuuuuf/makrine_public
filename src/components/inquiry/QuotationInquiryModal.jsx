@@ -195,7 +195,7 @@ export default function QuotationInquiryModal({
                       Makrine Sales Team
                     </p>
                     <h2 id="quotation-modal-title" className="mt-2 text-2xl font-bold tracking-tight text-[var(--text-primary)]">
-                      Request a Quote
+                      Inquiry
                     </h2>
                     <p className="mt-2 text-sm text-[var(--text-secondary)]">
                       Please fill out the form below and our team will get back to you shortly.
