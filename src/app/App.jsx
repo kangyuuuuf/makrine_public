@@ -1,6 +1,6 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import ScrollToTop from './ScrollToTop.jsx'
-import { Analytics } from '@vercel/analytics/next';
+import { Analytics } from '@vercel/analytics/react';
 import Navbar from '../components/Navbar/Navbar.jsx'
 import HomePage from '../pages/Home/index.jsx'
 import AboutPage from '../pages/About/AboutPage.jsx'
