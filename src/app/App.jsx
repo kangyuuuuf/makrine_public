@@ -1,5 +1,6 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import ScrollToTop from './ScrollToTop.jsx'
+import { Analytics } from '@vercel/analytics/next';
 import Navbar from '../components/Navbar/Navbar.jsx'
 import HomePage from '../pages/Home/index.jsx'
 import AboutPage from '../pages/About/AboutPage.jsx'
@@ -14,6 +15,7 @@ function App() {
   return (
     <BrowserRouter basename={basename}>
       <ScrollToTop />
+      <Analytics />
       <div className="site-layout">
         <Navbar />
         <Routes>
