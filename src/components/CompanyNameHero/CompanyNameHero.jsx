@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { useReducedMotion } from 'framer-motion'
+import { useInView, useReducedMotion } from 'framer-motion'
+import { useRef, useState } from 'react'
 import Typewriter from 'typewriter-effect'
 import './CompanyNameHero.css'
 
@@ -16,30 +16,17 @@ function hideTypewriterCursor(state) {
 }
 
 function CompanyNameHero() {
+  const sectionRef = useRef(null)
+  const isInView = useInView(sectionRef, { once: true, amount: 0.4 })
   const prefersReducedMotion = useReducedMotion()
   const reduced = Boolean(prefersReducedMotion)
-  const [showTagline, setShowTagline] = useState(reduced)
+  const [showTagline, setShowTagline] = useState(false)
 
-  if (reduced) {
-    return (
-      <section
-        className="company-name-hero"
-        aria-labelledby="company-name-hero-heading"
-      >
-        <div className="company-name-hero__glow" aria-hidden="true" />
-        <div className="company-name-hero__inner">
-          <p className="company-name-hero__eyebrow">{EYEBROW}</p>
-          <h1 id="company-name-hero-heading" className="company-name-hero__title">
-            <span className="company-name-hero__title-text">{BRAND}</span>
-          </h1>
-          <p className="company-name-hero__tagline">{TAGLINE}</p>
-        </div>
-      </section>
-    )
-  }
+  const ready = isInView
 
   return (
     <section
+      ref={sectionRef}
       className="company-name-hero"
       aria-labelledby="company-name-hero-heading"
     >
@@ -47,31 +34,42 @@ function CompanyNameHero() {
       <div className="company-name-hero__inner">
         <p className="company-name-hero__eyebrow">{EYEBROW}</p>
         <h1 id="company-name-hero-heading" className="company-name-hero__title">
-          <Typewriter
-            component="span"
-            options={TITLE_OPTIONS}
-            onInit={(tw) => {
-              tw
-                .typeString(BRAND)
-                .callFunction(hideTypewriterCursor)
-                .pauseFor(450)
-                .callFunction(() => {
-                  setShowTagline(true)
-                })
-                .start()
-            }}
-          />
+          {!ready ? (
+            <span className="company-name-hero__title-text company-name-hero__title-text--placeholder" aria-hidden="true">
+              {BRAND}
+            </span>
+          ) : reduced ? (
+            <span className="company-name-hero__title-text">{BRAND}</span>
+          ) : (
+            <Typewriter
+              component="span"
+              options={TITLE_OPTIONS}
+              onInit={(tw) => {
+                tw
+                  .typeString(BRAND)
+                  .callFunction(hideTypewriterCursor)
+                  .pauseFor(450)
+                  .callFunction(() => {
+                    setShowTagline(true)
+                  })
+                  .start()
+              }}
+            />
+          )}
         </h1>
         <p className="company-name-hero__tagline">
-          {showTagline ? (
+          {!ready ? (
+            <span className="company-name-hero__tagline-placeholder" aria-hidden="true">
+              {TAGLINE}
+            </span>
+          ) : reduced ? (
+            TAGLINE
+          ) : showTagline ? (
             <Typewriter
               component="span"
               options={TAGLINE_OPTIONS}
               onInit={(tw) => {
-                tw
-                  .typeString(TAGLINE)
-                  .callFunction(hideTypewriterCursor)
-                  .start()
+                tw.typeString(TAGLINE).callFunction(hideTypewriterCursor).start()
               }}
             />
           ) : (

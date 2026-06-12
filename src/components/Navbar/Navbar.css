@@ -1,9 +1,17 @@
 /* 响应式：Logo 高度、内边距随视口变化；支持刘海屏安全区 */
-.site-nav {
+:root {
   --nav-logo-height: clamp(36px, 2.4vw + 26px, 48px);
   --nav-pad-inline: clamp(12px, 3.2vw, 28px);
   --nav-pad-block: clamp(10px, 1.5vw, 14px);
   --nav-gap: clamp(8px, 2vw, 20px);
+  --site-nav-height: calc(
+    max(var(--nav-pad-block), env(safe-area-inset-top, 0px)) * 2 +
+    max(44px, var(--nav-logo-height)) +
+    1px
+  );
+}
+
+.site-nav {
   --nav-login-fs: clamp(0.875rem, 0.25vw + 0.8rem, 1.0625rem);
   position: sticky;
   top: 0;
@@ -134,6 +142,16 @@
 
 /* 窄屏：首行 Logo + Log In，中间区换行 */
 @media (max-width: 639px) {
+  :root {
+    --site-nav-height: calc(
+      max(var(--nav-pad-block), env(safe-area-inset-top, 0px)) * 2 +
+      var(--nav-logo-height) +
+      clamp(8px, 2vw, 12px) +
+      max(40px, var(--nav-logo-height)) +
+      1px
+    );
+  }
+
   .site-nav__inner {
     grid-template-columns: 1fr;
     row-gap: clamp(8px, 2vw, 12px);

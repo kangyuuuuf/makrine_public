@@ -125,6 +125,11 @@
   color: transparent;
 }
 
+.company-name-hero__title-text--placeholder,
+.company-name-hero__tagline-placeholder {
+  visibility: hidden;
+}
+
 .company-name-hero__title .Typewriter__cursor {
   color: var(--text-primary);
   -webkit-text-fill-color: var(--text-primary);
