@@ -144,10 +144,11 @@
 @media (max-width: 639px) {
   :root {
     --site-nav-height: calc(
-      max(var(--nav-pad-block), env(safe-area-inset-top, 0px)) * 2 +
+      max(var(--nav-pad-block), env(safe-area-inset-top, 0px)) +
       var(--nav-logo-height) +
       clamp(8px, 2vw, 12px) +
-      max(40px, var(--nav-logo-height)) +
+      max(44px, var(--nav-logo-height)) +
+      max(var(--nav-pad-block), env(safe-area-inset-bottom, 0px)) +
       1px
     );
   }
