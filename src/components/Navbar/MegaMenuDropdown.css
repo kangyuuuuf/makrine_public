@@ -26,12 +26,30 @@
     transform 0.22s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.mega-menu:hover .mega-menu__panel,
-.mega-menu:focus-within .mega-menu__panel {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-  transform: translateX(-50%) translateY(0);
+@media (hover: hover) and (pointer: fine) {
+  .mega-menu:hover .mega-menu__panel,
+  .mega-menu:focus-within .mega-menu__panel {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .mega-menu__section-title:hover {
+    color: var(--color-primary-600);
+  }
+
+  .mega-menu__column-link:hover {
+    background: color-mix(in srgb, var(--color-primary-600) 6%, transparent);
+  }
+
+  .mega-menu__column-link:hover .mega-menu__group-title--in-link {
+    color: var(--color-primary-600);
+  }
+
+  .mega-menu__column-link:hover .mega-menu__sublabel {
+    color: color-mix(in srgb, var(--text-primary) 88%, var(--color-primary-600));
+  }
 }
 
 .mega-menu__panel-inner {
@@ -74,10 +92,6 @@
   color: var(--text-primary);
   text-decoration: none;
   transition: color 0.15s ease;
-}
-
-.mega-menu__section-title:hover {
-  color: var(--color-primary-600);
 }
 
 .mega-menu__section-title:focus-visible {
@@ -123,14 +137,6 @@
     background 0.15s ease;
 }
 
-.mega-menu__column-link:hover {
-  background: color-mix(in srgb, var(--color-primary-600) 6%, transparent);
-}
-
-.mega-menu__column-link:hover .mega-menu__group-title--in-link {
-  color: var(--color-primary-600);
-}
-
 .mega-menu__column-link:focus-visible {
   outline: 2px solid var(--color-primary-500);
   outline-offset: 2px;
@@ -170,10 +176,6 @@
   color: var(--text-secondary);
   line-height: 1.35;
   cursor: inherit;
-}
-
-.mega-menu__column-link:hover .mega-menu__sublabel {
-  color: color-mix(in srgb, var(--text-primary) 88%, var(--color-primary-600));
 }
 
 @media (max-width: 767px) {
