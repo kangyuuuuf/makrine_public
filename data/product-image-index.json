@@ -1,6 +1,6 @@
 {
   "schema_version": "1.1",
-  "generated_at": "2026-06-13T06:34:27.692Z",
+  "generated_at": "2026-07-01T20:54:37.197Z",
   "image_root": "data/img-slug",
   "byNormalizedTitle": {
     "bsp pin fire hydrant": [
@@ -78,7 +78,22 @@
       "data/img-slug/gas-tightness-type-chemical-protective-suit/image-2.png"
     ],
     "imo signs": [
-      "data/img-slug/imo-signs/image-1.png"
+      "data/img-slug/imo-signs/image-1.png",
+      "data/img-slug/imo-signs/image-2.png",
+      "data/img-slug/imo-signs/image-3.png",
+      "data/img-slug/imo-signs/image-4.png",
+      "data/img-slug/imo-signs/image-5.png",
+      "data/img-slug/imo-signs/image-6.png",
+      "data/img-slug/imo-signs/image-7.png",
+      "data/img-slug/imo-signs/image-8.png",
+      "data/img-slug/imo-signs/image-9.png",
+      "data/img-slug/imo-signs/image-10.png",
+      "data/img-slug/imo-signs/image-11.png",
+      "data/img-slug/imo-signs/image-12.png",
+      "data/img-slug/imo-signs/image-13.png",
+      "data/img-slug/imo-signs/image-14.png",
+      "data/img-slug/imo-signs/image-15.png",
+      "data/img-slug/imo-signs/image-16.png"
     ],
     "immersion suit n6 series w:o buoyancy": [
       "data/img-slug/immersion-suit-n6-series-w-o-buoyancy/27-28.jpg",
