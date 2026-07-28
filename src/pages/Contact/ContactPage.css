@@ -235,7 +235,7 @@
 
 .contact-page__card-title {
   margin: 0 0 1rem;
-  font-family: var(--font-family-serif, Georgia, serif);
+  font-family: var(--font-family-serif, serif);
   font-size: 1.25rem;
   font-weight: 700;
   letter-spacing: -0.02em;

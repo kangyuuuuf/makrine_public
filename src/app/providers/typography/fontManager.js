@@ -9,9 +9,9 @@ export const fontPresets = {
       { family: 'JetBrains Mono', weights: [400, 500] },
     ],
     family: {
-      sans: 'Inter, "SF Pro Text", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
-      serif: '"Merriweather", Georgia, "Times New Roman", serif',
-      mono: '"JetBrains Mono", "SF Mono", "Cascadia Code", Consolas, monospace',
+      sans: 'Inter, sans-serif',
+      serif: '"Merriweather", serif',
+      mono: '"JetBrains Mono", monospace',
     },
     size: {
       xs: '12px',
@@ -91,9 +91,9 @@ export const fontPresets = {
       { family: 'JetBrains Mono', weights: [400, 500] },
     ],
     family: {
-      sans: '"IBM Plex Sans", Inter, "Segoe UI", Roboto, Arial, sans-serif',
-      serif: '"Merriweather", Georgia, "Times New Roman", serif',
-      mono: '"JetBrains Mono", Consolas, monospace',
+      sans: '"IBM Plex Sans", Inter, sans-serif',
+      serif: '"Merriweather", serif',
+      mono: '"JetBrains Mono", monospace',
     },
     size: {
       xs: '11px',

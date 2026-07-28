@@ -119,7 +119,7 @@
 
 .about-page__title--why {
   margin: 0;
-  font-family: var(--font-family-serif, Georgia, serif);
+  font-family: var(--font-family-serif, serif);
   font-weight: 700;
   font-size: 1.875rem;
   line-height: 1.3;
@@ -323,7 +323,7 @@
 
 .about-page__feature-title {
   margin: 0;
-  font-family: var(--font-family-serif, Georgia, serif);
+  font-family: var(--font-family-serif, serif);
   font-size: 1.25rem;
   font-weight: 700;
   line-height: 1.375;

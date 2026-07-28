@@ -139,6 +139,60 @@
   text-decoration: underline;
 }
 
+.footer-section__socials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.footer-section__social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  color: var(--color-primary-500);
+  text-decoration: none;
+  transition:
+    color 0.15s ease,
+    background 0.15s ease,
+    border-color 0.15s ease,
+    transform 0.15s ease;
+}
+
+.footer-section__social-link:hover {
+  border-color: var(--color-primary-500);
+  background: var(--color-primary-500);
+  color: var(--color-primary-50);
+  transform: translateY(-2px);
+}
+
+.footer-section__social-link:focus-visible {
+  outline: 2px solid var(--color-primary-500);
+  outline-offset: 3px;
+}
+
+.footer-section__social-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  overflow: visible;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.footer-section__social-icon-dot,
+.footer-section__social-icon-fill {
+  fill: currentColor;
+  stroke: none;
+}
+
 /* Form — underline fields, full-width submit; 宽度为表单分区 70% */
 .footer-section__form {
   width: 70%;

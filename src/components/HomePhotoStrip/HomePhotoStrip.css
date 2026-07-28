@@ -162,7 +162,7 @@
 }
 
 .home-photo-strip__title-accent {
-  font-family: var(--font-family-serif, Georgia, 'Times New Roman', serif);
+  font-family: var(--font-family-serif, serif);
   font-style: italic;
   font-weight: 650;
   letter-spacing: -0.02em;

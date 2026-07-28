@@ -158,6 +158,45 @@ function FooterSection() {
               </dd>
             </div> */}
           </dl>
+          <nav className="footer-section__socials" aria-label="Follow Makrine">
+            <a
+              className="footer-section__social-link"
+              href="https://www.instagram.com/makrine_2025/"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Follow Makrine on Instagram"
+              title="Instagram"
+            >
+              <svg
+                className="footer-section__social-icon"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <rect x="3" y="3" width="18" height="18" rx="5" />
+                <circle cx="12" cy="12" r="4.25" />
+                <circle cx="17.4" cy="6.7" r="1" className="footer-section__social-icon-dot" />
+              </svg>
+            </a>
+            <a
+              className="footer-section__social-link"
+              href="https://www.facebook.com/share/1RUDKHHpVF/?mibextid=wwXIfr"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Follow Makrine on Facebook"
+              title="Facebook"
+            >
+              <svg
+                className="footer-section__social-icon"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  className="footer-section__social-icon-fill"
+                  d="M13.7 21v-8h2.7l.4-3h-3.1V8.1c0-.9.3-1.5 1.6-1.5H17V3.9c-.7-.1-1.5-.2-2.3-.2-2.3 0-3.9 1.4-3.9 4.1V10H8.2v3h2.6v8h2.9Z"
+                />
+              </svg>
+            </a>
+          </nav>
         </section>
 
         <section
