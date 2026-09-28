@@ -8,7 +8,7 @@ const AVAILABILITY_LABELS = {
 
 const AVAILABILITY_STYLES = {
   in_stock: 'border-sky-200 bg-sky-50 text-sky-800',
-  limited: 'border-amber-200 bg-amber-50 text-amber-800',
+  limited: 'border-emerald-200 bg-emerald-50 text-emerald-800',
 }
 
 function SectionHeading({ id, children }) {

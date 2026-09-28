@@ -1,6 +1,6 @@
 const BADGE_STYLES = {
   in_stock: 'bg-sky-800 text-white',
-  limited: 'bg-amber-600 text-white',
+  limited: 'bg-emerald-700 text-white',
 }
 
 const BADGE_LABELS = {

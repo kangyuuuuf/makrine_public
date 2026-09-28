@@ -1,0 +1,7 @@
+# Public inventory endpoint used by the browser. Keep the value empty to use
+# the same-origin default: /public/inventory-status
+VITE_INVENTORY_API_URL= http://localhost:8000/public/inventory-status
+
+# Existing inquiry endpoint (optional; defaults to /api/inquiry).
+VITE_INQUIRY_API_URL=
+

@@ -10,6 +10,7 @@ import {
   findProductBySlug,
   mapWebDisplayProductToDetail,
 } from '../../data/productDisplayUtils.js'
+import { fetchInventoryStatusMap } from '../../data/inventoryStatus.js'
 
 const PAGE_EASE = [0.22, 1, 0.36, 1]
 const INQUIRY_API_ENDPOINT = import.meta.env.VITE_INQUIRY_API_URL || '/api/inquiry'
@@ -19,11 +20,13 @@ export default function ProductDetailPageRoute() {
   const reduce = useReducedMotion()
   const [catalog, setCatalog] = useState(null)
   const [imageIndex, setImageIndex] = useState(null)
+  const [inventoryStatusMap, setInventoryStatusMap] = useState({})
   const [loadError, setLoadError] = useState(false)
   const [inquiryProduct, setInquiryProduct] = useState(null)
 
   useEffect(() => {
     let active = true
+    const controller = new AbortController()
 
     Promise.all([
       fetch(`${import.meta.env.BASE_URL}data/products_web_display.json`).then((response) => {
@@ -32,11 +35,21 @@ export default function ProductDetailPageRoute() {
       }),
       fetchProductImageIndex(),
     ])
-      .then(([data, index]) => {
+      .then(async ([data, index]) => {
         if (!active) return
         setCatalog(data)
         setImageIndex(index)
         setLoadError(false)
+
+        const rawProduct = findProductBySlug(flattenProductsFromWebDisplay(data), productId)
+        try {
+          const statusMap = await fetchInventoryStatusMap([rawProduct?.sku], {
+            signal: controller.signal,
+          })
+          if (active) setInventoryStatusMap(statusMap)
+        } catch (error) {
+          if (error?.name !== 'AbortError' && active) setInventoryStatusMap({})
+        }
       })
       .catch(() => {
         if (!active) return
@@ -47,8 +60,9 @@ export default function ProductDetailPageRoute() {
 
     return () => {
       active = false
+      controller.abort()
     }
-  }, [])
+  }, [productId])
 
   const products = useMemo(() => flattenProductsFromWebDisplay(catalog), [catalog])
 
@@ -58,8 +72,8 @@ export default function ProductDetailPageRoute() {
   )
 
   const detailData = useMemo(
-    () => mapWebDisplayProductToDetail(product, imageIndex),
-    [product, imageIndex],
+    () => mapWebDisplayProductToDetail(product, imageIndex, inventoryStatusMap),
+    [product, imageIndex, inventoryStatusMap],
   )
 
   const onAddToInquiry = useCallback(() => {

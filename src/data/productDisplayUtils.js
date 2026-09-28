@@ -1,3 +1,5 @@
+import { getInventoryStatusForProduct } from './inventoryStatus.js'
+
 /** encodeURIComponent leaves () unencoded; Vite treats those URLs as SPA routes. */
 function encodePublicPathSegment(segment) {
   return encodeURIComponent(segment).replace(/[!'()*]/g, (char) =>
@@ -326,12 +328,8 @@ export function mapWebDisplayProductToCatalog(product, index = 0, imageIndex = n
   const imagePaths = resolveProductImagePaths(product, imageIndex)
   const imagePath = imagePaths[0] ?? ''
 
-  let availability = 'unknown'
-  const inventoryStatus = inventoryStatusMap?.[slug]
-  if (inventoryStatus === 'in_stock' || inventoryStatus === 'limited' || inventoryStatus === 'unknown') {
-    availability = inventoryStatus
-  } else if (product?.stock_status === 'in_stock') availability = 'in_stock'
-  else if (product?.stock_status === 'limited') availability = 'limited'
+  const sku = hasNonEmptyString(product?.sku) ? product.sku.trim() : ''
+  const availability = getInventoryStatusForProduct(inventoryStatusMap, sku)
 
   const approvalFilters = getProductApprovalFilterKeys(product?.approvals)
 
@@ -348,6 +346,7 @@ export function mapWebDisplayProductToCatalog(product, index = 0, imageIndex = n
   return {
     id: slug,
     slug,
+    sku,
     link: `/product/${slug}`,
     name: hasNonEmptyString(product?.title) ? product.title.trim() : slug,
     image: imagePath ? normalizePublicImagePath(imagePath) : '',
@@ -424,12 +423,8 @@ export function mapWebDisplayProductToDetail(product, imageIndex = null, invento
       ? product.id.trim()
       : ''
 
-  let availability = 'unknown'
-  const inventoryStatus = inventoryStatusMap?.[slug]
-  if (inventoryStatus === 'in_stock' || inventoryStatus === 'limited' || inventoryStatus === 'unknown') {
-    availability = inventoryStatus
-  } else if (product?.stock_status === 'in_stock') availability = 'in_stock'
-  else if (product?.stock_status === 'limited') availability = 'limited'
+  const sku = hasNonEmptyString(product?.sku) ? product.sku.trim() : ''
+  const availability = getInventoryStatusForProduct(inventoryStatusMap, sku)
 
   return {
     id: slug,
@@ -438,6 +433,7 @@ export function mapWebDisplayProductToDetail(product, imageIndex = null, invento
     categoryName: hasNonEmptyString(product.category_name) ? product.category_name.trim() : '',
     subcategoryName: hasNonEmptyString(product.subcategory_name) ? product.subcategory_name.trim() : '',
     slug,
+    sku,
     availability,
     images,
     approvals,

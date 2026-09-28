@@ -110,6 +110,7 @@ export default function FeaturedProductsShowcase() {
 
   useEffect(() => {
     let active = true
+    const controller = new AbortController()
 
     Promise.all([
       fetch(`${import.meta.env.BASE_URL}data/products_web_display.json`).then((response) => {
@@ -117,22 +118,34 @@ export default function FeaturedProductsShowcase() {
         return response.json()
       }),
       fetchProductImageIndex(),
-      fetchInventoryStatusMap().catch(() => ({})),
     ])
-      .then(([catalog, imageIndex, inventoryStatusMap]) => {
+      .then(async ([catalog, imageIndex]) => {
         if (!active) return
 
         const allProducts = flattenProductsFromWebDisplay(catalog)
-        const featured = FEATURED_PRODUCTS.map((entry) => {
+        const featuredRawProducts = FEATURED_PRODUCTS.map((entry) => {
           const { slug, intervalMs } = normalizeFeaturedProductEntry(entry)
           if (!slug) return null
           const raw = findProductBySlug(allProducts, slug)
           if (!raw) return null
-          return {
-            ...mapWebDisplayProductToDetail(raw, imageIndex, inventoryStatusMap),
-            displayIntervalMs: intervalMs,
-          }
+          return { raw, intervalMs }
         }).filter(Boolean)
+
+        let inventoryStatusMap = {}
+        try {
+          inventoryStatusMap = await fetchInventoryStatusMap(
+            featuredRawProducts.map(({ raw }) => raw?.sku),
+            { signal: controller.signal },
+          )
+        } catch (error) {
+          if (error?.name === 'AbortError') return
+        }
+
+        if (!active) return
+        const featured = featuredRawProducts.map(({ raw, intervalMs }) => ({
+          ...mapWebDisplayProductToDetail(raw, imageIndex, inventoryStatusMap),
+          displayIntervalMs: intervalMs,
+        }))
 
         setProducts(featured)
         setIndex(0)
@@ -146,6 +159,7 @@ export default function FeaturedProductsShowcase() {
 
     return () => {
       active = false
+      controller.abort()
     }
   }, [])
 

@@ -22,9 +22,11 @@ import {
 import {
   buildSubcategoryFilterOptionsFromWebDisplay,
   fetchProductImageIndex,
+  flattenProductsFromWebDisplay,
   mapWebDisplayCatalogProducts,
   sortProductsByAvailability,
 } from '../../data/productDisplayUtils.js'
+import { fetchInventoryStatusMap } from '../../data/inventoryStatus.js'
 
 const INQUIRY_API_ENDPOINT = import.meta.env.VITE_INQUIRY_API_URL || '/api/inquiry'
 const PRODUCTS_PER_PAGE = 24
@@ -93,6 +95,7 @@ function CatalogPageInner({ division, isProductRoute }) {
 
   useEffect(() => {
     let active = true
+    const controller = new AbortController()
 
     Promise.all([
       fetch(`${import.meta.env.BASE_URL}data/products_web_display.json`).then((response) => {
@@ -105,6 +108,18 @@ function CatalogPageInner({ division, isProductRoute }) {
         if (!active) return
         setProducts(mapWebDisplayCatalogProducts(data, imageIndex))
         setSubcategoryFilterOptions(buildSubcategoryFilterOptionsFromWebDisplay(data))
+
+        const skuValues = flattenProductsFromWebDisplay(data).map((product) => product?.sku)
+        fetchInventoryStatusMap(skuValues, { signal: controller.signal })
+          .then((inventoryStatusMap) => {
+            if (!active) return
+            setProducts(mapWebDisplayCatalogProducts(data, imageIndex, inventoryStatusMap))
+          })
+          .catch((error) => {
+            if (error?.name !== 'AbortError') {
+              // Inventory is optional UI metadata; products remain usable without it.
+            }
+          })
       })
       .catch(() => {
         if (!active) return
@@ -114,6 +129,7 @@ function CatalogPageInner({ division, isProductRoute }) {
 
     return () => {
       active = false
+      controller.abort()
     }
   }, [])
 
@@ -163,10 +179,6 @@ function CatalogPageInner({ division, isProductRoute }) {
     searchQuery,
   ])
 
-  useEffect(() => {
-    setCurrentPage(1)
-  }, [division, searchQuery, categories, availability, approvals])
-
   const divisionCatalog = useMemo(() => {
     if (division === 'all') return products
     return products.filter((product) => product.division === division)
@@ -195,6 +207,7 @@ function CatalogPageInner({ division, isProductRoute }) {
     setCategories(new Set())
     setAvailability(new Set())
     setApprovals(new Set())
+    setCurrentPage(1)
     if (isProductRoute) {
       const next = new URLSearchParams(searchParams)
       next.delete('category')
@@ -230,13 +243,25 @@ function CatalogPageInner({ division, isProductRoute }) {
     onDivisionChange,
     categoryOptions,
     searchQuery,
-    onSearchChange: setSearchQuery,
+    onSearchChange: (value) => {
+      setSearchQuery(value)
+      setCurrentPage(1)
+    },
     categories,
-    onCategoryToggle: (v) => setCategories((s) => toggleSetValue(s, v)),
+    onCategoryToggle: (v) => {
+      setCategories((s) => toggleSetValue(s, v))
+      setCurrentPage(1)
+    },
     availability,
-    onAvailabilityToggle: (v) => setAvailability((s) => toggleSetValue(s, v)),
+    onAvailabilityToggle: (v) => {
+      setAvailability((s) => toggleSetValue(s, v))
+      setCurrentPage(1)
+    },
     approvals,
-    onApprovalToggle: (v) => setApprovals((s) => toggleSetValue(s, v)),
+    onApprovalToggle: (v) => {
+      setApprovals((s) => toggleSetValue(s, v))
+      setCurrentPage(1)
+    },
     onClearFilters: clearFilters,
   }
 

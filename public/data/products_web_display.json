@@ -41,7 +41,8 @@
               "subcategory_id": "life-jacket-life-buoy",
               "subcategory_name": "Life Jacket / Life Buoy",
               "slug": "infant-life-jacket-foam",
-              "images": []
+              "images": [],
+              "sku": "0LJ01010"
             },
             {
               "id": "child-marine-lifejacket-foam",
@@ -74,7 +75,8 @@
               "subcategory_id": "life-jacket-life-buoy",
               "subcategory_name": "Life Jacket / Life Buoy",
               "slug": "child-marine-lifejacket-foam",
-              "images": []
+              "images": [],
+              "sku": "0LJ02010"
             },
             {
               "id": "marine-life-jacket-adult-foam",
@@ -108,7 +110,8 @@
               "subcategory_id": "life-jacket-life-buoy",
               "subcategory_name": "Life Jacket / Life Buoy",
               "slug": "marine-life-jacket-adult-foam",
-              "images": []
+              "images": [],
+              "sku": "0LJ03010"
             },
             {
               "id": "working-lifejacket-foam",
@@ -139,7 +142,8 @@
               "subcategory_id": "life-jacket-life-buoy",
               "subcategory_name": "Life Jacket / Life Buoy",
               "slug": "working-lifejacket-foam",
-              "images": []
+              "images": [],
+              "sku": "0LJ05010"
             },
             {
               "id": "thermal-working-life-jacket-foam",
@@ -172,7 +176,8 @@
               "subcategory_id": "life-jacket-life-buoy",
               "subcategory_name": "Life Jacket / Life Buoy",
               "slug": "thermal-working-life-jacket-foam",
-              "images": []
+              "images": [],
+              "sku": "TODO"
             },
             {
               "id": "life-vest-50n-f10",
@@ -206,7 +211,8 @@
               "subcategory_id": "life-jacket-life-buoy",
               "subcategory_name": "Life Jacket / Life Buoy",
               "slug": "life-vest-50n-f10",
-              "images": []
+              "images": [],
+              "sku": "TODO"
             },
             {
               "id": "life-vest-50n-f01",
@@ -240,7 +246,8 @@
               "subcategory_id": "life-jacket-life-buoy",
               "subcategory_name": "Life Jacket / Life Buoy",
               "slug": "life-vest-50n-f01",
-              "images": []
+              "images": [],
+              "sku": "TODO"
             },
             {
               "id": "life-vest-100n-l01",
@@ -273,7 +280,8 @@
               "subcategory_id": "life-jacket-life-buoy",
               "subcategory_name": "Life Jacket / Life Buoy",
               "slug": "life-vest-100n-l01",
-              "images": []
+              "images": [],
+              "sku": "TODO"
             },
             {
               "id": "inflatable-life-jacket-adult-150n",
@@ -307,7 +315,8 @@
               "subcategory_id": "life-jacket-life-buoy",
               "subcategory_name": "Life Jacket / Life Buoy",
               "slug": "inflatable-life-jacket-adult-150n",
-              "images": []
+              "images": [],
+              "sku": "TODO"
             },
             {
               "id": "inflatable-life-jacket-adult-275n",
@@ -342,7 +351,8 @@
               "subcategory_id": "life-jacket-life-buoy",
               "subcategory_name": "Life Jacket / Life Buoy",
               "slug": "inflatable-life-jacket-adult-275n",
-              "images": []
+              "images": [],
+              "sku": "TODO"
             },
             {
               "id": "inflatable-life-jacket-child-150n",
@@ -378,7 +388,8 @@
               "subcategory_id": "life-jacket-life-buoy",
               "subcategory_name": "Life Jacket / Life Buoy",
               "slug": "inflatable-life-jacket-child-150n",
-              "images": []
+              "images": [],
+              "sku": "TODO"
             },
             {
               "id": "lifebuoy-2-5-kg",
@@ -412,7 +423,8 @@
               "subcategory_id": "life-jacket-life-buoy",
               "subcategory_name": "Life Jacket / Life Buoy",
               "slug": "lifebuoy-2-5-kg",
-              "images": []
+              "images": [],
+              "sku": "0LJ05020"
             },
             {
               "id": "lifebuoy-4-3-kg",
@@ -447,7 +459,8 @@
               "subcategory_id": "life-jacket-life-buoy",
               "subcategory_name": "Life Jacket / Life Buoy",
               "slug": "lifebuoy-4-3-kg",
-              "images": []
+              "images": [],
+              "sku": "0LJ05010"
             },
             {
               "id": "lifebuoy-bracket",
@@ -476,7 +489,8 @@
               "subcategory_id": "life-jacket-life-buoy",
               "subcategory_name": "Life Jacket / Life Buoy",
               "slug": "lifebuoy-bracket",
-              "images": []
+              "images": [],
+              "sku": "0LJ05011"
             },
             {
               "id": "buoyant-lifeline",
@@ -501,7 +515,8 @@
               "subcategory_id": "life-jacket-life-buoy",
               "subcategory_name": "Life Jacket / Life Buoy",
               "slug": "buoyant-lifeline",
-              "images": []
+              "images": [],
+              "sku": "0LJ06010"
             }
           ]
         },
@@ -543,7 +558,8 @@
               "subcategory_id": "lights",
               "subcategory_name": "Lights",
               "slug": "lifejacket-light-lithium-battery",
-              "images": []
+              "images": [],
+              "sku": "0LT01020"
             },
             {
               "id": "lifejacket-light-alkaline-battery",
@@ -579,7 +595,8 @@
               "subcategory_id": "lights",
               "subcategory_name": "Lights",
               "slug": "lifejacket-light-alkaline-battery",
-              "images": []
+              "images": [],
+              "sku": "0LT01010"
             },
             {
               "id": "lifejacket-light-alkaline-battery-ydg1c",
@@ -615,7 +632,8 @@
               "subcategory_id": "lights",
               "subcategory_name": "Lights",
               "slug": "lifejacket-light-alkaline-battery-ydg1c",
-              "images": []
+              "images": [],
+              "sku": "TODO"
             },
             {
               "id": "lifejacket-light-polar-type",
@@ -653,7 +671,8 @@
               "subcategory_id": "lights",
               "subcategory_name": "Lights",
               "slug": "lifejacket-light-polar-type",
-              "images": []
+              "images": [],
+              "sku": "TODO"
             },
             {
               "id": "lifejacket-light-explosion-proof",
@@ -690,7 +709,8 @@
               "subcategory_id": "lights",
               "subcategory_name": "Lights",
               "slug": "lifejacket-light-explosion-proof",
-              "images": []
+              "images": [],
+              "sku": "0LT01030"
             },
             {
               "id": "lifebuoy-self-igniting-light",
@@ -723,7 +743,8 @@
               "subcategory_id": "lights",
               "subcategory_name": "Lights",
               "slug": "lifebuoy-self-igniting-light",
-              "images": []
+              "images": [],
+              "sku": "TODO"
             },
             {
               "id": "explosion-proof-lifebuoy-light",
@@ -759,7 +780,8 @@
               "subcategory_id": "lights",
               "subcategory_name": "Lights",
               "slug": "explosion-proof-lifebuoy-light",
-              "images": []
+              "images": [],
+              "sku": "0LT02010"
             }
           ]
         },
@@ -797,7 +819,8 @@
               "subcategory_id": "immersion-suits-protective-suits",
               "subcategory_name": "Immersion Suits & Protective Suits",
               "slug": "thermal-protective-aid",
-              "images": []
+              "images": [],
+              "sku": "0IS02010"
             },
             {
               "id": "insulated-immersion-suit-n1-series",
@@ -832,7 +855,8 @@
               "subcategory_id": "immersion-suits-protective-suits",
               "subcategory_name": "Immersion Suits & Protective Suits",
               "slug": "insulated-immersion-suit-n1-series",
-              "images": []
+              "images": [],
+              "sku": "TODO"
             },
             {
               "id": "insulated-immersion-suit-n2-w-buoyancy",
@@ -867,7 +891,8 @@
               "subcategory_id": "immersion-suits-protective-suits",
               "subcategory_name": "Immersion Suits & Protective Suits",
               "slug": "insulated-immersion-suit-n2-w-buoyancy",
-              "images": []
+              "images": [],
+              "sku": "0IS01010"
             },
             {
               "id": "immersion-suit-n6-series-w-o-buoyancy",
@@ -901,7 +926,8 @@
               "subcategory_id": "immersion-suits-protective-suits",
               "subcategory_name": "Immersion Suits & Protective Suits",
               "slug": "immersion-suit-n6-series-w-o-buoyancy",
-              "images": []
+              "images": [],
+              "sku": "TODO"
             },
             {
               "id": "non-insulated-immersion-suit",
@@ -933,7 +959,8 @@
               "subcategory_id": "immersion-suits-protective-suits",
               "subcategory_name": "Immersion Suits & Protective Suits",
               "slug": "non-insulated-immersion-suit",
-              "images": []
+              "images": [],
+              "sku": "TODO"
             },
             {
               "id": "child-immersion-suit",
@@ -963,7 +990,8 @@
               "subcategory_id": "immersion-suits-protective-suits",
               "subcategory_name": "Immersion Suits & Protective Suits",
               "slug": "child-immersion-suit",
-              "images": []
+              "images": [],
+              "sku": "TODO"
             },
             {
               "id": "insulated-immersion-suit-polar",
@@ -997,7 +1025,8 @@
               "subcategory_id": "immersion-suits-protective-suits",
               "subcategory_name": "Immersion Suits & Protective Suits",
               "slug": "insulated-immersion-suit-polar",
-              "images": []
+              "images": [],
+              "sku": "TODO"
             },
             {
               "id": "non-gas-tightness-type-chemical-protective-suit",
@@ -1023,7 +1052,8 @@
               "subcategory_id": "immersion-suits-protective-suits",
               "subcategory_name": "Immersion Suits & Protective Suits",
               "slug": "non-gas-tightness-type-chemical-protective-suit",
-              "images": []
+              "images": [],
+              "sku": "0IS04020"
             },
             {
               "id": "gas-tightness-type-chemical-protective-suit",
@@ -1033,7 +1063,9 @@
                 "RINA"
               ],
               "model": "HYFH-C2",
-              "specifications": ["Protecting people who work on dangerous sites form being damaged by hazardous chemicals or corrosive materials."],
+              "specifications": [
+                "Protecting people who work on dangerous sites form being damaged by hazardous chemicals or corrosive materials."
+              ],
               "configurations": [],
               "key_advantages": [],
               "attributes": {
@@ -1045,7 +1077,8 @@
               "subcategory_id": "immersion-suits-protective-suits",
               "subcategory_name": "Immersion Suits & Protective Suits",
               "slug": "gas-tightness-type-chemical-protective-suit",
-              "images": []
+              "images": [],
+              "sku": "0IS03010"
             }
           ]
         },
@@ -1073,7 +1106,8 @@
               "subcategory_id": "life-rafts",
               "subcategory_name": "Life Rafts",
               "slug": "throw-overboard-type-inflatable-life-raft",
-              "images": []
+              "images": [],
+              "sku": "TODO"
             },
             {
               "id": "davit-type-inflatable-life-raft",
@@ -1095,7 +1129,8 @@
               "subcategory_id": "life-rafts",
               "subcategory_name": "Life Rafts",
               "slug": "davit-type-inflatable-life-raft",
-              "images": []
+              "images": [],
+              "sku": "TODO"
             }
           ]
         },
@@ -1124,7 +1159,8 @@
               "subcategory_id": "pneumatic-line-throwing-equipment",
               "subcategory_name": "Pneumatic Line Throwing Equipment",
               "slug": "pneumatic-line-throwing-equipment",
-              "images": []
+              "images": [],
+              "sku": "0PL01010"
             }
           ]
         }
@@ -1171,7 +1207,8 @@
               "subcategory_id": "firefighters-equipment",
               "subcategory_name": "Firefighter’s Equipment",
               "slug": "scba-steel",
-              "images": []
+              "images": [],
+              "sku": "1FF08010,1FF08020"
             },
             {
               "id": "scba-carbon-fiber",
@@ -1206,7 +1243,8 @@
               "subcategory_id": "firefighters-equipment",
               "subcategory_name": "Firefighter’s Equipment",
               "slug": "scba-carbon-fiber",
-              "images": []
+              "images": [],
+              "sku": "1FF06010,1FF06020"
             },
             {
               "id": "scba-parts",
@@ -1214,50 +1252,61 @@
               "stock_status": "in_stock",
               "approvals": [],
               "model": null,
-              "specifications": [{
-                "Cylinder": [
-                  "Cylinder materials: Alloy steel & carbon fiber composite",
-                  "Air capacities: 1800 L",
-                  "Working pressure: 300 bar",
-                  "Cylinder valve: G5/8 female thread"
-                ]
-              }, {
-                "Refilling adapter": [
-                  "Connection thread to air compressor: G5/8 or M27×1.5",
-                  "Material: Stainless steel"
-                ]
-              }, {
-                "Full face mask" : [
-                  "Lens: Transparent, spherical design"
-                ]
-              }, {
-                "Supply valve" : [
-                  "Exhalation resistance: <700 Pa",
-                  "Inhalation resistance: <500 Pa",
-                  "Static pressure: <300 Pa"
-                ]
-              }, {
-                "Cylinder valve" : [
-                  "Connection: G5/8 female thread"
-                ]
-              }, {
-                "Pressure reducer unit" : []
-              }, {
-                "High-pressure pipe assembly" : []
-              }, {
-                "Backboard" : [
-                  "Adjustable shoulder and waist straps for ergonomic fit",
-                  "Equipped with quick-release buckle system"
-                ]
-              }],
+              "specifications": [
+                {
+                  "Cylinder": [
+                    "Cylinder materials: Alloy steel & carbon fiber composite",
+                    "Air capacities: 1800 L",
+                    "Working pressure: 300 bar",
+                    "Cylinder valve: G5/8 female thread"
+                  ]
+                },
+                {
+                  "Refilling adapter": [
+                    "Connection thread to air compressor: G5/8 or M27×1.5",
+                    "Material: Stainless steel"
+                  ]
+                },
+                {
+                  "Full face mask": [
+                    "Lens: Transparent, spherical design"
+                  ]
+                },
+                {
+                  "Supply valve": [
+                    "Exhalation resistance: <700 Pa",
+                    "Inhalation resistance: <500 Pa",
+                    "Static pressure: <300 Pa"
+                  ]
+                },
+                {
+                  "Cylinder valve": [
+                    "Connection: G5/8 female thread"
+                  ]
+                },
+                {
+                  "Pressure reducer unit": []
+                },
+                {
+                  "High-pressure pipe assembly": []
+                },
+                {
+                  "Backboard": [
+                    "Adjustable shoulder and waist straps for ergonomic fit",
+                    "Equipped with quick-release buckle system"
+                  ]
+                }
+              ],
               "configurations": [],
-              "key_advantages": [{
-                "Backboard" : [
-                  "Lightweight and comfortable for extended wear",
-                  "Strong load-bearing capacity",
-                  "Compatible with standard SCBA systems"
-                ]
-              }],
+              "key_advantages": [
+                {
+                  "Backboard": [
+                    "Lightweight and comfortable for extended wear",
+                    "Strong load-bearing capacity",
+                    "Compatible with standard SCBA systems"
+                  ]
+                }
+              ],
               "attributes": {},
               "description": null,
               "category_id": "fire-fighting-equipment",
@@ -1265,7 +1314,8 @@
               "subcategory_id": "firefighters-equipment",
               "subcategory_name": "Firefighter’s Equipment",
               "slug": "scba-parts",
-              "images": []
+              "images": [],
+              "sku": "1FF09011"
             },
             {
               "id": "eebd-15min",
@@ -1293,7 +1343,8 @@
               "subcategory_id": "firefighters-equipment",
               "subcategory_name": "Firefighter’s Equipment",
               "slug": "eebd-15min",
-              "images": []
+              "images": [],
+              "sku": "1FF11010,1FF11020"
             },
             {
               "id": "firefighters-protective-suit-scba-inside-type",
@@ -1325,7 +1376,8 @@
               "subcategory_id": "firefighters-equipment",
               "subcategory_name": "Firefighter’s Equipment",
               "slug": "firefighters-protective-suit-scba-inside-type",
-              "images": []
+              "images": [],
+              "sku": "TODO"
             },
             {
               "id": "firefighters-protective-suit-yxf-c8-scba-outside-type",
@@ -1357,7 +1409,8 @@
               "subcategory_id": "firefighters-equipment",
               "subcategory_name": "Firefighter’s Equipment",
               "slug": "firefighters-protective-suit-yxf-c8-scba-outside-type",
-              "images": []
+              "images": [],
+              "sku": "TODO"
             },
             {
               "id": "fire-fighters-helmet",
@@ -1384,7 +1437,8 @@
               "subcategory_id": "firefighters-equipment",
               "subcategory_name": "Firefighter’s Equipment",
               "slug": "fire-fighters-helmet",
-              "images": []
+              "images": [],
+              "sku": "1FF02014"
             },
             {
               "id": "fire-fighters-gloves",
@@ -1393,7 +1447,7 @@
               "approvals": [
                 "MED"
               ],
-              "model": null,
+              "model": "HYXF-G1",
               "specifications": [
                 "In accordance with EN659 standard",
                 "Flame-retardant, heat-resistant",
@@ -1412,7 +1466,8 @@
               "subcategory_id": "firefighters-equipment",
               "subcategory_name": "Firefighter’s Equipment",
               "slug": "fire-fighters-gloves",
-              "images": []
+              "images": [],
+              "sku": "1FF03010"
             },
             {
               "id": "fire-fighters-boots",
@@ -1440,7 +1495,8 @@
               "subcategory_id": "firefighters-equipment",
               "subcategory_name": "Firefighter’s Equipment",
               "slug": "fire-fighters-boots",
-              "images": []
+              "images": [],
+              "sku": "TODO"
             },
             {
               "id": "portable-explosion-proof-light-4dcb-e-intrinsic-safety-type",
@@ -1469,7 +1525,8 @@
               "subcategory_id": "firefighters-equipment",
               "subcategory_name": "Firefighter’s Equipment",
               "slug": "portable-explosion-proof-light-4dcb-e-intrinsic-safety-type",
-              "images": []
+              "images": [],
+              "sku": "TODO"
             },
             {
               "id": "explosion-proof-torch-fbsd",
@@ -1499,7 +1556,8 @@
               "subcategory_id": "firefighters-equipment",
               "subcategory_name": "Firefighter’s Equipment",
               "slug": "explosion-proof-torch-fbsd",
-              "images": []
+              "images": [],
+              "sku": "TODO"
             },
             {
               "id": "fireproof-lifeline",
@@ -1528,7 +1586,8 @@
               "subcategory_id": "firefighters-equipment",
               "subcategory_name": "Firefighter’s Equipment",
               "slug": "fireproof-lifeline",
-              "images": []
+              "images": [],
+              "sku": "1FF10010"
             },
             {
               "id": "fire-axe-with-insulated-rubber-handle",
@@ -1549,7 +1608,8 @@
               "subcategory_id": "firefighters-equipment",
               "subcategory_name": "Firefighter’s Equipment",
               "slug": "fire-axe-with-insulated-rubber-handle",
-              "images": []
+              "images": [],
+              "sku": "1FF04010"
             },
             {
               "id": "leather-bag-for-fire-axe",
@@ -1576,7 +1636,8 @@
               "subcategory_id": "firefighters-equipment",
               "subcategory_name": "Firefighter’s Equipment",
               "slug": "leather-bag-for-fire-axe",
-              "images": []
+              "images": [],
+              "sku": "1FF04011"
             },
             {
               "id": "safety-belt",
@@ -1597,7 +1658,8 @@
               "subcategory_id": "firefighters-equipment",
               "subcategory_name": "Firefighter’s Equipment",
               "slug": "safety-belt",
-              "images": []
+              "images": [],
+              "sku": "1FF12010"
             },
             {
               "id": "cylinder-pressure-tester",
@@ -1618,7 +1680,8 @@
               "subcategory_id": "firefighters-equipment",
               "subcategory_name": "Firefighter’s Equipment",
               "slug": "cylinder-pressure-tester",
-              "images": []
+              "images": [],
+              "sku": "1FF09023"
             },
             {
               "id": "fire-fighters-equipment-storage-bag",
@@ -1636,7 +1699,8 @@
               "subcategory_id": "firefighters-equipment",
               "subcategory_name": "Firefighter’s Equipment",
               "slug": "fire-fighters-equipment-storage-bag",
-              "images": []
+              "images": [],
+              "sku": "1FF02015"
             }
           ]
         },
@@ -1678,7 +1742,8 @@
               "subcategory_id": "fire-extinguishers",
               "subcategory_name": "Fire Extinguishers",
               "slug": "portable-5-kg-co-fe-wn-m5",
-              "images": []
+              "images": [],
+              "sku": "TODO"
             },
             {
               "id": "wheeled-10-kg-co-fe-wn-mtt10",
@@ -1712,7 +1777,8 @@
               "subcategory_id": "fire-extinguishers",
               "subcategory_name": "Fire Extinguishers",
               "slug": "wheeled-10-kg-co-fe-wn-mtt10",
-              "images": []
+              "images": [],
+              "sku": "TODO"
             },
             {
               "id": "wheeled-30-kg-co-fe-wn-mtt30",
@@ -1748,7 +1814,8 @@
               "subcategory_id": "fire-extinguishers",
               "subcategory_name": "Fire Extinguishers",
               "slug": "wheeled-30-kg-co-fe-wn-mtt30",
-              "images": []
+              "images": [],
+              "sku": "TODO"
             },
             {
               "id": "portable-2-kg-dry-powder-fe-stored-pressure-hy-p2",
@@ -1784,7 +1851,8 @@
               "subcategory_id": "fire-extinguishers",
               "subcategory_name": "Fire Extinguishers",
               "slug": "portable-2-kg-dry-powder-fe-stored-pressure-hy-p2",
-              "images": []
+              "images": [],
+              "sku": "TODO"
             },
             {
               "id": "portable-6-kg-dry-powder-fe-stored-pressure-hy-p6",
@@ -1819,7 +1887,8 @@
               "subcategory_id": "fire-extinguishers",
               "subcategory_name": "Fire Extinguishers",
               "slug": "portable-6-kg-dry-powder-fe-stored-pressure-hy-p6",
-              "images": []
+              "images": [],
+              "sku": "1FX09010"
             },
             {
               "id": "portable-6-kg-dry-powder-fe-cartridge-hy-p6c",
@@ -1854,7 +1923,8 @@
               "subcategory_id": "fire-extinguishers",
               "subcategory_name": "Fire Extinguishers",
               "slug": "portable-6-kg-dry-powder-fe-cartridge-hy-p6c",
-              "images": []
+              "images": [],
+              "sku": "1FX09020"
             },
             {
               "id": "portable-12-kg-dry-powder-fe-pressure-storage-type-hy-p12",
@@ -1892,7 +1962,8 @@
               "subcategory_id": "fire-extinguishers",
               "subcategory_name": "Fire Extinguishers",
               "slug": "portable-12-kg-dry-powder-fe-pressure-storage-type-hy-p12",
-              "images": []
+              "images": [],
+              "sku": "1FX08010"
             },
             {
               "id": "portable-12-kg-dry-powder-fe-cartridge-hy-p12c",
@@ -1923,7 +1994,8 @@
               "subcategory_id": "fire-extinguishers",
               "subcategory_name": "Fire Extinguishers",
               "slug": "portable-12-kg-dry-powder-fe-cartridge-hy-p12c",
-              "images": []
+              "images": [],
+              "sku": "1FX08020"
             },
             {
               "id": "wheeled-25-kg-dry-powder-fe-stored-pressure-hy-p25",
@@ -1962,7 +2034,8 @@
               "subcategory_id": "fire-extinguishers",
               "subcategory_name": "Fire Extinguishers",
               "slug": "wheeled-25-kg-dry-powder-fe-stored-pressure-hy-p25",
-              "images": []
+              "images": [],
+              "sku": "1FX06010"
             },
             {
               "id": "wheeled-25-kg-dry-powder-fe-cartridge-hy-p25c",
@@ -1997,7 +2070,8 @@
               "subcategory_id": "fire-extinguishers",
               "subcategory_name": "Fire Extinguishers",
               "slug": "wheeled-25-kg-dry-powder-fe-cartridge-hy-p25c",
-              "images": []
+              "images": [],
+              "sku": "1FX06020"
             },
             {
               "id": "wheeled-50-kg-dry-powder-fe-stored-pressure-hy-p50",
@@ -2034,7 +2108,8 @@
               "subcategory_id": "fire-extinguishers",
               "subcategory_name": "Fire Extinguishers",
               "slug": "wheeled-50-kg-dry-powder-fe-stored-pressure-hy-p50",
-              "images": []
+              "images": [],
+              "sku": "1FX05010"
             },
             {
               "id": "wheeled-50-kg-dry-powder-fe-cartridge-hy-p50c",
@@ -2068,7 +2143,8 @@
               "subcategory_id": "fire-extinguishers",
               "subcategory_name": "Fire Extinguishers",
               "slug": "wheeled-50-kg-dry-powder-fe-cartridge-hy-p50c",
-              "images": []
+              "images": [],
+              "sku": "1FX05020"
             },
             {
               "id": "portable-9l-foam-fe-pfos-pfoa-free-stored-pressure-hy-f9",
@@ -2094,7 +2170,8 @@
               "subcategory_id": "fire-extinguishers",
               "subcategory_name": "Fire Extinguishers",
               "slug": "portable-9l-foam-fe-pfos-pfoa-free-stored-pressure-hy-f9",
-              "images": []
+              "images": [],
+              "sku": "1FX07010"
             },
             {
               "id": "portable-9l-foam-fe-pfos-pfoa-free-cartridge-hy-f9c",
@@ -2120,7 +2197,8 @@
               "subcategory_id": "fire-extinguishers",
               "subcategory_name": "Fire Extinguishers",
               "slug": "portable-9l-foam-fe-pfos-pfoa-free-cartridge-hy-f9c",
-              "images": []
+              "images": [],
+              "sku": "1FX07020"
             },
             {
               "id": "wheeled-45l-foam-fe-pfos-pfoa-free-stored-pressure-hy-f45",
@@ -2145,7 +2223,8 @@
               "subcategory_id": "fire-extinguishers",
               "subcategory_name": "Fire Extinguishers",
               "slug": "wheeled-45l-foam-fe-pfos-pfoa-free-stored-pressure-hy-f45",
-              "images": []
+              "images": [],
+              "sku": "1FX04010"
             },
             {
               "id": "wheeled-45l-foam-fe-pfos-pfoa-free-cartridge-hy-f45c",
@@ -2170,7 +2249,8 @@
               "subcategory_id": "fire-extinguishers",
               "subcategory_name": "Fire Extinguishers",
               "slug": "wheeled-45l-foam-fe-pfos-pfoa-free-cartridge-hy-f45c",
-              "images": []
+              "images": [],
+              "sku": "1FX04020"
             },
             {
               "id": "wheeled-135l-foam-fe-pfos-pfoa-free-stored-pressure-hy-f135",
@@ -2195,7 +2275,8 @@
               "subcategory_id": "fire-extinguishers",
               "subcategory_name": "Fire Extinguishers",
               "slug": "wheeled-135l-foam-fe-pfos-pfoa-free-stored-pressure-hy-f135",
-              "images": []
+              "images": [],
+              "sku": "EXF135"
             },
             {
               "id": "wheeled-135l-foam-fe-pfos-pfoa-free-cartridge-hy-f135c",
@@ -2220,7 +2301,8 @@
               "subcategory_id": "fire-extinguishers",
               "subcategory_name": "Fire Extinguishers",
               "slug": "wheeled-135l-foam-fe-pfos-pfoa-free-cartridge-hy-f135c",
-              "images": []
+              "images": [],
+              "sku": "EXF135C"
             },
             {
               "id": "portable-9l-wet-chemical-fe-hy-wc9-stored-pressure",
@@ -2245,7 +2327,8 @@
               "subcategory_id": "fire-extinguishers",
               "subcategory_name": "Fire Extinguishers",
               "slug": "portable-9l-wet-chemical-fe-hy-wc9-stored-pressure",
-              "images": []
+              "images": [],
+              "sku": "TODO"
             },
             {
               "id": "multi-purpose-fire-extinguisher-retaining-strap",
@@ -2263,7 +2346,8 @@
               "subcategory_id": "fire-extinguishers",
               "subcategory_name": "Fire Extinguishers",
               "slug": "multi-purpose-fire-extinguisher-retaining-strap",
-              "images": []
+              "images": [],
+              "sku": "1FX01010"
             }
           ]
         },
@@ -2296,7 +2380,8 @@
               "subcategory_id": "fire-hose",
               "subcategory_name": "Fire Hose",
               "slug": "fire-hose-hyfh40-hyfh50",
-              "images": []
+              "images": [],
+              "sku": "1FH06010,1FH06020,1FH06040,1FH06050"
             },
             {
               "id": "fire-hose-dn65",
@@ -2321,7 +2406,8 @@
               "subcategory_id": "fire-hose",
               "subcategory_name": "Fire Hose",
               "slug": "fire-hose-dn65",
-              "images": []
+              "images": [],
+              "sku": "1FH05010,1FH05020,1FH05030"
             },
             {
               "id": "storz-type-nozzle-adaptor",
@@ -2343,7 +2429,8 @@
               "subcategory_id": "fire-hose",
               "subcategory_name": "Fire Hose",
               "slug": "storz-type-nozzle-adaptor",
-              "images": []
+              "images": [],
+              "sku": "1FH10010,1FH10020,1FH10030"
             },
             {
               "id": "nakajima-type-nozzle-adaptor",
@@ -2365,7 +2452,8 @@
               "subcategory_id": "fire-hose",
               "subcategory_name": "Fire Hose",
               "slug": "nakajima-type-nozzle-adaptor",
-              "images": []
+              "images": [],
+              "sku": "1FH09010,1FH09020,1FH09030"
             },
             {
               "id": "us-ansi-type-nozzle-adaptor",
@@ -2387,7 +2475,8 @@
               "subcategory_id": "fire-hose",
               "subcategory_name": "Fire Hose",
               "slug": "us-ansi-type-nozzle-adaptor",
-              "images": []
+              "images": [],
+              "sku": "1FH08010"
             },
             {
               "id": "storz-gb-type-hose-coupling",
@@ -2409,7 +2498,8 @@
               "subcategory_id": "fire-hose",
               "subcategory_name": "Fire Hose",
               "slug": "storz-gb-type-hose-coupling",
-              "images": []
+              "images": [],
+              "sku": "1FH04010,1FH04020,1FH04030"
             },
             {
               "id": "nakajima-type-hose-coupling",
@@ -2431,7 +2521,8 @@
               "subcategory_id": "fire-hose",
               "subcategory_name": "Fire Hose",
               "slug": "nakajima-type-hose-coupling",
-              "images": []
+              "images": [],
+              "sku": "1FH03010,1FH03020,1FH03030"
             },
             {
               "id": "spanner-for-storz-type-hose-coupling",
@@ -2451,7 +2542,8 @@
               "subcategory_id": "fire-hose",
               "subcategory_name": "Fire Hose",
               "slug": "spanner-for-storz-type-hose-coupling",
-              "images": []
+              "images": [],
+              "sku": "TODO"
             },
             {
               "id": "spanner-for-ansi-type-hose-coupling",
@@ -2471,7 +2563,8 @@
               "subcategory_id": "fire-hose",
               "subcategory_name": "Fire Hose",
               "slug": "spanner-for-ansi-type-hose-coupling",
-              "images": []
+              "images": [],
+              "sku": "TODO"
             },
             {
               "id": "spanner-for-nakajima-type-hose-coupling",
@@ -2491,7 +2584,8 @@
               "subcategory_id": "fire-hose",
               "subcategory_name": "Fire Hose",
               "slug": "spanner-for-nakajima-type-hose-coupling",
-              "images": []
+              "images": [],
+              "sku": "TODO"
             },
             {
               "id": "nakajima-type-cap",
@@ -2513,7 +2607,8 @@
               "subcategory_id": "fire-hose",
               "subcategory_name": "Fire Hose",
               "slug": "nakajima-type-cap",
-              "images": []
+              "images": [],
+              "sku": "1FH11010,1FH11020,1FH11030"
             },
             {
               "id": "storz-type-cap",
@@ -2535,7 +2630,8 @@
               "subcategory_id": "fire-hose",
               "subcategory_name": "Fire Hose",
               "slug": "storz-type-cap",
-              "images": []
+              "images": [],
+              "sku": "1FH12010,1FH12020,1FH12030"
             },
             {
               "id": "storz-gb-type-connector",
@@ -2557,7 +2653,8 @@
               "subcategory_id": "fire-hose",
               "subcategory_name": "Fire Hose",
               "slug": "storz-gb-type-connector",
-              "images": []
+              "images": [],
+              "sku": "TODO"
             },
             {
               "id": "nakajima-type-connector",
@@ -2579,7 +2676,8 @@
               "subcategory_id": "fire-hose",
               "subcategory_name": "Fire Hose",
               "slug": "nakajima-type-connector",
-              "images": []
+              "images": [],
+              "sku": "1FH01010"
             },
             {
               "id": "flanged-fire-hydrant",
@@ -2601,7 +2699,8 @@
               "subcategory_id": "fire-hose",
               "subcategory_name": "Fire Hose",
               "slug": "flanged-fire-hydrant",
-              "images": []
+              "images": [],
+              "sku": "TODO"
             },
             {
               "id": "bsp-pin-fire-hydrant",
@@ -2623,7 +2722,8 @@
               "subcategory_id": "fire-hose",
               "subcategory_name": "Fire Hose",
               "slug": "bsp-pin-fire-hydrant",
-              "images": []
+              "images": [],
+              "sku": "TODO"
             },
             {
               "id": "nakajima-type-i-s-c",
@@ -2645,7 +2745,8 @@
               "subcategory_id": "fire-hose",
               "subcategory_name": "Fire Hose",
               "slug": "nakajima-type-i-s-c",
-              "images": []
+              "images": [],
+              "sku": "TODO"
             },
             {
               "id": "storz-gb-type-i-s-c",
@@ -2667,7 +2768,8 @@
               "subcategory_id": "fire-hose",
               "subcategory_name": "Fire Hose",
               "slug": "storz-gb-type-i-s-c",
-              "images": []
+              "images": [],
+              "sku": "1FH02010"
             }
           ]
         },
@@ -2696,7 +2798,8 @@
               "subcategory_id": "tools-miscellaneous",
               "subcategory_name": "Tools & Miscellaneous",
               "slug": "immersion-suit-calibration-tool-manual",
-              "images": []
+              "images": [],
+              "sku": "1TM01010"
             },
             {
               "id": "immersion-suit-calibration-tool-air-inspection",
@@ -2719,7 +2822,8 @@
               "subcategory_id": "tools-miscellaneous",
               "subcategory_name": "Tools & Miscellaneous",
               "slug": "immersion-suit-calibration-tool-air-inspection",
-              "images": []
+              "images": [],
+              "sku": "TODO"
             },
             {
               "id": "imo-signs",
@@ -2737,7 +2841,8 @@
               "subcategory_id": "tools-miscellaneous",
               "subcategory_name": "Tools & Miscellaneous",
               "slug": "imo-signs",
-              "images": []
+              "images": [],
+              "sku": "1TM02010,1TM02020,1TM02030,1TM02040,1TM02050,1TM02060,1TM02070,1TM02080,1TM02090,1TM02100,1TM02110,1TM02120,1TM02130,1TM02140,1TM02150,1TM02160"
             },
             {
               "id": "pilot-ladder-b-type",
@@ -2763,7 +2868,8 @@
               "subcategory_id": "tools-miscellaneous",
               "subcategory_name": "Tools & Miscellaneous",
               "slug": "pilot-ladder-b-type",
-              "images": []
+              "images": [],
+              "sku": "TODO"
             },
             {
               "id": "embarkation-ladder-a-type",
@@ -2789,7 +2895,8 @@
               "subcategory_id": "tools-miscellaneous",
               "subcategory_name": "Tools & Miscellaneous",
               "slug": "embarkation-ladder-a-type",
-              "images": []
+              "images": [],
+              "sku": "TODO"
             },
             {
               "id": "embarkation-ladder-b-type",
@@ -2815,7 +2922,8 @@
               "subcategory_id": "tools-miscellaneous",
               "subcategory_name": "Tools & Miscellaneous",
               "slug": "embarkation-ladder-b-type",
-              "images": []
+              "images": [],
+              "sku": "TODO"
             }
           ]
         }
