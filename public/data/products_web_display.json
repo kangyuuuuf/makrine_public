@@ -531,7 +531,8 @@
               "approvals": [
                 "SOLAS",
                 "MED",
-                "CCS"
+                "CCS",
+                "USCG"
               ],
               "model": "YDL20",
               "specifications": [
@@ -568,7 +569,8 @@
               "approvals": [
                 "SOLAS",
                 "MED",
-                "CCS"
+                "CCS",
+                "USCG"
               ],
               "model": "YD50",
               "specifications": [
@@ -605,7 +607,8 @@
               "approvals": [
                 "SOLAS",
                 "MED",
-                "CCS"
+                "CCS",
+                "USCG"
               ],
               "model": "YDG1C",
               "specifications": [
@@ -642,7 +645,8 @@
               "approvals": [
                 "SOLAS",
                 "MED",
-                "CCS"
+                "CCS",
+                "USCG"
               ],
               "model": "YD50-JD",
               "specifications": [
@@ -682,7 +686,8 @@
                 "SOLAS",
                 "MED",
                 "CCS",
-                "ATEX (Explosion-proof)"
+                "ATEX (Explosion-proof)",
+                "USCG"
               ],
               "model": "YDL12-Ex",
               "specifications": [
@@ -719,7 +724,8 @@
               "approvals": [
                 "SOLAS",
                 "MED",
-                "CCS"
+                "CCS",
+                "USCG"
               ],
               "model": "HYQD20",
               "specifications": [
@@ -753,7 +759,8 @@
               "approvals": [
                 "SOLAS",
                 "MED",
-                "CCS"
+                "CCS",
+                "USCG"
               ],
               "model": "FBQD2",
               "specifications": [

@@ -1,6 +1,6 @@
 # Public inventory endpoint used by the browser. Keep the value empty to use
 # the same-origin default: /public/inventory-status
-VITE_INVENTORY_API_URL= http://localhost:8000/public/inventory-status
+VITE_INVENTORY_API_URL= https://makrine-sales-backend-575085685397.us-central1.run.app/public/inventory-status
 
 # Existing inquiry endpoint (optional; defaults to /api/inquiry).
 VITE_INQUIRY_API_URL=
